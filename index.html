@@ -323,9 +323,9 @@
 </nav>
 
 <script>
-function go(view) { location.hash = view; }
+function go(view) { location.hash = '/' + view; }
 function renderRoute() {
-  let view = location.hash.replace('#/', '') || 'home';
+  let view = location.hash.replace(/^#\//, '') || 'home';
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   let el = document.getElementById('view-' + view);
   // fallback: 微信等浏览器可能自动加 hash，找不到就回首页
