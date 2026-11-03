@@ -456,31 +456,37 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
   render();
 });
 
-render();
 renderRoute();
+render();
 
 // ============ 外刊文章加载 ============
-async function loadArticles() {
-  const container = document.getElementById("articleList");
-  try {
-    const res = await fetch("articles.json?t=" + Date.now());
-    if (!res.ok) throw new Error("fetch failed");
-    const data = await res.json();
-    if (!data.articles || data.articles.length === 0) {
-      container.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>暂无文章</div></div>`;
-      return;
-    }
-    container.innerHTML = data.articles.map(a => `
-      <a class="article-card" href="${a.link}" target="_blank" rel="noopener">
-        <span class="article-source" style="background:${a.sourceColor}">${a.source}</span>
-        <div class="article-title">${a.title}</div>
-        ${a.summary ? `<div class="article-summary">${a.summary}</div>` : ""}
-        <div class="article-date">${a.published ? new Date(a.published).toLocaleDateString("zh-CN") : ""}</div>
-      </a>
-    `).join("");
-  } catch (e) {
-    container.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>`;
-  }
+function loadArticles() {
+  var container = document.getElementById("articleList");
+  if (!container) return;
+  fetch("articles.json?t=" + Date.now())
+    .then(function(res) {
+      if (!res.ok) throw new Error("fetch failed");
+      return res.json();
+    })
+    .then(function(data) {
+      if (!data.articles || data.articles.length === 0) {
+        container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>暂无文章</div></div>';
+        return;
+      }
+      container.innerHTML = data.articles.map(function(a) {
+        var dateStr = a.published ? new Date(a.published).toLocaleDateString("zh-CN") : "";
+        var summaryHtml = a.summary ? '<div class="article-summary">' + a.summary + '</div>' : "";
+        return '<a class="article-card" href="' + a.link + '" target="_blank" rel="noopener">' +
+          '<span class="article-source" style="background:' + a.sourceColor + '">' + a.source + '</span>' +
+          '<div class="article-title">' + a.title + '</div>' +
+          summaryHtml +
+          '<div class="article-date">' + dateStr + '</div>' +
+        '</a>';
+      }).join("");
+    })
+    .catch(function(e) {
+      container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>';
+    });
 }
 loadArticles();
 </script>
