@@ -6,54 +6,41 @@
 <title>地道口语语料库 · 雅思口语随查</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D50'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23F5F1E8' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
 <style>
-  /* ============ 设计 token ============ */
   :root {
-    --bg: #F5F1E8;          /* 暖米纸底 */
+    --bg: #F5F1E8;
     --card: #FFFFFF;
-    --ink: #2B2A26;         /* 主文字 */
-    --ink-2: #6B6860;       /* 次文字 */
-    --ink-3: #9A968C;       /* 弱提示 */
+    --ink: #2B2A26;
+    --ink-2: #6B6860;
+    --ink-3: #9A968C;
     --line: #E6E0D2;
-    --brand: #2F5D50;       /* 墨绿主色 */
+    --brand: #2F5D50;
     --brand-soft: #E3EDE8;
-    --accent: #B84A32;      /* 砖红强调 */
-
-    /* 标签配色 */
-    --c-mood-bg: #F5E0D8;        --c-mood-fg: #9E3E28;       /* 聊心情：暖情绪 */
-    --c-performance-bg: #E3EDE8; --c-performance-fg: #2F5D50; /* 聊表现：墨绿 */
-    --c-describe-bg: #DDE6EE;    --c-describe-fg: #35557A;    /* 聊别人：蓝灰 */
-    --c-social-bg: #F0E6CC;     --c-social-fg: #8A6D2F;       /* 社交应答：赭石 */
-
+    --accent: #B84A32;
+    --c-mood-bg: #F5E0D8;        --c-mood-fg: #9E3E28;
+    --c-performance-bg: #E3EDE8; --c-performance-fg: #2F5D50;
+    --c-describe-bg: #DDE6EE;    --c-describe-fg: #35557A;
+    --c-social-bg: #F0E6CC;      --c-social-fg: #8A6D2F;
     --radius: 14px;
     --shadow: 0 1px 2px rgba(43,42,38,.04), 0 4px 14px rgba(43,42,38,.06);
   }
-
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--bg); color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
+    font-size: 15px; line-height: 1.6; min-height: 100vh;
+    padding-bottom: 72px;
   }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px; }
+  .view { display: none; }
+  .view.active { display: block; }
 
-  .wrap {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 20px 16px 48px;
-  }
-
-  /* ============ 顶部 ============ */
   header { padding: 8px 2px 18px; }
-  .brand-row {
-    display: flex; align-items: baseline; justify-content: space-between;
-  }
+  .brand-row { display: flex; align-items: baseline; justify-content: space-between; }
   .brand {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 26px; font-weight: 700; color: var(--ink);
-    letter-spacing: .3px; margin: 0;
+    font-size: 24px; font-weight: 700; color: var(--ink);
+    letter-spacing: .3px; margin: 0; cursor: pointer;
   }
   .brand em { color: var(--brand); font-style: italic; }
   .count-pill {
@@ -61,156 +48,138 @@
     background: var(--card); border: 1px solid var(--line);
     padding: 4px 10px; border-radius: 999px;
   }
-  .subtitle {
-    margin: 6px 0 0; color: var(--ink-2); font-size: 13px;
-  }
+  .subtitle { margin: 6px 0 0; color: var(--ink-2); font-size: 13px; }
 
-  /* ============ 搜索框 ============ */
-  .search {
-    position: relative; margin: 16px 0 12px;
+  .hero-img {
+    width: 100%; border-radius: var(--radius);
+    margin: 8px 0 20px; display: block; box-shadow: var(--shadow);
   }
+  .hero-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px; font-weight: 700; line-height: 1.25;
+    margin: 0 0 10px; color: var(--ink);
+  }
+  .hero-title em { color: var(--brand); font-style: italic; }
+  .hero-desc { color: var(--ink-2); font-size: 15px; line-height: 1.7; margin: 0 0 24px; }
+  .cta-group { display: flex; flex-direction: column; gap: 12px; }
+  .cta {
+    display: block; width: 100%; padding: 18px 20px; border-radius: var(--radius);
+    cursor: pointer; border: none; font-family: inherit;
+    font-size: 16px; font-weight: 600; text-align: left; transition: transform .15s;
+  }
+  .cta:active { transform: scale(.99); }
+  .cta-primary { background: var(--brand); color: #fff; }
+  .cta-secondary { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+  .cta .cta-label { font-size: 17px; display: block; }
+  .cta .cta-sub { font-size: 12.5px; font-weight: 400; opacity: .8; margin-top: 3px; display: block; }
+  .stats-row {
+    display: flex; gap: 16px; margin-top: 28px;
+    padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  .stat { flex: 1; }
+  .stat-num { font-family: Georgia, serif; font-size: 26px; font-weight: 700; color: var(--brand); }
+  .stat-label { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+
+  .search { position: relative; margin: 16px 0 12px; }
   .search svg {
     position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
     width: 18px; height: 18px; color: var(--ink-3); pointer-events: none;
   }
   .search input {
-    width: 100%;
-    height: 46px;
-    border: 1px solid var(--line);
-    background: var(--card);
-    border-radius: 12px;
-    padding: 0 14px 0 42px;
-    font-size: 16px;
-    color: var(--ink);
-    outline: none;
-    transition: border-color .15s, box-shadow .15s;
+    width: 100%; height: 46px; border: 1px solid var(--line); background: var(--card);
+    border-radius: 12px; padding: 0 14px 0 42px; font-size: 16px; color: var(--ink);
+    outline: none; transition: border-color .15s, box-shadow .15s;
   }
   .search input::placeholder { color: var(--ink-3); }
-  .search input:focus {
-    border-color: var(--brand);
-    box-shadow: 0 0 0 3px rgba(47,93,80,.12);
-  }
+  .search input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(47,93,80,.12); }
 
-  /* ============ 标签胶囊 ============ */
-  .filters {
-    display: flex; gap: 8px; overflow-x: auto;
-    padding: 4px 2px 14px;
-    scrollbar-width: none;
-  }
+  .filters { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 14px; scrollbar-width: none; }
   .filters::-webkit-scrollbar { display: none; }
   .chip {
-    flex: 0 0 auto;
-    border: 1px solid var(--line);
-    background: var(--card);
-    color: var(--ink-2);
-    font-size: 13px;
-    padding: 7px 14px;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: all .15s;
-    font-family: inherit;
+    flex: 0 0 auto; border: 1px solid var(--line); background: var(--card);
+    color: var(--ink-2); font-size: 13px; padding: 7px 14px; border-radius: 999px;
+    cursor: pointer; transition: all .15s; font-family: inherit;
   }
-  .chip.active {
-    background: var(--ink);
-    color: var(--bg);
-    border-color: var(--ink);
-  }
+  .chip.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
-  /* ============ 卡片列表 ============ */
   .list { display: flex; flex-direction: column; gap: 12px; }
-
   .card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 16px 18px;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: transform .15s;
+    background: var(--card); border-radius: var(--radius); padding: 16px 18px;
+    box-shadow: var(--shadow); cursor: pointer; transition: transform .15s;
     border: 1px solid transparent;
   }
   .card:active { transform: scale(.995); }
   .card.open { border-color: var(--line); }
-
-  .card-head {
-    display: flex; align-items: flex-start; justify-content: space-between;
-    gap: 12px;
-  }
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
   .card-main { min-width: 0; flex: 1; }
   .en {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 21px; font-weight: 700; color: var(--ink);
-    line-height: 1.25; letter-spacing: .2px;
+    font-size: 21px; font-weight: 700; color: var(--ink); line-height: 1.25;
   }
-  .zh {
-    margin-top: 4px; font-size: 14px; color: var(--ink-2);
-  }
-  .tags {
-    margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;
-  }
-  .tag {
-    font-size: 11px; padding: 3px 9px; border-radius: 999px;
-  }
+  .zh { margin-top: 4px; font-size: 14px; color: var(--ink-2); }
+  .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11px; padding: 3px 9px; border-radius: 999px; }
   .tag.mood        { background: var(--c-mood-bg);        color: var(--c-mood-fg); }
   .tag.performance { background: var(--c-performance-bg); color: var(--c-performance-fg); }
   .tag.describe    { background: var(--c-describe-bg);    color: var(--c-describe-fg); }
-  .tag.social      { background: var(--c-social-bg);        color: var(--c-social-fg); }
-
+  .tag.social      { background: var(--c-social-bg);      color: var(--c-social-fg); }
   .chevron {
-    flex: 0 0 auto;
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ink-2);
-    transition: transform .2s;
+    flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--bg); display: flex; align-items: center; justify-content: center;
+    color: var(--ink-2); transition: transform .2s;
   }
   .card.open .chevron { transform: rotate(180deg); }
   .chevron svg { width: 14px; height: 14px; }
-
-  /* 展开内容 */
-  .detail {
-    max-height: 0; overflow: hidden;
-    transition: max-height .25s ease;
-  }
+  .detail { max-height: 0; overflow: hidden; transition: max-height .25s ease; }
   .card.open .detail { max-height: 600px; }
-
   .detail-inner { padding-top: 14px; margin-top: 14px; border-top: 1px dashed var(--line); }
-
-  .label {
-    font-size: 11px; color: var(--ink-3); letter-spacing: 1px;
-    margin-bottom: 4px;
-  }
-  .origin {
-    font-size: 13.5px; color: var(--ink); line-height: 1.65;
-  }
+  .label { font-size: 11px; color: var(--ink-3); letter-spacing: 1px; margin-bottom: 4px; }
+  .origin { font-size: 13.5px; color: var(--ink); line-height: 1.65; }
   .examples { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
-  .ex {
-    font-size: 13.5px; line-height: 1.55;
-    padding-left: 12px; border-left: 2px solid var(--brand-soft);
-  }
+  .ex { font-size: 13.5px; line-height: 1.55; padding-left: 12px; border-left: 2px solid var(--brand-soft); }
   .ex .en-line { color: var(--ink); }
   .ex .zh-line { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-3); }
+  .empty .big { font-family: Georgia, serif; font-size: 40px; color: var(--line); font-style: italic; margin-bottom: 8px; }
 
-  /* 空态 */
-  .empty {
-    text-align: center; padding: 60px 20px; color: var(--ink-3);
+  .article-section-title { font-size: 13px; color: var(--ink-3); letter-spacing: 1px; margin: 20px 0 10px; }
+  .source-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .source-card {
+    background: var(--card); border-radius: 12px; padding: 14px;
+    text-decoration: none; color: var(--ink); box-shadow: var(--shadow);
+    display: block; transition: transform .15s;
   }
-  .empty .big {
-    font-family: Georgia, serif; font-size: 40px; color: var(--line);
-    font-style: italic; margin-bottom: 8px;
+  .source-card:active { transform: scale(.98); }
+  .source-name { font-weight: 600; font-size: 14px; }
+  .source-desc { font-size: 12px; color: var(--ink-2); margin-top: 4px; line-height: 1.5; }
+  .source-arrow { font-size: 11px; color: var(--brand); margin-top: 8px; display: inline-block; }
+  .upcoming-card {
+    background: var(--brand-soft); border-radius: var(--radius);
+    padding: 18px; margin-top: 16px; text-align: center;
   }
+  .upcoming-card .up-title { font-weight: 600; color: var(--brand); font-size: 14px; margin-bottom: 6px; }
+  .upcoming-card .up-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
-  /* 底部说明 */
+  .tabbar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--card); border-top: 1px solid var(--line);
+    display: flex; max-width: 640px; margin: 0 auto;
+  }
+  .tab-btn {
+    flex: 1; padding: 10px 0 12px; text-align: center;
+    background: none; border: none; cursor: pointer;
+    font-family: inherit; color: var(--ink-3); font-size: 11px;
+  }
+  .tab-btn.active { color: var(--brand); }
+  .tab-btn svg { width: 22px; height: 22px; display: block; margin: 0 auto 3px; }
+
   footer {
-    margin-top: 32px; padding-top: 16px;
-    border-top: 1px solid var(--line);
+    margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line);
     font-size: 12px; color: var(--ink-3); line-height: 1.7;
   }
-
-  /* 桌面端微调 */
   @media (min-width: 768px) {
-    .wrap { padding: 32px 24px 64px; }
-    .brand { font-size: 32px; }
+    .wrap { padding: 32px 24px; }
+    .hero-title { font-size: 38px; }
     .en { font-size: 23px; }
   }
 </style>
@@ -218,190 +187,171 @@
 <body>
 <div class="wrap">
 
-  <header>
-    <div class="brand-row">
-      <h1 class="brand">地道口语<em>·</em>语料库</h1>
-      <span class="count-pill" id="countPill">已收录 12 条</span>
+  <div class="view" id="view-home">
+    <header><h1 class="brand" onclick="go('home')">地道口语<em>·</em>语料库</h1></header>
+    <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
+    <h2 class="hero-title">背了那么多词，<br>开口还是<em>中式英语</em>？</h2>
+    <p class="hero-desc">这里收录老外天天挂嘴边的高频地道表达——每条都讲清它为什么这么说，再配两个能直接搬到口语考场上的例句。想表达什么，搜一下就有。</p>
+    <div class="cta-group">
+      <button class="cta cta-primary" onclick="go('corpus')">
+        <span class="cta-label">进入语料库</span>
+        <span class="cta-sub">12 条地道表达 · 按场景分类 · 模糊搜索</span>
+      </button>
+      <button class="cta cta-secondary" onclick="go('articles')">
+        <span class="cta-label">外刊精读</span>
+        <span class="cta-sub">有输入才有输出 · 每天 15 分钟原版阅读</span>
+      </button>
     </div>
-    <p class="subtitle">点卡片看词源和例句 · 搜「不开心」「考过了」「粘人」都能命中</p>
-  </header>
-
-  <div class="search">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-    <input id="searchInput" type="search" placeholder="想表达什么？试试搜「不开心」「考过了」「粘人」" autocomplete="off">
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">12</div><div class="stat-label">已收录表达</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">使用场景分类</div></div>
+      <div class="stat"><div class="stat-num">24</div><div class="stat-label">实战例句</div></div>
+    </div>
+    <footer>适合雅思考生 · 手机随查随用 · 持续更新中</footer>
   </div>
 
-  <div class="filters" id="filters">
-    <button class="chip active" data-cat="all">全部</button>
-    <button class="chip" data-cat="mood">聊心情</button>
-    <button class="chip" data-cat="performance">聊表现</button>
-    <button class="chip" data-cat="describe">聊别人</button>
-    <button class="chip" data-cat="social">社交应答</button>
+  <div class="view" id="view-corpus">
+    <header>
+      <div class="brand-row">
+        <h1 class="brand" onclick="go('home')">语料库</h1>
+        <span class="count-pill" id="countPill">已收录 12 条</span>
+      </div>
+      <p class="subtitle">点卡片看词源和例句 · 搜「不开心」「考过了」「粘人」都能命中</p>
+    </header>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="searchInput" type="search" placeholder="想表达什么？试试搜「不开心」「考过了」「粘人」" autocomplete="off">
+    </div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="all">全部</button>
+      <button class="chip" data-cat="mood">聊心情</button>
+      <button class="chip" data-cat="performance">聊表现</button>
+      <button class="chip" data-cat="describe">聊别人</button>
+      <button class="chip" data-cat="social">社交应答</button>
+    </div>
+    <div class="list" id="list"></div>
   </div>
 
-  <div class="list" id="list"></div>
+  <div class="view" id="view-articles">
+    <header>
+      <h1 class="brand" onclick="go('home')">外刊精读</h1>
+      <p class="subtitle">有输入才有输出——每天读一点原版内容，口语里才蹦得出地道表达。</p>
+    </header>
+    <div class="article-section-title">常读媒体 · 直达入口</div>
+    <div class="source-grid">
+      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
+        <div class="source-name">The Economist</div>
+        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
+        <div class="source-name">BBC Learning English</div>
+        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
+        <div class="source-name">TED Talks</div>
+        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
+        <div class="source-name">The Guardian</div>
+        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+    </div>
+    <div class="upcoming-card">
+      <div class="up-title">每周精读 · 即将上线</div>
+      <div class="up-desc">老师会每周精选 1-2 篇短文，附上中文总结和可直接用在口语里的金句。敬请期待。</div>
+    </div>
+  </div>
 
-  <footer>
-    语料按「情绪/场景」打标签，方便你在口语考场上想表达某个意思时反查。
-    后续新增表达只需在数据数组里加一条，分类和标签自己挑。
-  </footer>
 </div>
 
+<nav class="tabbar">
+  <button class="tab-btn" data-view="home" onclick="go('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    首页
+  </button>
+  <button class="tab-btn" data-view="corpus" onclick="go('corpus')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    语料库
+  </button>
+  <button class="tab-btn" data-view="articles" onclick="go('articles')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h6"/></svg>
+    外刊
+  </button>
+</nav>
+
 <script>
-// ============ 语料数据 ============
-// cat 说明：
-//   mood        聊心情（自己的情绪感受）
-//   performance 聊表现（考试、工作、成功、把握）
-//   describe    聊别人（描述他人状态）
-//   social      社交应答（和别人互动时说的话）
-// keywords 是学生可能会搜的口语词，命中任意一个都能搜到这条
+function go(view) { location.hash = view; }
+function renderRoute() {
+  const view = location.hash.replace('#/', '') || 'home';
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const el = document.getElementById('view-' + view);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.view === view);
+  });
+  window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', renderRoute);
+
 const EXPRESSIONS = [
-  {
-    en: "Ace it",
-    zh: "轻松通过、考得很好",
-    cat: "performance",
-    keywords: ["考试", "考过", "通过", "面试", "表现", "成功", "考好", "一把过", "稳了", "ace", "exam", "pass", "interview"],
+  { en: "Ace it", zh: "轻松通过、考得很好", cat: "performance",
+    keywords: ["考试","考过","通过","面试","表现","成功","考好","一把过","稳了","ace","exam","pass","interview"],
     origin: "ace 本是扑克牌里最大的那张 A。赌场里 ace 就是「王牌、顶尖」，后来动词化，「ace an exam」就像打出王牌一样稳稳拿下。",
-    examples: [
-      ["She aced her driving test on the first try.", "她驾照考试一把过了。"],
-      ["If you've practiced enough, you'll ace the interview.", "练到位了，面试稳的。"]
-    ]
-  },
-  {
-    en: "She's salty",
-    zh: "她很不爽、在闹脾气",
-    cat: "describe",
-    keywords: ["不爽", "生气", "不开心", "酸", "输不起", "吐槽", "闹脾气", "脸挂不住", "salty", "bitter", "sore"],
+    examples: [["She aced her driving test on the first try.","她驾照考试一把过了。"],["If you've practiced enough, you'll ace the interview.","练到位了，面试稳的。"]] },
+  { en: "She's salty", zh: "她很不爽、在闹脾气", cat: "describe",
+    keywords: ["不爽","生气","不开心","酸","输不起","吐槽","闹脾气","脸挂不住","salty","bitter","sore"],
     origin: "最早跟航海有关，「salty」形容饱经风霜的老水手；1930 年代进入美国黑人英语表示「火气大、爱怼人」；2010 年代电竞圈把它发扬光大——调侃输家「在流咸咸的眼泪」，于是专指输不起、酸了。",
-    examples: [
-      ["Stop being salty just because I beat you.", "不就赢你一把，别这么酸。"],
-      ["He got salty when the boss praised someone else.", "老板夸了别人，他脸就挂不住了。"]
-    ]
-  },
-  {
-    en: "Have a blast",
-    zh: "玩得非常开心",
-    cat: "mood",
-    keywords: ["开心", "高兴", "玩", "派对", "爽", "嗨", "痛快", "尽兴", "blast", "fun", "enjoy", "party"],
+    examples: [["Stop being salty just because I beat you.","不就赢你一把，别这么酸。"],["He got salty when the boss praised someone else.","老板夸了别人，他脸就挂不住了。"]] },
+  { en: "Have a blast", zh: "玩得非常开心", cat: "mood",
+    keywords: ["开心","高兴","玩","派对","爽","嗨","痛快","尽兴","blast","fun","enjoy","party"],
     origin: "blast 本义是「爆炸、一阵猛烈冲击」。20 世纪中期美国人把一场热烈喧闹、像炸开一样嗨的派对叫 a blast，慢慢泛指痛快尽兴的经历。",
-    examples: [
-      ["We had a blast hiking in the mountains.", "我们爬山爬得特别爽。"],
-      ["The kids had a blast at the amusement park.", "孩子们在游乐园玩疯了。"]
-    ]
-  },
-  {
-    en: "I'm home free",
-    zh: "我解脱了、没事了",
-    cat: "mood",
-    keywords: ["解脱", "放松", "没事了", "完成", "解放", "搞定", "freed", "done", "relieved", "轻松"],
+    examples: [["We had a blast hiking in the mountains.","我们爬山爬得特别爽。"],["The kids had a blast at the amusement park.","孩子们在游乐园玩疯了。"]] },
+  { en: "I'm home free", zh: "我解脱了、没事了", cat: "mood",
+    keywords: ["解脱","放松","没事了","完成","解放","搞定","freed","done","relieved","轻松"],
     origin: "来自老式棋盘游戏和棒球：跑回 home（本垒/终点）就安全了、没人追得上。所以 home free 就是大局已定、后顾之忧全没了。",
-    examples: [
-      ["Once I finish this presentation, I'm home free.", "讲完这个 PPT 我就彻底解放了。"],
-      ["With the other team down to two players, we're home free.", "对方只剩两人，我们稳赢。"]
-    ]
-  },
-  {
-    en: "White lie",
-    zh: "善意的谎言",
-    cat: "social",
-    keywords: ["谎言", "善意", "客套", "不伤感情", "lie", "white lie", "善意的谎言", "委婉"],
+    examples: [["Once I finish this presentation, I'm home free.","讲完这个 PPT 我就彻底解放了。"],["With the other team down to two players, we're home free.","对方只剩两人，我们稳赢。"]] },
+  { en: "White lie", zh: "善意的谎言", cat: "social",
+    keywords: ["谎言","善意","客套","不伤感情","lie","white lie","善意的谎言","委婉"],
     origin: "西方文化里 white 长期象征纯洁、无害（white magic 白魔法 vs. black magic 黑魔法）。18 世纪起把「不带恶意、为了照顾对方情绪而撒的小谎」叫 white lie，和 black lie（恶意谎言）相对。",
-    examples: [
-      ["I told a white lie and said the dress looked great.", "我撒了个善意的谎，说裙子很好看。"],
-      ["\"I'm fine\" is often just a white lie.", "「我没事」经常是句善意的谎言。"]
-    ]
-  },
-  {
-    en: "I see red",
-    zh: "火冒三丈",
-    cat: "mood",
-    keywords: ["生气", "不开心", "炸了", "火大", "怒", "暴怒", "气炸", "火冒三丈", "red", "angry", "mad", "furious"],
+    examples: [["I told a white lie and said the dress looked great.","我撒了个善意的谎，说裙子很好看。"],["\"I'm fine\" is often just a white lie.","「我没事」经常是句善意的谎言。"]] },
+  { en: "I see red", zh: "火冒三丈", cat: "mood",
+    keywords: ["生气","不开心","炸了","火大","怒","暴怒","气炸","火冒三丈","red","angry","mad","furious"],
     origin: "源自古希腊以来「公牛见红布就怒」的说法（其实公牛是色盲，但文化印象已经固化），再加红色在西方一直和血、愤怒绑定，于是 see red 就是瞬间暴怒。",
-    examples: [
-      ["I saw red when someone scratched my new car.", "有人划了我的新车，我当场炸了。"],
-      ["She saw red reading the nasty comment.", "看到那条恶意评论，她气炸了。"]
-    ]
-  },
-  {
-    en: "I'm your man",
-    zh: "这事找我就对了",
-    cat: "social",
-    keywords: ["帮忙", "找我", "靠谱", "交给我", "包在我身上", "help", "your man", "volunteer", "主动"],
+    examples: [["I saw red when someone scratched my new car.","有人划了我的新车，我当场炸了。"],["She saw red reading the nasty comment.","看到那条恶意评论，她气炸了。"]] },
+  { en: "I'm your man", zh: "这事找我就对了", cat: "social",
+    keywords: ["帮忙","找我","靠谱","交给我","包在我身上","help","your man","volunteer","主动"],
     origin: "20 世纪中期美国口语，字面「我就是你要找的那个人」，主动打包票表示这活儿我最靠谱。现在女生也常用，常说成 I'm your person。",
-    examples: [
-      ["Need someone to fix the faucet? I'm your man.", "水龙头漏水要修？找我。"],
-      ["Want cheap but good food? I'm your man.", "想吃便宜又好吃的？问我准没错。"]
-    ]
-  },
-  {
-    en: "Six seven",
-    zh: "懂的都懂、没法解释",
-    cat: "social",
-    keywords: ["懂的都懂", "敷衍", "别问", "没法解释", "67", "six seven", "梗", "网络", "摆烂"],
+    examples: [["Need someone to fix the faucet? I'm your man.","水龙头漏水要修？找我。"],["Want cheap but good food? I'm your man.","想吃便宜又好吃的？问我准没错。"]] },
+  { en: "Six seven", zh: "懂的都懂、没法解释", cat: "social",
+    keywords: ["懂的都懂","敷衍","别问","没法解释","67","six seven","梗","网络","摆烂"],
     origin: "2024 年底才爆火的 Gen Alpha 新梗，出自费城说唱歌手 Skrilla 的歌《Doot Doot (6 7)》，配上 NBA 球员 LaMelo Ball（身高 6 尺 7 寸）的篮球剪辑传遍 TikTok。它本身没有固定含义——「说不通就是它的意思」，用来敷衍、糊弄、表示别问了。",
-    examples: [
-      ["A: Where did you go last night? B: Six seven.", "A：昨晚去哪了？B：懂的都懂。"],
-      ["Don't ask why it works, it's just six seven.", "别问它为啥能成，玄学。"]
-    ]
-  },
-  {
-    en: "Ninety-nine",
-    zh: "几乎、差不多",
-    cat: "performance",
-    keywords: ["差不多", "几乎", "大概", "把握", "肯定", "99", "ninety", "几乎确定", "大概率", "mostly"],
+    examples: [["A: Where did you go last night? B: Six seven.","A：昨晚去哪了？B：懂的都懂。"],["Don't ask why it works, it's just six seven.","别问它为啥能成，玄学。"]] },
+  { en: "Ninety-nine", zh: "几乎、差不多", cat: "performance",
+    keywords: ["差不多","几乎","大概","把握","肯定","99","ninety","几乎确定","大概率","mostly"],
     origin: "来自口语里常用的「ninety-nine percent sure」（99% 确定），故意不说满 100%，给自己留点余地。省略掉 percent 之后直接当形容词用，表八九不离十。",
-    examples: [
-      ["I'm ninety-nine sure he'll forget.", "我几乎可以肯定他会忘。"],
-      ["The plan is ninety-nine ready; just one small thing left.", "计划基本就绪，就差一点。"]
-    ]
-  },
-  {
-    en: "You're needy",
-    zh: "你很粘人",
-    cat: "describe",
-    keywords: ["粘人", "依赖", "作", "要安全感", "缺爱", "粘", "needy", "clingy", "attention"],
+    examples: [["I'm ninety-nine sure he'll forget.","我几乎可以肯定他会忘。"],["The plan is ninety-nine ready; just one small thing left.","计划基本就绪，就差一点。"]] },
+  { en: "You're needy", zh: "你很粘人", cat: "describe",
+    keywords: ["粘人","依赖","作","要安全感","缺爱","粘","needy","clingy","attention"],
     origin: "need + -y 形容词后缀本来中性，指「有需要的」。20 世纪中期以后在情感语境里带上贬义——专指那种不停要确认、要陪伴、要安全感的「情感索取型」人。",
-    examples: [
-      ["He gets really needy if we don't text every day.", "我们要不天天发消息，他就特别粘人。"],
-      ["Stop being so needy — she has her own life.", "别那么粘人，人家有自己的生活。"]
-    ]
-  },
-  {
-    en: "On cloud nine",
-    zh: "非常高兴、飘飘然",
-    cat: "mood",
-    keywords: ["开心", "高兴", "快乐", "狂喜", "飘", "美滋滋", "爽", "cloud nine", "ecstatic", "happy", "thrilled"],
+    examples: [["He gets really needy if we don't text every day.","我们要不天天发消息，他就特别粘人。"],["Stop being so needy — she has her own life.","别那么粘人，人家有自己的生活。"]] },
+  { en: "On cloud nine", zh: "非常高兴、飘飘然", cat: "mood",
+    keywords: ["开心","高兴","快乐","狂喜","飘","美滋滋","爽","cloud nine","ecstatic","happy","thrilled"],
     origin: "最流行的说法是 1896 年国际云图把云分成十类，第 9 号是最高最蓬松的积雨云，所以「待在第九号云上」就是飘在最高最爽的地方；也有人扯到基督教九级天使里最高的炽天使。1950 年代从美国电台/爵士圈流行开来。",
-    examples: [
-      ["She's been on cloud nine since he proposed.", "他求婚后她一直飘飘然。"],
-      ["Winning the award put him on cloud nine.", "拿奖让他爽到不行。"]
-    ]
-  },
-  {
-    en: "Ten-four",
-    zh: "收到了、明白",
-    cat: "social",
-    keywords: ["收到", "明白", "好的", "得嘞", "收到了", "ten four", "roger", "copied", "了解"],
+    examples: [["She's been on cloud nine since he proposed.","他求婚后她一直飘飘然。"],["Winning the award put him on cloud nine.","拿奖让他爽到不行。"]] },
+  { en: "Ten-four", zh: "收到了、明白", cat: "social",
+    keywords: ["收到","明白","好的","得嘞","收到了","ten four","roger","copied","了解"],
     origin: "来自 1930 年代美国警察无线电的「10-code」，10-4 在代码表里就是 message received。1970 年代通过 CB 民用对讲机、卡车司机文化和电影《Smokey and the Bandit》火遍全国，变成口语里俏皮的「得嘞」。",
-    examples: [
-      ["Ten-four, I'll be there in ten.", "收到，我十分钟到。"],
-      ["A: Bring some pizza. B: Ten-four.", "A：带点披萨。B：得嘞。"]
-    ]
-  }
+    examples: [["Ten-four, I'll be there in ten.","收到，我十分钟到。"],["A: Bring some pizza. B: Ten-four.","A：带点披萨。B：得嘞。"]] }
 ];
 
-const CAT_LABEL = {
-  mood: "聊心情",
-  performance: "聊表现",
-  describe: "聊别人",
-  social: "社交应答"
-};
+const CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答" };
 
-// ============ 状态 ============
 let currentCat = "all";
 let keyword = "";
-
-// ============ 渲染 ============
 const listEl = document.getElementById("list");
 const countPill = document.getElementById("countPill");
 
@@ -410,42 +360,27 @@ function render() {
   const filtered = EXPRESSIONS.filter(item => {
     if (currentCat !== "all" && item.cat !== currentCat) return false;
     if (!kw) return true;
-    // 搜索命中：英文、中文释义、分类名、词源、例句、以及预置的口语关键词
     const hay = (
-      item.en + " " +
-      item.zh + " " +
-      CAT_LABEL[item.cat] + " " +
-      item.origin + " " +
-      item.keywords.join(" ") + " " +
+      item.en + " " + item.zh + " " + CAT_LABEL[item.cat] + " " +
+      item.origin + " " + item.keywords.join(" ") + " " +
       item.examples.map(e => e.join(" ")).join(" ")
     ).toLowerCase();
     return hay.includes(kw);
   });
-
   countPill.textContent = `已收录 ${EXPRESSIONS.length} 条 · 显示 ${filtered.length}`;
-
   if (filtered.length === 0) {
-    listEl.innerHTML = `
-      <div class="empty">
-        <div class="big">· · ·</div>
-        <div>没找到匹配的表达，换个关键词试试？</div>
-      </div>`;
+    listEl.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>没找到匹配的表达，换个关键词试试？</div></div>`;
     return;
   }
-
-  listEl.innerHTML = filtered.map((item, i) => `
-    <div class="card" data-idx="${i}">
+  listEl.innerHTML = filtered.map(item => `
+    <div class="card">
       <div class="card-head">
         <div class="card-main">
           <div class="en">${item.en}</div>
           <div class="zh">${item.zh}</div>
-          <div class="tags">
-            <span class="tag ${item.cat}">${CAT_LABEL[item.cat]}</span>
-          </div>
+          <div class="tags"><span class="tag ${item.cat}">${CAT_LABEL[item.cat]}</span></div>
         </div>
-        <div class="chevron">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
+        <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
       </div>
       <div class="detail">
         <div class="detail-inner">
@@ -453,24 +388,17 @@ function render() {
           <div class="origin">${item.origin}</div>
           <div class="label" style="margin-top:14px">例句 · EXAMPLES</div>
           <div class="examples">
-            ${item.examples.map(ex => `
-              <div class="ex">
-                <div class="en-line">${ex[0]}</div>
-                <div class="zh-line">${ex[1]}</div>
-              </div>`).join("")}
+            ${item.examples.map(ex => `<div class="ex"><div class="en-line">${ex[0]}</div><div class="zh-line">${ex[1]}</div></div>`).join("")}
           </div>
         </div>
       </div>
     </div>
   `).join("");
-
-  // 绑定卡片展开
   listEl.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", () => card.classList.toggle("open"));
   });
 }
 
-// ============ 事件 ============
 document.getElementById("filters").addEventListener("click", (e) => {
   const btn = e.target.closest(".chip");
   if (!btn) return;
@@ -479,13 +407,13 @@ document.getElementById("filters").addEventListener("click", (e) => {
   currentCat = btn.dataset.cat;
   render();
 });
-
 document.getElementById("searchInput").addEventListener("input", (e) => {
   keyword = e.target.value;
   render();
 });
 
 render();
+renderRoute();
 </script>
 </body>
 </html>
