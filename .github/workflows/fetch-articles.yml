@@ -1,0 +1,34 @@
+name: Fetch Daily Articles
+
+on:
+  schedule:
+    # 每天北京时间早上 8 点跑一次（UTC 0:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 支持手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install feedparser
+
+      - name: Fetch articles
+        run: python3 scripts/fetch_articles.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add articles.json
+          git diff --staged --quiet || git commit -m "chore: auto-update articles.json [$(date -u '+%Y-%m-%d')]"
+          git push

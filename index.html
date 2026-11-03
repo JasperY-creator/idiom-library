@@ -160,6 +160,21 @@
   .upcoming-card .up-title { font-weight: 600; color: var(--brand); font-size: 14px; margin-bottom: 6px; }
   .upcoming-card .up-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
+  .article-list { display: flex; flex-direction: column; gap: 10px; }
+  .article-card {
+    background: var(--card); border-radius: 12px; padding: 14px 16px;
+    box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
+    display: block; transition: transform .15s;
+  }
+  .article-card:active { transform: scale(.99); }
+  .article-source {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 999px; color: #fff; margin-bottom: 8px;
+  }
+  .article-title { font-size: 15px; font-weight: 600; line-height: 1.4; }
+  .article-summary { font-size: 12.5px; color: var(--ink-2); margin-top: 6px; line-height: 1.55; }
+  .article-date { font-size: 11px; color: var(--ink-3); margin-top: 8px; }
+
   .tabbar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: var(--card); border-top: 1px solid var(--line);
@@ -260,9 +275,33 @@
         <span class="source-arrow">访问官网 →</span>
       </a>
     </div>
-    <div class="upcoming-card">
-      <div class="up-title">每周精读 · 即将上线</div>
-      <div class="up-desc">老师会每周精选 1-2 篇短文，附上中文总结和可直接用在口语里的金句。敬请期待。</div>
+    <div class="article-section-title">今日外刊 · 自动更新</div>
+    <div id="articleList" class="article-list">
+      <div class="empty"><div class="big">· · ·</div><div>正在加载今日外刊…</div></div>
+    </div>
+
+    <div class="article-section-title">常读媒体 · 直达入口</div>
+    <div class="source-grid">
+      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
+        <div class="source-name">The Economist</div>
+        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
+        <div class="source-name">BBC Learning English</div>
+        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
+        <div class="source-name">TED Talks</div>
+        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
+      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
+        <div class="source-name">The Guardian</div>
+        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
+        <span class="source-arrow">访问官网 →</span>
+      </a>
     </div>
   </div>
 
@@ -414,6 +453,31 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
 
 render();
 renderRoute();
+
+// ============ 外刊文章加载 ============
+async function loadArticles() {
+  const container = document.getElementById("articleList");
+  try {
+    const res = await fetch("articles.json?t=" + Date.now());
+    if (!res.ok) throw new Error("fetch failed");
+    const data = await res.json();
+    if (!data.articles || data.articles.length === 0) {
+      container.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>暂无文章</div></div>`;
+      return;
+    }
+    container.innerHTML = data.articles.map(a => `
+      <a class="article-card" href="${a.link}" target="_blank" rel="noopener">
+        <span class="article-source" style="background:${a.sourceColor}">${a.source}</span>
+        <div class="article-title">${a.title}</div>
+        ${a.summary ? `<div class="article-summary">${a.summary}</div>` : ""}
+        <div class="article-date">${a.published ? new Date(a.published).toLocaleDateString("zh-CN") : ""}</div>
+      </a>
+    `).join("");
+  } catch (e) {
+    container.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>`;
+  }
+}
+loadArticles();
 </script>
 </body>
 </html>
