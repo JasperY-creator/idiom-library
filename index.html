@@ -473,6 +473,14 @@ try {
   render();
 } catch (err) {
   console.error("render error:", err);
+  // 临时调试：把错误显示到页面上
+  var debugEl = document.getElementById("list");
+  if (debugEl) {
+    debugEl.innerHTML = '<div style="color:red;padding:20px;font-size:13px">' +
+      '<b>调试错误信息：</b><br>' + err.message +
+      '<br><br><b>错误堆栈：</b><br>' + (err.stack || '无') +
+    '</div>';
+  }
 }
 
 // ============ 外刊文章加载 ============
