@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-11-04T00:00:00Z",
+  "featured": [
+    {
+      "title": "What Kids Wish Their Parents Knew About Fun",
+      "source": "TED · 教育话题",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
+      "guide": "11 岁女孩 Mila Rojas 观察到：大人早就忘了「纯粹为了好玩」是什么感觉。这篇演讲很短，话题完美对应雅思口语 Part 1 的「童年/游戏」话题。",
+      "points": [
+        {"phrase": "just for fun", "example": "纯粹为了好玩。I played basketball just for fun, not for competition."},
+        {"phrase": "grow up too fast", "example": "长大得太快。Kids these days are growing up too fast."},
+        {"phrase": "be present", "example": "全身心投入。When you're with your kids, be present, don't check your phone."}
+      ]
+    },
+    {
+      "title": "Do All My Friends Secretly Hate Me?",
+      "source": "TED · 社交话题",
+      "link": "https://www.ted.com/talks/corner_piece_do_all_my_friends_secretly_hate_me",
+      "guide": "成年人交朋友为什么这么难？Corner Piece 用幽默的方式拆解社交焦虑——这就是雅思口语 Part 3「友谊/社交」话题的绝佳素材。",
+      "points": [
+        {"phrase": "secretly hate me", "example": "暗地里讨厌我。I keep thinking my friends secretly hate me."},
+        {"phrase": "make friends as an adult", "example": "成年后交朋友。Making friends as an adult is so hard."},
+        {"phrase": "mission impossible", "example": "不可能完成的任务。Keeping in touch with old friends feels like mission impossible."}
+      ]
+    },
+    {
+      "title": "\"I perfected deception\": My Secret Life as a Relapsed Alcoholic",
+      "source": "Guardian · 个人故事",
+      "link": "https://www.theguardian.com/lifeandstyle/2026/nov/03/my-secret-life-as-a-relapsed-alcoholic",
+      "guide": "一个戒酒成功又复发的人的真实自述。写得极其坦诚，词汇丰富，适合积累「意志力/健康/个人经历」类话题的高级表达。",
+      "points": [
+        {"phrase": "relapsed", "example": "复发（尤指恶习）。He relapsed after six months sober."},
+        {"phrase": "deception", "example": "欺骗、瞒骗。She lived a life of deception for years."},
+        {"phrase": "hit rock bottom", "example": "跌到谷底。I hit rock bottom before I asked for help."}
+      ]
+    }
+  ],
+  "allCount": 15
+}

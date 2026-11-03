@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+"""
+抓取英文媒体 RSS，调 DeepSeek 自动挑选 3 篇适合雅思考生的文章，
+生成中文导读和重点口语表达，输出 featured.json 供 H5 渲染。
+GitHub Actions 每天定时跑一次。
+"""
+import feedparser
+import json
+import os
+import re
+import sys
+import urllib.request
+from datetime import datetime, timezone
+from html import unescape
+
+SOURCES = [
+    {
+        "name": "TED Talks",
+        "url": "https://feeds.feedburner.com/tedtalks_video",
+        "color": "#E62B1E",
+    },
+    {
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/international/rss",
+        "color": "#052962",
+    },
+    {
+        "name": "BBC Learning English",
+        "url": "https://feeds.bbci.co.uk/learningenglish/news/englishatwork/rss.xml",
+        "color": "#B84A32",
+    },
+]
+
+MAX_PER_SOURCE = 5
+DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
+
+
+def clean_html(raw):
+    if not raw:
+        return ""
+    text = re.sub(r"<[^>]+>", "", raw)
+    text = unescape(text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text[:300]
+
+
+def parse_date(entry):
+    for key in ("published_parsed", "updated_parsed"):
+        t = entry.get(key)
+        if t:
+            return datetime(*t[:6], tzinfo=timezone.utc).isoformat()
+    return ""
+
+
+def fetch_source(src):
+    feed = feedparser.parse(src["url"])
+    items = []
+    for entry in feed.entries[:MAX_PER_SOURCE]:
+        items.append({
+            "source": src["name"],
+            "sourceColor": src["color"],
+            "title": entry.get("title", "").strip(),
+            "link": entry.get("link", ""),
+            "summary": clean_html(entry.get("summary", entry.get("description", ""))),
+            "published": parse_date(entry),
+        })
+    return items
+
+
+def call_deepseek(api_key, prompt):
+    """调用 DeepSeek API，返回文本"""
+    payload = {
+        "model": "deepseek-chat",
+        "messages": [
+            {"role": "system", "content": "你是一个雅思口语老师，擅长挑选适合中国学生的英文阅读材料，并从中提取可用于口语的地道表达。"},
+            {"role": "user", "content": prompt}
+        ],
+        "temperature": 0.7,
+        "response_format": {"type": "json_object"},
+    }
+    req = urllib.request.Request(
+        DEEPSEEK_API_URL,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+        return data["choices"][0]["message"]["content"]
+
+
+def pick_and_generate(all_articles, api_key):
+    """让 AI 挑 3 篇并生成导读和重点表达"""
+    article_brief = "\n".join([
+        f"{i+1}. [{a['source']}] {a['title']}\n   摘要: {a['summary'][:150]}\n   链接: {a['link']}"
+        for i, a in enumerate(all_articles)
+    ])
+
+    prompt = f"""以下是今天最新抓取的 {len(all_articles)} 篇英文文章。请从中挑选 3 篇最适合雅思考生阅读的：
+
+{article_brief}
+
+挑选标准：
+1. 话题贴近雅思口语常考话题（教育、友谊、科技、环境、个人成长、文化等）
+2. 难度适中（不要太专业、太政治化）
+3. 对中国学生有启发性
+
+对每篇选中的文章，生成以下内容：
+- title: 英文标题
+- source: 来源名称
+- link: 原文链接
+- guide: 中文导读（2-3句话，说明这篇讲什么、为什么适合雅思考生、对应哪个口语话题）
+- points: 3个重点口语表达，每个包含 phrase（英文短语）和 example（一句中文例句）
+
+请严格按 JSON 格式返回，结构如下：
+{{
+  "articles": [
+    {{
+      "title": "...",
+      "source": "...",
+      "link": "...",
+      "guide": "...",
+      "points": [
+        {{"phrase": "...", "example": "..."}}
+      ]
+    }}
+  ]
+}}
+
+只返回 JSON，不要其他内容。"""
+
+    result = call_deepseek(api_key, prompt)
+    return json.loads(result)
+
+
+def main():
+    api_key = os.environ.get("DEEPSEEK_API_KEY")
+    if not api_key:
+        print("ERROR: DEEPSEEK_API_KEY not set")
+        sys.exit(1)
+
+    # 1. 抓 RSS
+    all_items = []
+    for src in SOURCES:
+        try:
+            items = fetch_source(src)
+            all_items.extend(items)
+            print(f"OK: {src['name']} fetched {len(items)} articles")
+        except Exception as e:
+            print(f"FAIL: {src['name']} - {e}")
+
+    all_items.sort(key=lambda x: x["published"], reverse=True)
+    print(f"Total articles fetched: {len(all_items)}")
+
+    # 2. 调 DeepSeek 挑选并生成
+    try:
+        result = pick_and_generate(all_items, api_key)
+        featured = result.get("articles", [])
+        print(f"AI selected {len(featured)} articles")
+    except Exception as e:
+        print(f"AI generation failed: {e}")
+        # 失败时 fallback：直接用前 3 篇，不生成导读
+        featured = []
+
+    # 3. 输出
+    output = {
+        "updatedAt": datetime.now(timezone.utc).isoformat(),
+        "featured": featured,
+        "allCount": len(all_items),
+    }
+
+    with open("featured.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+
+    print(f"Done: {len(featured)} featured articles written to featured.json")
+
+
+if __name__ == "__main__":
+    main()
