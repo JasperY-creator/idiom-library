@@ -392,72 +392,84 @@ const EXPRESSIONS = [
     examples: [["Ten-four, I'll be there in ten.","收到，我十分钟到。"],["A: Bring some pizza. B: Ten-four.","A：带点披萨。B：得嘞。"]] }
 ];
 
-const CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答" };
-
-let currentCat = "all";
-let keyword = "";
-const listEl = document.getElementById("list");
-const countPill = document.getElementById("countPill");
-
-function render() {
-  const kw = keyword.trim().toLowerCase();
-  const filtered = EXPRESSIONS.filter(item => {
-    if (currentCat !== "all" && item.cat !== currentCat) return false;
-    if (!kw) return true;
-    const hay = (
-      item.en + " " + item.zh + " " + CAT_LABEL[item.cat] + " " +
-      item.origin + " " + item.keywords.join(" ") + " " +
-      item.examples.map(e => e.join(" ")).join(" ")
-    ).toLowerCase();
-    return hay.includes(kw);
-  });
-  countPill.textContent = `已收录 ${EXPRESSIONS.length} 条 · 显示 ${filtered.length}`;
-  if (filtered.length === 0) {
-    listEl.innerHTML = `<div class="empty"><div class="big">· · ·</div><div>没找到匹配的表达，换个关键词试试？</div></div>`;
-    return;
-  }
-  listEl.innerHTML = filtered.map(item => `
-    <div class="card">
-      <div class="card-head">
-        <div class="card-main">
-          <div class="en">${item.en}</div>
-          <div class="zh">${item.zh}</div>
-          <div class="tags"><span class="tag ${item.cat}">${CAT_LABEL[item.cat]}</span></div>
-        </div>
-        <div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
-      </div>
-      <div class="detail">
-        <div class="detail-inner">
-          <div class="label">词源 · ORIGIN</div>
-          <div class="origin">${item.origin}</div>
-          <div class="label" style="margin-top:14px">例句 · EXAMPLES</div>
-          <div class="examples">
-            ${item.examples.map(ex => `<div class="ex"><div class="en-line">${ex[0]}</div><div class="zh-line">${ex[1]}</div></div>`).join("")}
-          </div>
-        </div>
-      </div>
-    </div>
-  `).join("");
-  listEl.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => card.classList.toggle("open"));
-  });
-}
-
-document.getElementById("filters").addEventListener("click", (e) => {
-  const btn = e.target.closest(".chip");
-  if (!btn) return;
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  btn.classList.add("active");
-  currentCat = btn.dataset.cat;
-  render();
-});
-document.getElementById("searchInput").addEventListener("input", (e) => {
-  keyword = e.target.value;
-  render();
-});
-
+// ============ 初始化：先渲染路由，保证首页一定能显示 ============
 renderRoute();
-render();
+
+// 以下代码即使报错也不影响首页显示
+try {
+  var listEl = document.getElementById("list");
+  var countPill = document.getElementById("countPill");
+
+  function render() {
+    var kw = keyword.trim().toLowerCase();
+    var filtered = EXPRESSIONS.filter(function(item) {
+      if (currentCat !== "all" && item.cat !== currentCat) return false;
+      if (!kw) return true;
+      var hay = (
+        item.en + " " + item.zh + " " + CAT_LABEL[item.cat] + " " +
+        item.origin + " " + item.keywords.join(" ") + " " +
+        item.examples.map(function(e){return e.join(" ")}).join(" ")
+      ).toLowerCase();
+      return hay.indexOf(kw) >= 0;
+    });
+    if (countPill) countPill.textContent = "已收录 " + EXPRESSIONS.length + " 条 · 显示 " + filtered.length;
+    if (!listEl) return;
+    if (filtered.length === 0) {
+      listEl.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>没找到匹配的表达，换个关键词试试？</div></div>';
+      return;
+    }
+    listEl.innerHTML = filtered.map(function(item) {
+      return '<div class="card">' +
+        '<div class="card-head">' +
+          '<div class="card-main">' +
+            '<div class="en">' + item.en + '</div>' +
+            '<div class="zh">' + item.zh + '</div>' +
+            '<div class="tags"><span class="tag ' + item.cat + '">' + CAT_LABEL[item.cat] + '</span></div>' +
+          '</div>' +
+          '<div class="chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>' +
+        '</div>' +
+        '<div class="detail"><div class="detail-inner">' +
+          '<div class="label">词源 · ORIGIN</div>' +
+          '<div class="origin">' + item.origin + '</div>' +
+          '<div class="label" style="margin-top:14px">例句 · EXAMPLES</div>' +
+          '<div class="examples">' +
+            item.examples.map(function(ex) {
+              return '<div class="ex"><div class="en-line">' + ex[0] + '</div><div class="zh-line">' + ex[1] + '</div></div>';
+            }).join("") +
+          '</div>' +
+        '</div></div>' +
+      '</div>';
+    }).join("");
+    var cards = listEl.querySelectorAll(".card");
+    cards.forEach(function(card) {
+      card.addEventListener("click", function() { card.classList.toggle("open"); });
+    });
+  }
+
+  var filtersEl = document.getElementById("filters");
+  if (filtersEl) {
+    filtersEl.addEventListener("click", function(e) {
+      var btn = e.target.closest(".chip");
+      if (!btn) return;
+      document.querySelectorAll(".chip").forEach(function(c) { c.classList.remove("active"); });
+      btn.classList.add("active");
+      currentCat = btn.dataset.cat;
+      render();
+    });
+  }
+
+  var searchEl = document.getElementById("searchInput");
+  if (searchEl) {
+    searchEl.addEventListener("input", function(e) {
+      keyword = e.target.value;
+      render();
+    });
+  }
+
+  render();
+} catch (err) {
+  console.error("render error:", err);
+}
 
 // ============ 外刊文章加载 ============
 function loadArticles() {
