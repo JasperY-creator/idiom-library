@@ -161,6 +161,41 @@
   .upcoming-card .up-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
   .article-list { display: flex; flex-direction: column; gap: 10px; }
+
+  /* 精选文章卡片 */
+  .featured-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .featured-card {
+    background: var(--card); border-radius: var(--radius); padding: 18px;
+    box-shadow: var(--shadow);
+  }
+  .featured-tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    color: var(--brand); background: var(--brand-soft);
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .featured-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px; font-weight: 700; line-height: 1.35;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .featured-trans {
+    font-size: 13.5px; color: var(--ink-2); line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .featured-points {
+    background: var(--bg); border-radius: 10px; padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .point {
+    font-size: 13px; line-height: 1.6; color: var(--ink);
+    padding: 4px 0;
+  }
+  .point b { color: var(--accent); }
+  .featured-link {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    color: var(--brand); text-decoration: none;
+  }
+  .featured-link:active { opacity: .7; }
   .article-card {
     background: var(--card); border-radius: 12px; padding: 14px 16px;
     box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
@@ -250,57 +285,62 @@
   <div class="view" id="view-articles">
     <header>
       <h1 class="brand" onclick="go('home')">外刊精读</h1>
-      <p class="subtitle">有输入才有输出——每天读一点原版内容，口语里才蹦得出地道表达。</p>
+      <p class="subtitle">每天 15 分钟，读这 3 篇就够了——老师精选，带中文导读和口语金句。</p>
     </header>
-    <div class="article-section-title">常读媒体 · 直达入口</div>
-    <div class="source-grid">
-      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
-        <div class="source-name">The Economist</div>
-        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
-        <div class="source-name">BBC Learning English</div>
-        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
-        <div class="source-name">TED Talks</div>
-        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
-        <div class="source-name">The Guardian</div>
-        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-    </div>
-    <div class="article-section-title">今日外刊 · 自动更新</div>
-    <div id="articleList" class="article-list">
-      <div class="empty"><div class="big">· · ·</div><div>正在加载今日外刊…</div></div>
+
+    <!-- 今日精选 3 篇 -->
+    <div class="featured-list">
+
+      <div class="featured-card">
+        <div class="featured-tag">TED · 教育话题</div>
+        <div class="featured-title">What Kids Wish Their Parents Knew About Fun</div>
+        <div class="featured-trans">11 岁女孩 Mila Rojas 观察到：大人早就忘了"纯粹为了好玩"是什么感觉。这篇演讲很短，话题完美对应雅思口语 Part 1 的"童年/游戏"话题。</div>
+        <div class="featured-points">
+          <div class="point"><b>just for fun</b> —— 纯粹为了好玩。"I played basketball just for fun, not for competition."</div>
+          <div class="point"><b>grow up too fast</b> —— 长大得太快。"Kids these days are growing up too fast."</div>
+          <div class="point"><b>be present</b> —— 全身心投入。"When you're with your kids, be present, don't check your phone."</div>
+        </div>
+        <a class="featured-link" href="https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun" target="_blank" rel="noopener">看完整演讲 →</a>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-tag">TED · 社交话题</div>
+        <div class="featured-title">Do All My Friends Secretly Hate Me?</div>
+        <div class="featured-trans">成年人交朋友为什么这么难？Corner Piece 用幽默的方式拆解社交焦虑——这就是雅思口语 Part 3 "友谊/社交"话题的绝佳素材。</div>
+        <div class="featured-points">
+          <div class="point"><b>secretly hate me</b> —— 暗地里讨厌我。常用在社交焦虑里："I keep thinking my friends secretly hate me."</div>
+          <div class="point"><b>make friends as an adult</b> —— 成年后交朋友。"Making friends as an adult is so hard."</div>
+          <div class="point"><b>mission impossible</b> —— 不可能完成的任务。"Keeping in touch with old friends feels like mission impossible."</div>
+        </div>
+        <a class="featured-link" href="https://www.ted.com/talks/corner_piece_do_all_my_friends_secretly_hate_me" target="_blank" rel="noopener">看完整演讲 →</a>
+      </div>
+
+      <div class="featured-card">
+        <div class="featured-tag">Guardian · 个人故事</div>
+        <div class="featured-title">"I perfected deception": My Secret Life as a Relapsed Alcoholic</div>
+        <div class="featured-trans">一个戒酒成功又复发的人的真实自述。写得极其坦诚，词汇丰富，适合积累"意志力/健康/个人经历"类话题的高级表达。</div>
+        <div class="featured-points">
+          <div class="point"><b>relapsed</b> —— 复发（尤指恶习）。"He relapsed after six months sober."</div>
+          <div class="point"><b>deception</b> —— 欺骗、瞒骗。"She lived a life of deception for years."</div>
+          <div class="point"><b>hit rock bottom</b> —— 跌到谷底。"I hit rock bottom before I asked for help."</div>
+        </div>
+        <a class="featured-link" href="https://www.theguardian.com/lifeandstyle/2026/nov/03/my-secret-life-as-a-relapsed-alcoholic" target="_blank" rel="noopener">读完整文章 →</a>
+      </div>
+
     </div>
 
-    <div class="article-section-title">常读媒体 · 直达入口</div>
+    <!-- 更多媒体入口 -->
+    <div class="article-section-title">想多读？这些入口值得收藏</div>
     <div class="source-grid">
-      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
-        <div class="source-name">The Economist</div>
-        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
       <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
         <div class="source-name">BBC Learning English</div>
-        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
-        <span class="source-arrow">访问官网 →</span>
+        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解。</div>
+        <span class="source-arrow">访问 →</span>
       </a>
       <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
         <div class="source-name">TED Talks</div>
-        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
-        <div class="source-name">The Guardian</div>
-        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
-        <span class="source-arrow">访问官网 →</span>
+        <div class="source-desc">各领域精彩演讲，练听力和口语素材。</div>
+        <span class="source-arrow">访问 →</span>
       </a>
     </div>
   </div>
