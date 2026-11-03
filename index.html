@@ -325,10 +325,15 @@
 <script>
 function go(view) { location.hash = view; }
 function renderRoute() {
-  const view = location.hash.replace('#/', '') || 'home';
+  let view = location.hash.replace('#/', '') || 'home';
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  const el = document.getElementById('view-' + view);
-  if (el) el.classList.add('active');
+  let el = document.getElementById('view-' + view);
+  // fallback: 微信等浏览器可能自动加 hash，找不到就回首页
+  if (!el) {
+    view = 'home';
+    el = document.getElementById('view-home');
+  }
+  el.classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.view === view);
   });
