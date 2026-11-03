@@ -392,6 +392,10 @@ const EXPRESSIONS = [
     examples: [["Ten-four, I'll be there in ten.","收到，我十分钟到。"],["A: Bring some pizza. B: Ten-four.","A：带点披萨。B：得嘞。"]] }
 ];
 
+var CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答" };
+var currentCat = "all";
+var keyword = "";
+
 // ============ 初始化：先渲染路由，保证首页一定能显示 ============
 renderRoute();
 
