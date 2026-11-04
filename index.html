@@ -283,7 +283,15 @@
     font-size: 12.5px; line-height: 1.55; color: var(--ink);
     background: var(--bg); padding: 10px 12px; border-radius: 8px;
   }
-  .learn-next-btn { width: 100%; }
+  .learn-btns { display: flex; gap: 10px; }
+  .learn-btn-prev {
+    background: var(--card); color: var(--ink-2);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 12px 16px; font-size: 14px; cursor: pointer;
+    flex-shrink: 0;
+  }
+  .learn-btn-prev:disabled { opacity: .4; }
+  .learn-next-btn { flex: 1; }
 
   /* 首页入口列表 */
   .home-entries { margin-bottom: 20px; }
@@ -357,16 +365,19 @@
       <div class="learn-progress-bar">
         <div class="learn-progress-fill" id="learnProgressFill" style="width:20%"></div>
       </div>
-      <div class="learn-card" id="learnCard" onclick="toggleLearnDetail()">
+      <div class="learn-card" id="learnCard">
         <div class="learn-en" id="learnEn">Ace it</div>
         <div class="learn-phonetic" id="learnPhonetic">/eɪs ɪt/</div>
         <div class="learn-zh" id="learnZh">轻松通过、考得很好</div>
-        <div class="learn-detail" id="learnDetail" style="display:none">
+        <div class="learn-detail">
           <div class="learn-origin" id="learnOrigin"></div>
           <div class="learn-example" id="learnExample"></div>
         </div>
       </div>
-      <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
+      <div class="learn-btns">
+        <button class="learn-btn-prev" id="learnPrevBtn" onclick="prevLearn()">← 上一个</button>
+        <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
+      </div>
     </div>
 
     <!-- 其他入口（辅助） -->
@@ -711,8 +722,8 @@ function renderLearnCard() {
   document.getElementById("learnExample").innerHTML =
     "<b>例句：</b>" + item.examples[0][0] + "<br>" + item.examples[0][1];
 
-  // 切换下一个时默认折叠
-  document.getElementById("learnDetail").style.display = "none";
+  // 上一个按钮状态
+  document.getElementById("learnPrevBtn").disabled = (learnState.current === 0);
 
   var btn = document.getElementById("learnNextBtn");
   if (learnState.current === learnState.items.length - 1) {
@@ -722,9 +733,18 @@ function renderLearnCard() {
   }
 }
 
-function toggleLearnDetail() {
-  var detail = document.getElementById("learnDetail");
-  detail.style.display = detail.style.display === "none" ? "block" : "none";
+function prevLearn() {
+  if (learnState.current > 0) {
+    learnState.current--;
+    renderLearnCard();
+  }
+}
+
+function restartLearn() {
+  learnState.current = 0;
+  document.getElementById("learnCard").style.display = "block";
+  document.querySelector(".learn-btns").style.display = "flex";
+  renderLearnCard();
 }
 
 function nextLearn() {
@@ -739,7 +759,14 @@ function nextLearn() {
       '<div style="font-size:18px;font-weight:700;margin-bottom:8px">今日学习完成！</div>' +
       '<div style="font-size:13px;color:var(--ink-2)">你已经学完了今天的 5 个表达，两天后再来学新的一组。</div>' +
       '</div>';
-    document.getElementById("learnNextBtn").style.display = "none";
+    document.querySelector(".learn-btns").style.display = "none";
+    // 加一个重新学习按钮
+    var restartBtn = document.createElement("button");
+    restartBtn.className = "cta cta-secondary";
+    restartBtn.style.width = "100%";
+    restartBtn.textContent = "再学一遍";
+    restartBtn.onclick = restartLearn;
+    document.querySelector(".learn-section").appendChild(restartBtn);
   }
 }
 
