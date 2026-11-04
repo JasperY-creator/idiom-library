@@ -711,20 +711,35 @@ var learnState = {
 };
 
 function initLearn() {
-  // 按日期计算今天是第几组（每两天一组）
+  // 按艾宾浩斯遗忘曲线：每天学 3 个新词 + 2 个复习（主要是 1 天前学过的）
   var daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
-  var groupIndex = Math.floor(daysSinceEpoch / 2) % Math.ceil(EXPRESSIONS.length / 5);
-  learnState.group = groupIndex;
-  learnState.current = 0;
+  learnState.group = daysSinceEpoch;
 
-  // 取这一组的 5 条
-  var start = groupIndex * 5;
-  learnState.items = EXPRESSIONS.slice(start, start + 5);
-  // 如果不够 5 条，从开头补
-  if (learnState.items.length < 5) {
-    learnState.items = learnState.items.concat(EXPRESSIONS.slice(0, 5 - learnState.items.length));
+  // 今天的 3 个新词（按顺序每天推进 3 个，循环）
+  var newStart = daysSinceEpoch * 3;
+  var newItems = [];
+  for (var i = 0; i < 3; i++) {
+    newItems.push(EXPRESSIONS[(newStart + i) % EXPRESSIONS.length]);
   }
 
+  // 复习 2 个：昨天学过的（1 天后复习是遗忘曲线关键节点）
+  var reviewItems = [];
+  if (daysSinceEpoch > 0) {
+    var yesterdayStart = (daysSinceEpoch - 1) * 3;
+    // 昨天学的 3 个里挑 2 个复习
+    reviewItems.push(EXPRESSIONS[yesterdayStart % EXPRESSIONS.length]);
+    reviewItems.push(EXPRESSIONS[(yesterdayStart + 1) % EXPRESSIONS.length]);
+  }
+
+  // 组合：3 新 + 2 复习 = 5 个
+  learnState.items = newItems.concat(reviewItems);
+
+  // 如果是第一天（没有复习的），补 2 个新词凑够 5 个
+  while (learnState.items.length < 5) {
+    learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
+  }
+
+  learnState.current = 0;
   renderLearnCard();
 }
 
