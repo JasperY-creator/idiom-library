@@ -1,7 +1,16 @@
 {
-  "updatedAt": "2026-11-03T21:59:27.633148+00:00",
+  "updatedAt": "2026-11-04T00:30:49.560075+00:00",
   "count": 15,
   "articles": [
+    {
+      "source": "BBC World",
+      "sourceColor": "#B84A32",
+      "sourceDesc": "BBC · 世界新闻",
+      "title": "Spanish transport minister resigns days after deadly train crash",
+      "link": "https://www.bbc.co.uk/news/articles/c6wydqd4yxdyo?at_medium=RSS&at_campaign=rss",
+      "summary": "At least 69 people were killed and dozens injured in the collision south of the capital, Madrid.",
+      "published": "2026-11-03T22:45:59+00:00"
+    },
     {
       "source": "BBC World",
       "sourceColor": "#B84A32",
@@ -10,15 +19,6 @@
       "link": "https://www.bbc.co.uk/news/articles/c9e8lk5dpj7no?at_medium=RSS&at_campaign=rss",
       "summary": "The NTSB said because the parts were found far from the accident site, they fell off before the crash.",
       "published": "2026-11-03T21:53:38+00:00"
-    },
-    {
-      "source": "BBC World",
-      "sourceColor": "#B84A32",
-      "sourceDesc": "BBC · 世界新闻",
-      "title": "Spanish transport minister resigns days after deadly train crash",
-      "link": "https://www.bbc.co.uk/news/articles/c6wydqd4yxdyo?at_medium=RSS&at_campaign=rss",
-      "summary": "At least 69 people were killed and dozens injured in the collision south of the capital, Madrid.",
-      "published": "2026-11-03T21:40:42+00:00"
     },
     {
       "source": "BBC World",
