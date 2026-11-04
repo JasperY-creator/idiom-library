@@ -166,6 +166,41 @@
   .upcoming-card .up-desc { font-size: 13px; color: var(--ink-2); line-height: 1.6; }
 
   .article-list { display: flex; flex-direction: column; gap: 10px; }
+
+  /* 精选文章卡片 */
+  .featured-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
+  .featured-card {
+    background: var(--card); border-radius: var(--radius); padding: 18px;
+    box-shadow: var(--shadow);
+  }
+  .featured-tag {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    color: var(--brand); background: var(--brand-soft);
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+  }
+  .featured-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px; font-weight: 700; line-height: 1.35;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .featured-trans {
+    font-size: 13.5px; color: var(--ink-2); line-height: 1.65;
+    margin-bottom: 12px;
+  }
+  .featured-points {
+    background: var(--bg); border-radius: 10px; padding: 12px 14px;
+    margin-bottom: 12px;
+  }
+  .point {
+    font-size: 13px; line-height: 1.6; color: var(--ink);
+    padding: 4px 0;
+  }
+  .point b { color: var(--accent); }
+  .featured-link {
+    display: inline-block; font-size: 13px; font-weight: 600;
+    color: var(--brand); text-decoration: none;
+  }
+  .featured-link:active { opacity: .7; }
   .article-card {
     background: var(--card); border-radius: 12px; padding: 14px 16px;
     box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
@@ -257,55 +292,23 @@
       <h1 class="brand" onclick="go('home')">外刊精读</h1>
       <p class="subtitle">有输入才有输出——每天读一点原版内容，口语里才蹦得出地道表达。</p>
     </header>
-    <div class="article-section-title">常读媒体 · 直达入口</div>
-    <div class="source-grid">
-      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
-        <div class="source-name">The Economist</div>
-        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
-        <div class="source-name">BBC Learning English</div>
-        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
-        <div class="source-name">TED Talks</div>
-        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
-        <div class="source-name">The Guardian</div>
-        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-    </div>
-    <div class="article-section-title">今日外刊 · 自动更新</div>
-    <div id="articleList" class="article-list">
-      <div class="empty"><div class="big">· · ·</div><div>正在加载今日外刊…</div></div>
+    <!-- 今日精选：动态加载 featured.json -->
+    <div class="featured-list" id="featuredList">
+      <div class="empty"><div class="big">· · ·</div><div>正在加载今日精选…</div></div>
     </div>
 
-    <div class="article-section-title">常读媒体 · 直达入口</div>
+    <!-- 更多媒体入口 -->
+    <div class="article-section-title">想多读？这些入口值得收藏</div>
     <div class="source-grid">
-      <a class="source-card" href="https://www.economist.com" target="_blank" rel="noopener">
-        <div class="source-name">The Economist</div>
-        <div class="source-desc">经济学人。观点犀利，词汇高级，适合雅思 7+ 冲分。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
       <a class="source-card" href="https://www.bbc.com/learningenglish" target="_blank" rel="noopener">
         <div class="source-name">BBC Learning English</div>
-        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解，入门友好。</div>
-        <span class="source-arrow">访问官网 →</span>
+        <div class="source-desc">BBC 官方英语学习频道，语速慢、有讲解。</div>
+        <span class="source-arrow">访问 →</span>
       </a>
       <a class="source-card" href="https://www.ted.com" target="_blank" rel="noopener">
         <div class="source-name">TED Talks</div>
-        <div class="source-desc">各领域精彩演讲，练听力和口语素材两不误。</div>
-        <span class="source-arrow">访问官网 →</span>
-      </a>
-      <a class="source-card" href="https://www.theguardian.com/international" target="_blank" rel="noopener">
-        <div class="source-name">The Guardian</div>
-        <div class="source-desc">卫报。评论版写得很好，话题贴近生活。</div>
-        <span class="source-arrow">访问官网 →</span>
+        <div class="source-desc">各领域精彩演讲，练听力和口语素材。</div>
+        <span class="source-arrow">访问 →</span>
       </a>
     </div>
   </div>
@@ -489,36 +492,38 @@ try {
   }
 }
 
-// ============ 外刊文章加载 ============
-function loadArticles() {
-  var container = document.getElementById("articleList");
+// ============ 外刊精选加载 ============
+function loadFeatured() {
+  var container = document.getElementById("featuredList");
   if (!container) return;
-  fetch("articles.json?t=" + Date.now())
+  fetch("featured.json?t=" + Date.now())
     .then(function(res) {
       if (!res.ok) throw new Error("fetch failed");
       return res.json();
     })
     .then(function(data) {
-      if (!data.articles || data.articles.length === 0) {
-        container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>暂无文章</div></div>';
+      if (!data.featured || data.featured.length === 0) {
+        container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>今日精选还在准备中，稍后再来看看～</div></div>';
         return;
       }
-      container.innerHTML = data.articles.map(function(a) {
-        var dateStr = a.published ? new Date(a.published).toLocaleDateString("zh-CN") : "";
-        var summaryHtml = a.summary ? '<div class="article-summary">' + a.summary + '</div>' : "";
-        return '<a class="article-card" href="' + a.link + '" target="_blank" rel="noopener">' +
-          '<span class="article-source" style="background:' + a.sourceColor + '">' + a.source + '</span>' +
-          '<div class="article-title">' + a.title + '</div>' +
-          summaryHtml +
-          '<div class="article-date">' + dateStr + '</div>' +
-        '</a>';
+      container.innerHTML = data.featured.map(function(a) {
+        var pointsHtml = a.points.map(function(p) {
+          return '<div class="point"><b>' + p.phrase + '</b> —— ' + p.example + '</div>';
+        }).join("");
+        return '<div class="featured-card">' +
+          '<div class="featured-tag">' + a.source + '</div>' +
+          '<div class="featured-title">' + a.title + '</div>' +
+          '<div class="featured-trans">' + a.guide + '</div>' +
+          '<div class="featured-points">' + pointsHtml + '</div>' +
+          '<a class="featured-link" href="' + a.link + '" target="_blank" rel="noopener">读原文 →</a>' +
+        '</div>';
       }).join("");
     })
     .catch(function(e) {
       container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>';
     });
 }
-loadArticles();
+loadFeatured();
 </script>
 </body>
 </html>
