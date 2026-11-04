@@ -116,6 +116,11 @@
     font-family: Georgia, "Times New Roman", serif;
     font-size: 21px; font-weight: 700; color: var(--ink); line-height: 1.25;
   }
+  .phonetic {
+    font-size: 13px; color: var(--ink-3);
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    margin-top: 2px;
+  }
   .zh { margin-top: 4px; font-size: 14px; color: var(--ink-2); }
   .tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 11px; padding: 3px 9px; border-radius: 999px; }
@@ -342,51 +347,51 @@ function renderRoute() {
 window.addEventListener('hashchange', renderRoute);
 
 const EXPRESSIONS = [
-  { en: "Ace it", zh: "轻松通过、考得很好", cat: "performance",
+  { en: "Ace it", phonetic: "/eɪs ɪt/", zh: "轻松通过、考得很好", cat: "performance",
     keywords: ["考试","考过","通过","面试","表现","成功","考好","一把过","稳了","ace","exam","pass","interview"],
     origin: "ace 本是扑克牌里最大的那张 A。赌场里 ace 就是「王牌、顶尖」，后来动词化，「ace an exam」就像打出王牌一样稳稳拿下。",
     examples: [["She aced her driving test on the first try.","她驾照考试一把过了。"],["If you've practiced enough, you'll ace the interview.","练到位了，面试稳的。"]] },
-  { en: "She's salty", zh: "她很不爽、在闹脾气", cat: "describe",
+  { en: "She's salty", phonetic: "/ʃiːz ˈsɔːlti/", zh: "她很不爽、在闹脾气", cat: "describe",
     keywords: ["不爽","生气","不开心","酸","输不起","吐槽","闹脾气","脸挂不住","salty","bitter","sore"],
     origin: "最早跟航海有关，「salty」形容饱经风霜的老水手；1930 年代进入美国黑人英语表示「火气大、爱怼人」；2010 年代电竞圈把它发扬光大——调侃输家「在流咸咸的眼泪」，于是专指输不起、酸了。",
     examples: [["Stop being salty just because I beat you.","不就赢你一把，别这么酸。"],["He got salty when the boss praised someone else.","老板夸了别人，他脸就挂不住了。"]] },
-  { en: "Have a blast", zh: "玩得非常开心", cat: "mood",
+  { en: "Have a blast", phonetic: "/hæv ə blæst/", zh: "玩得非常开心", cat: "mood",
     keywords: ["开心","高兴","玩","派对","爽","嗨","痛快","尽兴","blast","fun","enjoy","party"],
     origin: "blast 本义是「爆炸、一阵猛烈冲击」。20 世纪中期美国人把一场热烈喧闹、像炸开一样嗨的派对叫 a blast，慢慢泛指痛快尽兴的经历。",
     examples: [["We had a blast hiking in the mountains.","我们爬山爬得特别爽。"],["The kids had a blast at the amusement park.","孩子们在游乐园玩疯了。"]] },
-  { en: "I'm home free", zh: "我解脱了、没事了", cat: "mood",
+  { en: "I'm home free", phonetic: "/aɪm həʊm friː/", zh: "我解脱了、没事了", cat: "mood",
     keywords: ["解脱","放松","没事了","完成","解放","搞定","freed","done","relieved","轻松"],
     origin: "来自老式棋盘游戏和棒球：跑回 home（本垒/终点）就安全了、没人追得上。所以 home free 就是大局已定、后顾之忧全没了。",
     examples: [["Once I finish this presentation, I'm home free.","讲完这个 PPT 我就彻底解放了。"],["With the other team down to two players, we're home free.","对方只剩两人，我们稳赢。"]] },
-  { en: "White lie", zh: "善意的谎言", cat: "social",
+  { en: "White lie", phonetic: "/waɪt laɪ/", zh: "善意的谎言", cat: "social",
     keywords: ["谎言","善意","客套","不伤感情","lie","white lie","善意的谎言","委婉"],
     origin: "西方文化里 white 长期象征纯洁、无害（white magic 白魔法 vs. black magic 黑魔法）。18 世纪起把「不带恶意、为了照顾对方情绪而撒的小谎」叫 white lie，和 black lie（恶意谎言）相对。",
     examples: [["I told a white lie and said the dress looked great.","我撒了个善意的谎，说裙子很好看。"],["\"I'm fine\" is often just a white lie.","「我没事」经常是句善意的谎言。"]] },
-  { en: "I see red", zh: "火冒三丈", cat: "mood",
+  { en: "I see red", phonetic: "/aɪ siː red/", zh: "火冒三丈", cat: "mood",
     keywords: ["生气","不开心","炸了","火大","怒","暴怒","气炸","火冒三丈","red","angry","mad","furious"],
     origin: "源自古希腊以来「公牛见红布就怒」的说法（其实公牛是色盲，但文化印象已经固化），再加红色在西方一直和血、愤怒绑定，于是 see red 就是瞬间暴怒。",
     examples: [["I saw red when someone scratched my new car.","有人划了我的新车，我当场炸了。"],["She saw red reading the nasty comment.","看到那条恶意评论，她气炸了。"]] },
-  { en: "I'm your man", zh: "这事找我就对了", cat: "social",
+  { en: "I'm your man", phonetic: "/aɪm jɔːr mæn/", zh: "这事找我就对了", cat: "social",
     keywords: ["帮忙","找我","靠谱","交给我","包在我身上","help","your man","volunteer","主动"],
     origin: "20 世纪中期美国口语，字面「我就是你要找的那个人」，主动打包票表示这活儿我最靠谱。现在女生也常用，常说成 I'm your person。",
     examples: [["Need someone to fix the faucet? I'm your man.","水龙头漏水要修？找我。"],["Want cheap but good food? I'm your man.","想吃便宜又好吃的？问我准没错。"]] },
-  { en: "Six seven", zh: "懂的都懂、没法解释", cat: "social",
+  { en: "Six seven", phonetic: "/sɪks ˈsevn/", zh: "懂的都懂、没法解释", cat: "social",
     keywords: ["懂的都懂","敷衍","别问","没法解释","67","six seven","梗","网络","摆烂"],
     origin: "2024 年底才爆火的 Gen Alpha 新梗，出自费城说唱歌手 Skrilla 的歌《Doot Doot (6 7)》，配上 NBA 球员 LaMelo Ball（身高 6 尺 7 寸）的篮球剪辑传遍 TikTok。它本身没有固定含义——「说不通就是它的意思」，用来敷衍、糊弄、表示别问了。",
     examples: [["A: Where did you go last night? B: Six seven.","A：昨晚去哪了？B：懂的都懂。"],["Don't ask why it works, it's just six seven.","别问它为啥能成，玄学。"]] },
-  { en: "Ninety-nine", zh: "几乎、差不多", cat: "performance",
+  { en: "Ninety-nine", phonetic: "/ˈnaɪnti naɪn/", zh: "几乎、差不多", cat: "performance",
     keywords: ["差不多","几乎","大概","把握","肯定","99","ninety","几乎确定","大概率","mostly"],
     origin: "来自口语里常用的「ninety-nine percent sure」（99% 确定），故意不说满 100%，给自己留点余地。省略掉 percent 之后直接当形容词用，表八九不离十。",
     examples: [["I'm ninety-nine sure he'll forget.","我几乎可以肯定他会忘。"],["The plan is ninety-nine ready; just one small thing left.","计划基本就绪，就差一点。"]] },
-  { en: "You're needy", zh: "你很粘人", cat: "describe",
+  { en: "You're needy", phonetic: "/jʊər ˈniːdi/", zh: "你很粘人", cat: "describe",
     keywords: ["粘人","依赖","作","要安全感","缺爱","粘","needy","clingy","attention"],
     origin: "need + -y 形容词后缀本来中性，指「有需要的」。20 世纪中期以后在情感语境里带上贬义——专指那种不停要确认、要陪伴、要安全感的「情感索取型」人。",
     examples: [["He gets really needy if we don't text every day.","我们要不天天发消息，他就特别粘人。"],["Stop being so needy — she has her own life.","别那么粘人，人家有自己的生活。"]] },
-  { en: "On cloud nine", zh: "非常高兴、飘飘然", cat: "mood",
+  { en: "On cloud nine", phonetic: "/ɒn klaʊd naɪn/", zh: "非常高兴、飘飘然", cat: "mood",
     keywords: ["开心","高兴","快乐","狂喜","飘","美滋滋","爽","cloud nine","ecstatic","happy","thrilled"],
     origin: "最流行的说法是 1896 年国际云图把云分成十类，第 9 号是最高最蓬松的积雨云，所以「待在第九号云上」就是飘在最高最爽的地方；也有人扯到基督教九级天使里最高的炽天使。1950 年代从美国电台/爵士圈流行开来。",
     examples: [["She's been on cloud nine since he proposed.","他求婚后她一直飘飘然。"],["Winning the award put him on cloud nine.","拿奖让他爽到不行。"]] },
-  { en: "Ten-four", zh: "收到了、明白", cat: "social",
+  { en: "Ten-four", phonetic: "/ˌten ˈfɔːr/", zh: "收到了、明白", cat: "social",
     keywords: ["收到","明白","好的","得嘞","收到了","ten four","roger","copied","了解"],
     origin: "来自 1930 年代美国警察无线电的「10-code」，10-4 在代码表里就是 message received。1970 年代通过 CB 民用对讲机、卡车司机文化和电影《Smokey and the Bandit》火遍全国，变成口语里俏皮的「得嘞」。",
     examples: [["Ten-four, I'll be there in ten.","收到，我十分钟到。"],["A: Bring some pizza. B: Ten-four.","A：带点披萨。B：得嘞。"]] }
@@ -427,6 +432,7 @@ try {
         '<div class="card-head">' +
           '<div class="card-main">' +
             '<div class="en">' + item.en + '</div>' +
+            '<div class="phonetic">' + item.phonetic + '</div>' +
             '<div class="zh">' + item.zh + '</div>' +
             '<div class="tags"><span class="tag ' + item.cat + '">' + CAT_LABEL[item.cat] + '</span></div>' +
           '</div>' +
