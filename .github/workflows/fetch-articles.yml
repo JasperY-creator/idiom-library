@@ -1,10 +1,9 @@
-name: Fetch Daily Articles
+name: Fetch Daily Featured Articles
 
 on:
   schedule:
-    # 每天北京时间早上 8 点跑一次（UTC 0:00）
     - cron: '0 0 * * *'
-  workflow_dispatch:  # 支持手动触发
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -14,21 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install dependencies
         run: pip install feedparser
-
-      - name: Fetch articles
-        run: python3 scripts/fetch_articles.py
-
+      - name: Fetch and generate featured articles
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python3 scripts/fetch_featured.py
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add articles.json
-          git diff --staged --quiet || git commit -m "chore: auto-update articles.json [$(date -u '+%Y-%m-%d')]"
+          git add featured.json
+          git diff --staged --quiet || git commit -m "chore: auto-update featured.json [$(date -u '+%Y-%m-%d')]"
           git push
