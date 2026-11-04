@@ -201,6 +201,44 @@
     color: var(--brand); text-decoration: none;
   }
   .featured-link:active { opacity: .7; }
+
+  /* 词汇测试 */
+  .cta-tertiary {
+    background: var(--card); color: var(--brand);
+    border: 1.5px solid var(--brand-soft);
+  }
+  .quiz-container { padding: 0 4px; }
+  .quiz-start { text-align: center; padding: 40px 0; }
+  .quiz-big { font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .quiz-desc { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; }
+  .quiz-question { margin-bottom: 24px; }
+  .quiz-q-num { font-size: 12px; color: var(--ink-3); margin-bottom: 6px; }
+  .quiz-q-text { font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--ink); margin-bottom: 16px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-option {
+    background: var(--card); border: 2px solid transparent;
+    border-radius: 10px; padding: 14px 16px;
+    font-size: 14px; line-height: 1.4; color: var(--ink);
+    cursor: pointer; transition: all .15s;
+  }
+  .quiz-option:hover { border-color: var(--brand-soft); }
+  .quiz-option.selected { border-color: var(--brand); background: var(--brand-soft); }
+  .quiz-option.correct { border-color: #4caf50; background: #e8f5e9; }
+  .quiz-option.wrong { border-color: #f44336; background: #ffebee; }
+  .quiz-progress {
+    height: 4px; background: var(--border); border-radius: 2px;
+    margin-bottom: 20px; overflow: hidden;
+  }
+  .quiz-progress-bar {
+    height: 100%; background: var(--brand); transition: width .3s;
+  }
+  .quiz-result { text-align: center; padding: 40px 0; }
+  .quiz-score { font-size: 48px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+  .quiz-result-title { font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .quiz-result-desc { font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-bottom: 24px; }
+  .quiz-review { text-align: left; margin-bottom: 24px; }
+  .quiz-review-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .quiz-review-item:last-child { border-bottom: none; }
   .article-card {
     background: var(--card); border-radius: 12px; padding: 14px 16px;
     box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
@@ -256,6 +294,10 @@
         <span class="cta-label">演讲精选</span>
         <span class="cta-sub">看 TED 学地道表达 · 每两天更新 3 个精选演讲</span>
       </button>
+      <button class="cta cta-tertiary" onclick="startQuiz()">
+        <span class="cta-label">测测你的词汇量</span>
+        <span class="cta-sub">6 道题 · 看看你掌握了几个</span>
+      </button>
     </div>
     <div class="stats-row">
       <div class="stat"><div class="stat-num">12</div><div class="stat-label">已收录表达</div></div>
@@ -310,6 +352,21 @@
         <div class="source-desc">各领域精彩演讲，练听力和口语素材。</div>
         <span class="source-arrow">访问 →</span>
       </a>
+    </div>
+  </div>
+
+  <!-- 词汇测试 -->
+  <div class="view" id="view-quiz">
+    <header>
+      <h1 class="brand" onclick="go('home')">词汇测试</h1>
+      <p class="subtitle">从 12 条精选表达里出 6 道题，看看你掌握了几个。</p>
+    </header>
+    <div id="quizContainer" class="quiz-container">
+      <div class="quiz-start">
+        <div class="quiz-big">6 道选择题</div>
+        <div class="quiz-desc">每题选一个最符合的答案，做完看结果。</div>
+        <button class="cta cta-primary" onclick="startQuizNow()">开始测试</button>
+      </div>
     </div>
   </div>
 
@@ -524,6 +581,143 @@ function loadFeatured() {
     });
 }
 loadFeatured();
+
+// ============ 词汇测试 ============
+var QUIZ_QUESTIONS = [
+  {
+    q: "你朋友考完试跟你说 \"I aced it\"，她是什么意思？",
+    options: ["我考砸了", "我考得很好", "我还没考", "我不想考"],
+    answer: 1,
+    explain: "ace it 就是轻松通过、考得很好。"
+  },
+  {
+    q: "你同事输了游戏后一直臭脸，你可以说：",
+    options: ["She's on cloud nine", "She's salty", "She's home free", "She's needy"],
+    answer: 1,
+    explain: "salty 形容输不起、酸了、闹脾气。"
+  },
+  {
+    q: "\"I told a white lie\" 是什么意思？",
+    options: ["我撒了个大谎", "我撒了个善意的谎", "我说了个白色的谎", "我没撒谎"],
+    answer: 1,
+    explain: "white lie 就是善意的谎言，为了照顾对方情绪而说的小谎。"
+  },
+  {
+    q: "有人划了你的新车，你当场炸了——这叫：",
+    options: ["I see red", "I'm your man", "Have a blast", "Ten-four"],
+    answer: 0,
+    explain: "see red 就是瞬间暴怒、火冒三丈。"
+  },
+  {
+    q: "你终于做完了所有作业，感觉一身轻松——这叫：",
+    options: ["I'm home free", "I see red", "I'm needy", "Six seven"],
+    answer: 0,
+    explain: "home free 就是解脱了、没事了、大局已定。"
+  },
+  {
+    q: "有人跟你说 \"On cloud nine\"，他是什么心情？",
+    options: ["很生气", "非常开心", "很累", "很无聊"],
+    answer: 1,
+    explain: "on cloud nine 就是非常高兴、飘飘然。"
+  }
+];
+
+var quizState = {
+  current: 0,
+  answers: [],
+  selected: -1
+};
+
+function startQuiz() {
+  location.hash = '/quiz';
+  setTimeout(function() { startQuizNow(); }, 100);
+}
+
+function startQuizNow() {
+  quizState = { current: 0, answers: [], selected: -1 };
+  renderQuestion();
+}
+
+function renderQuestion() {
+  var container = document.getElementById("quizContainer");
+  var q = QUIZ_QUESTIONS[quizState.current];
+  var progress = (quizState.current / QUIZ_QUESTIONS.length) * 100;
+
+  var optionsHtml = q.options.map(function(opt, i) {
+    return '<div class="quiz-option" data-idx="' + i + '" onclick="selectOption(' + i + ')">' + opt + '</div>';
+  }).join("");
+
+  container.innerHTML =
+    '<div class="quiz-progress"><div class="quiz-progress-bar" style="width:' + progress + '%"></div></div>' +
+    '<div class="quiz-question">' +
+      '<div class="quiz-q-num">第 ' + (quizState.current + 1) + ' / ' + QUIZ_QUESTIONS.length + ' 题</div>' +
+      '<div class="quiz-q-text">' + q.q + '</div>' +
+      '<div class="quiz-options">' + optionsHtml + '</div>' +
+    '</div>' +
+    '<button class="cta cta-primary" id="nextBtn" onclick="nextQuestion()" style="width:100%;opacity:.5" disabled>下一题</button>';
+}
+
+function selectOption(idx) {
+  quizState.selected = idx;
+  document.querySelectorAll(".quiz-option").forEach(function(el, i) {
+    el.classList.toggle("selected", i === idx);
+  });
+  var btn = document.getElementById("nextBtn");
+  btn.disabled = false;
+  btn.style.opacity = "1";
+}
+
+function nextQuestion() {
+  if (quizState.selected < 0) return;
+  quizState.answers.push(quizState.selected);
+  quizState.selected = -1;
+  quizState.current++;
+  if (quizState.current < QUIZ_QUESTIONS.length) {
+    renderQuestion();
+  } else {
+    renderResult();
+  }
+}
+
+function renderResult() {
+  var container = document.getElementById("quizContainer");
+  var score = 0;
+  var reviewHtml = "";
+
+  QUIZ_QUESTIONS.forEach(function(q, i) {
+    var correct = quizState.answers[i] === q.answer;
+    if (correct) score++;
+    reviewHtml += '<div class="quiz-review-item">' +
+      '<div style="margin-bottom:4px"><b>第' + (i+1) + '题</b>：' + (correct ? '✅ 答对了' : '❌ 答错了') + '</div>' +
+      '<div style="color:var(--ink-2)">' + q.explain + '</div>' +
+    '</div>';
+  });
+
+  var title, desc;
+  if (score === 6) {
+    title = "词汇大神！";
+    desc = "6 题全对，这些地道表达你已经掌握得很牢了。去语料库看看还有哪些你没学过的吧。";
+  } else if (score >= 4) {
+    title = "很不错！";
+    desc = "答对了 " + score + " 题，基础很扎实。再去语料库过一遍，争取下次全对。";
+  } else if (score >= 2) {
+    title = "还需加油";
+    desc = "答对了 " + score + " 题，还有提升空间。建议从语料库第一条开始，每天背几条。";
+  } else {
+    title = "从头开始学吧";
+    desc = "答对了 " + score + " 题，没关系，从语料库第一条开始慢慢来，每天 5 分钟，一个月后就不一样了。";
+  }
+
+  container.innerHTML =
+    '<div class="quiz-result">' +
+      '<div class="quiz-score">' + score + ' / ' + QUIZ_QUESTIONS.length + '</div>' +
+      '<div class="quiz-result-title">' + title + '</div>' +
+      '<div class="quiz-result-desc">' + desc + '</div>' +
+      '<div class="quiz-review">' + reviewHtml + '</div>' +
+      '<button class="cta cta-primary" onclick="startQuizNow()" style="width:100%">再测一次</button>' +
+      '<button class="cta cta-secondary" onclick="go(\'corpus\')" style="width:100%;margin-top:10px">去语料库学习</button>' +
+    '</div>';
+}
 </script>
 </body>
 </html>
