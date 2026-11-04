@@ -796,8 +796,36 @@ function initLearn() {
     learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
   }
 
-  learnState.current = 0;
+  // 从 localStorage 读取上次学习进度（同一天内退出再进来接着学）
+  var saved = null;
+  try {
+    saved = JSON.parse(localStorage.getItem("saywhat_learn") || "null");
+  } catch(e) {}
+  if (saved && saved.group === daysSinceEpoch) {
+    learnState.current = saved.current || 0;
+    // 如果上次已经学完了，显示完成页
+    if (saved.done) {
+      document.getElementById("learnCard").style.display = "none";
+      document.querySelector(".learn-btns").style.display = "none";
+      document.getElementById("learnDone").style.display = "block";
+      document.getElementById("restartBtn").style.display = "block";
+      return;
+    }
+  } else {
+    learnState.current = 0;
+  }
+
   renderLearnCard();
+}
+
+function saveLearnProgress() {
+  try {
+    localStorage.setItem("saywhat_learn", JSON.stringify({
+      group: learnState.group,
+      current: learnState.current,
+      done: false
+    }));
+  } catch(e) {}
 }
 
 function renderLearnCard() {
@@ -832,6 +860,7 @@ function prevLearn() {
   if (learnState.current > 0) {
     learnState.current--;
     renderLearnCard();
+    saveLearnProgress();
   }
 }
 
@@ -839,19 +868,31 @@ function restartLearn() {
   learnState.current = 0;
   document.getElementById("learnCard").style.display = "block";
   document.querySelector(".learn-btns").style.display = "flex";
+  document.getElementById("learnDone").style.display = "none";
+  document.getElementById("restartBtn").style.display = "none";
   renderLearnCard();
+  saveLearnProgress();
 }
 
 function nextLearn() {
   if (learnState.current < learnState.items.length - 1) {
     learnState.current++;
     renderLearnCard();
+    saveLearnProgress();
   } else {
     // 学完了
     document.getElementById("learnCard").style.display = "none";
     document.querySelector(".learn-btns").style.display = "none";
     document.getElementById("learnDone").style.display = "block";
     document.getElementById("restartBtn").style.display = "block";
+    // 保存完成状态
+    try {
+      localStorage.setItem("saywhat_learn", JSON.stringify({
+        group: learnState.group,
+        current: learnState.current,
+        done: true
+      }));
+    } catch(e) {}
   }
 }
 
