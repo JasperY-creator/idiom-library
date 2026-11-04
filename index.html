@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>地道口语语料库 · 雅思口语随查</title>
+<title>张口就来 · 每两天学5个地道口语</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D50'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23F5F1E8' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
 <style>
   :root {
@@ -38,11 +38,17 @@
   header { padding: 8px 2px 18px; }
   .brand-row { display: flex; align-items: baseline; justify-content: space-between; }
   .brand {
+    display: flex; align-items: center; gap: 8px;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 24px; font-weight: 700; color: var(--ink);
+    font-size: 20px; font-weight: 700; color: var(--ink);
     letter-spacing: .3px; margin: 0; cursor: pointer;
   }
-  .brand em { color: var(--brand); font-style: italic; }
+  .brand-logo {
+    width: 28px; height: 28px; flex-shrink: 0;
+    background: var(--brand); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-logo svg { width: 16px; height: 16px; color: #fff; }
   .count-pill {
     font-size: 12px; color: var(--ink-2);
     background: var(--card); border: 1px solid var(--line);
@@ -351,7 +357,7 @@
 <div class="wrap">
 
   <div class="view" id="view-home">
-    <header><h1 class="brand" onclick="go('home')">地道口语<em>·</em>语料库</h1></header>
+    <header><h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>张口就来</h1></header>
     <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
     <h2 class="hero-title">每两天学 5 个，<br>开口不再<em>卡壳</em>。</h2>
     <p class="hero-desc">不用背单词书，不用刷题库。每天花 2 分钟，学 5 个老外天天挂嘴边的地道表达——知道它为什么这么说，再配个能直接用的例句。</p>
@@ -412,7 +418,7 @@
   <div class="view" id="view-corpus">
     <header>
       <div class="brand-row">
-        <h1 class="brand" onclick="go('home')">语料库</h1>
+        <h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>张口就来</h1>
         <span class="count-pill" id="countPill">已收录 12 条</span>
       </div>
       <p class="subtitle">点卡片看词源和例句 · 搜「不开心」「考过了」「粘人」都能命中</p>
@@ -433,7 +439,7 @@
 
   <div class="view" id="view-articles">
     <header>
-      <h1 class="brand" onclick="go('home')">演讲精选</h1>
+      <h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>张口就来</h1>
       <p class="subtitle">每两天更新 3 个精选演讲——带中文导读和口语金句，看完就能用。</p>
     </header>
     <!-- 今日精选：动态加载 featured.json -->
@@ -460,7 +466,7 @@
   <!-- 词汇测试 -->
   <div class="view" id="view-quiz">
     <header>
-      <h1 class="brand" onclick="go('home')">词汇测试</h1>
+      <h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>张口就来</h1>
       <p class="subtitle">从 12 条精选表达里出 6 道题，看看你掌握了几个。</p>
     </header>
     <div id="quizContainer" class="quiz-container">
