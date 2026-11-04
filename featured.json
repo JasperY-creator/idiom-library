@@ -1,66 +1,66 @@
 {
-  "updatedAt": "2026-11-04T01:35:01.195213+00:00",
+  "updatedAt": "2026-11-04T01:49:17.231711+00:00",
   "featured": [
     {
       "title": "What kids wish their parents knew about fun | Mila Rojas",
-      "source": "TED Talks",
+      "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "这篇TED演讲从一个11岁孩子的视角出发，探讨了玩耍和乐趣对孩子成长的重要性，以及成年人如何因忙碌而忽视了这一点。话题贴近雅思口语中的“教育”、“家庭”和“个人成长”类问题，语言简单生动，适合考生积累关于童年、学习和生活平衡的表达。",
+      "guide": "一个11岁的小女孩分享了她观察到的现象：大人们总是被日程和期望压得喘不过气，忘记了纯粹为了好玩而玩耍的快乐。这个演讲适合在聊教育方式、亲子关系或者工作与生活平衡时参考，提醒我们玩耍不是浪费时间，而是生活的重要部分。",
       "points": [
-        {
-          "phrase": "bury under schedules",
-          "example": "很多成年人被日程表埋没，忘记了如何放松。"
-        },
         {
           "phrase": "just for fun",
-          "example": "我们做这件事只是为了好玩，而不是为了完成任务。"
+          "example": "我们周末去爬山吧，just for fun，不设任何目标。"
         },
         {
-          "phrase": "shed light on",
-          "example": "这项研究揭示了玩耍对儿童发展的重要性。"
+          "phrase": "buried under schedules",
+          "example": "最近他buried under schedules，连吃饭的时间都没有。"
+        },
+        {
+          "phrase": "take a step back",
+          "example": "当你感到压力大时，不妨take a step back，重新审视一下优先级。"
         }
       ]
     },
     {
-      "title": "Sunday Pick: Do all my friends secretly hate me? | from Corner Piece",
-      "source": "TED Talks",
-      "link": "https://audiocollective.ted.com/",
-      "guide": "这期播客探讨了成年后交友为何变得困难，以及人们常有的社交焦虑——担心朋友是否真的喜欢自己。话题直接对应雅思口语中的“友谊”、“社交”和“心理健康”类问题，内容贴近生活，有助于考生表达关于人际关系和个人感受的观点。",
+      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
+      "source": "TED",
+      "link": "http://go.ted.com/harvillehendrix",
+      "guide": "一对夫妻治疗师夫妇在教了全世界几十年如何好好相爱之后，自己的婚姻却差点走到尽头。他们坦诚地分享了这段经历和修复关系的方法。这个演讲适合在聊亲密关系、沟通技巧或者个人成长时参考，真实又有启发性。",
       "points": [
         {
-          "phrase": "mission impossible",
-          "example": "对很多成年人来说，交新朋友就像不可能完成的任务。"
+          "phrase": "fall apart",
+          "example": "他们的计划因为天气原因fall apart了。"
         },
         {
-          "phrase": "secretly hate me",
-          "example": "我有时会担心朋友们是不是暗地里讨厌我。"
+          "phrase": "work on a relationship",
+          "example": "任何关系都需要双方共同努力去work on。"
         },
         {
-          "phrase": "make friends as an adult",
-          "example": "成年后交友需要主动出击，不像学生时代那么自然。"
+          "phrase": "open up to someone",
+          "example": "他很难open up to别人，总是把情绪藏在心里。"
         }
       ]
     },
     {
-      "title": "What crows teach us about death | Kaeli Swift (re-release)",
-      "source": "TED Talks",
-      "link": "https://audiocollective.ted.com/",
-      "guide": "这篇演讲通过乌鸦对死亡的反应，探讨了动物界的死亡仪式，并引申到人类对死亡的理解和仪式感。话题涉及“文化”、“自然”和“个人成长”，适合雅思口语中关于传统、仪式和生命教育的讨论，内容有趣且富有启发性。",
+      "title": "How to make friends (and keep them) | Sheridan Voysey",
+      "source": "TED",
+      "link": "http://go.ted.com/sheridanvoysey",
+      "guide": "友谊专家Sheridan Voysey认为我们正经历一场“友谊衰退”，很多人找不到可以在凌晨两点求助的朋友。他分享了如何建立和维持真正的友谊。这个演讲适合在聊社交、孤独感或者人际关系时参考，实用又温暖。",
       "points": [
         {
-          "phrase": "rituals for the dead",
-          "example": "不同文化有各自独特的悼念死者的仪式。"
+          "phrase": "a shoulder to cry on",
+          "example": "在我最难过的时候，她给了我a shoulder to cry on。"
         },
         {
-          "phrase": "span much of the natural world",
-          "example": "死亡仪式存在于自然界的许多物种中。"
+          "phrase": "reach out to someone",
+          "example": "如果你感到孤独，不妨主动reach out to老朋友。"
         },
         {
-          "phrase": "with charm and playful",
-          "example": "她用魅力和幽默的方式讲述了严肃的科学话题。"
+          "phrase": "drift apart",
+          "example": "毕业后我们渐渐drift apart，很少联系了。"
         }
       ]
     }
   ],
-  "allCount": 10
+  "allCount": 5
 }
