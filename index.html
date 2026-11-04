@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SayWhat · 每天学5个地道口语</title>
+<script src="https://fastly.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D50'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23F5F1E8' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
 <style>
   :root {
@@ -370,6 +371,36 @@
 <body>
 <div class="wrap">
 
+  <!-- 登录/注册页 -->
+  <div class="view" id="view-login">
+    <div style="text-align:center;padding-top:60px">
+      <div style="width:60px;height:60px;background:var(--brand);border-radius:16px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="width:32px;height:32px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <h1 style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:8px">SayWhat</h1>
+      <p style="color:var(--ink-2);font-size:14px;margin-bottom:40px">每天学 5 个地道口语，开口不再卡壳</p>
+
+      <div style="max-width:320px;margin:0 auto;text-align:left">
+        <label style="font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px">手机号</label>
+        <input type="tel" id="loginPhone" placeholder="输入手机号" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:16px;box-sizing:border-box">
+
+        <label style="font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px">昵称</label>
+        <input type="text" id="loginNickname" placeholder="给自己起个名字" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:24px;box-sizing:border-box">
+
+        <button class="cta cta-primary" style="width:100%" onclick="handleLogin()">开始学习 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 我的页面 -->
+  <div class="view" id="view-profile">
+    <header>
+      <h1 class="brand"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>SayWhat</h1>
+    </header>
+
+    <div id="profileContent"></div>
+  </div>
+
   <div class="view" id="view-home">
     <header><h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>SayWhat</h1></header>
     <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
@@ -521,23 +552,156 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h6"/></svg>
     演讲
   </button>
+  <button class="tab-btn" data-view="profile" onclick="go('profile')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    我的
+  </button>
 </nav>
 
 <script>
+// ============ Supabase 初始化 ============
+const SUPABASE_URL = "https://cxgwltnomkapgwnvpooz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_7uDNH9Tvtr_3YbMvouRY-w_I8tqxItl";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// 当前登录用户
+let currentUser = null;
+try {
+  currentUser = JSON.parse(localStorage.getItem("saywhat_user") || "null");
+} catch(e) {}
+
+function isLoggedIn() { return !!currentUser; }
+
+// 登录/注册
+async function loginOrSignup(phone, nickname) {
+  // 先查有没有这个手机号
+  let { data: existing } = await sb.from("profiles").select("*").eq("phone", phone).single();
+  if (existing) {
+    currentUser = existing;
+  } else {
+    // 新用户注册
+    let { data: newUser, error } = await sb.from("profiles").insert({
+      phone: phone,
+      nickname: nickname
+    }).select().single();
+    if (error) throw error;
+    currentUser = newUser;
+  }
+  localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+  location.hash = "/home";
+  renderRoute();
+}
+
+function logout() {
+  currentUser = null;
+  localStorage.removeItem("saywhat_user");
+  location.hash = "/login";
+  renderRoute();
+}
+
+// 如果没登录，强制跳登录页
+if (!isLoggedIn()) {
+  location.hash = "/login";
+}
+
 function go(view) { location.hash = '/' + view; }
+
+async function handleLogin() {
+  var phone = document.getElementById("loginPhone").value.trim();
+  var nickname = document.getElementById("loginNickname").value.trim();
+  if (!phone || phone.length < 11) { alert("请输入正确的手机号"); return; }
+  if (!nickname) { alert("请输入昵称"); return; }
+  try {
+    await loginOrSignup(phone, nickname);
+    alert("欢迎，" + nickname + "！");
+  } catch(e) {
+    alert("出错了：" + e.message);
+  }
+}
+
+async function renderProfile() {
+  if (!currentUser) return;
+  var el = document.getElementById("profileContent");
+
+  // 拉我的收藏和喜欢
+  var { data: favs } = await sb.from("favorites").select("*").eq("user_id", currentUser.id);
+  var { data: likes } = await sb.from("likes").select("*").eq("user_id", currentUser.id);
+
+  var favKeys = (favs || []).map(f => f.expression_key);
+  var likeKeys = (likes || []).map(l => l.expression_key);
+
+  var favItems = EXPRESSIONS.filter(e => favKeys.includes(e.en.toLowerCase()));
+  var likeItems = EXPRESSIONS.filter(e => likeKeys.includes(e.en.toLowerCase()));
+
+  el.innerHTML = `
+    <div style="background:var(--card);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:24px;font-weight:700;margin-bottom:4px">${currentUser.nickname}</div>
+      <div style="font-size:13px;color:var(--ink-3)">${currentUser.phone}</div>
+    </div>
+
+    <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:14px;font-weight:600;margin-bottom:12px">每天学几个？</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        ${[3,4,5,6,7,8,9,10].map(n => `
+          <button onclick="setDailyGoal(${n})" style="width:44px;height:44px;border-radius:10px;border:1px solid ${currentUser.daily_goal===n?'var(--brand)':'var(--line)'};background:${currentUser.daily_goal===n?'var(--brand)':'#fff'};color:${currentUser.daily_goal===n?'#fff':'var(--ink)'};font-size:14px;cursor:pointer">${n}</button>
+        `).join('')}
+      </div>
+    </div>
+
+    <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:14px;font-weight:600;margin-bottom:12px">❤️ 我喜欢的（${likeItems.length}）</div>
+      ${likeItems.length === 0 ? '<div style="font-size:13px;color:var(--ink-3)">还没有喜欢的表达，看到喜欢的点个小心心吧</div>' :
+        likeItems.map(e => `<div style="padding:8px 0;border-bottom:1px solid var(--line)"><b>${e.en}</b> <span style="color:var(--ink-3);font-size:13px">${e.zh}</span></div>`).join('')
+      }
+    </div>
+
+    <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
+      <div style="font-size:14px;font-weight:600;margin-bottom:12px">⭐ 我收藏的（${favItems.length}）</div>
+      ${favItems.length === 0 ? '<div style="font-size:13px;color:var(--ink-3)">还没有收藏，看到难记的收藏起来以后复习</div>' :
+        favItems.map(e => `<div style="padding:8px 0;border-bottom:1px solid var(--line)"><b>${e.en}</b> <span style="color:var(--ink-3);font-size:13px">${e.zh}</span></div>`).join('')
+      }
+    </div>
+
+    ${currentUser.is_admin ? '<button class="entry-row" onclick="go(\'admin\')" style="margin-bottom:16px"><div class="entry-main"><div class="entry-title">管理看板</div><div class="entry-desc">查看用户数据和趋势</div></div><div class="entry-arrow">→</div></button>' : ''}
+
+    <button class="cta cta-secondary" style="width:100%" onclick="logout()">退出登录</button>
+  `;
+}
+
+async function setDailyGoal(n) {
+  await sb.from("profiles").update({ daily_goal: n }).eq("id", currentUser.id);
+  currentUser.daily_goal = n;
+  localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+  renderProfile();
+}
 function renderRoute() {
   let view = location.hash.replace(/^#\//, '') || 'home';
+
+  // 没登录强制跳登录
+  if (!isLoggedIn() && view !== 'login') {
+    view = 'login';
+  }
+
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   let el = document.getElementById('view-' + view);
-  // fallback: 微信等浏览器可能自动加 hash，找不到就回首页
   if (!el) {
     view = 'home';
     el = document.getElementById('view-home');
   }
   el.classList.add('active');
+
+  // 登录页不显示 tabbar
+  document.querySelector('.tabbar').style.display = view === 'login' ? 'none' : 'flex';
+
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.toggle('active', b.dataset.view === view);
   });
+
+  // 我的页面要拉数据
+  if (view === 'profile' && isLoggedIn()) {
+    renderProfile();
+  }
+
   window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', renderRoute);
