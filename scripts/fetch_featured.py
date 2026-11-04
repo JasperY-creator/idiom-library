@@ -158,7 +158,16 @@ def main():
         print(f"AI generation failed: {e}")
         featured = []
 
-    # 3. 输出
+    # 3. 先把旧的 featured.json 备份到 featured/ 目录，按日期命名，留存历史
+    import shutil
+    os.makedirs("featured", exist_ok=True)
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    backup_path = f"featured/{today_str}.json"
+    if os.path.exists("featured.json"):
+        shutil.copy("featured.json", backup_path)
+        print(f"Old featured.json backed up to {backup_path}")
+
+    # 4. 输出新的
     output = {
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "featured": featured,
