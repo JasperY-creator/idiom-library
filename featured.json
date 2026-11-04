@@ -1,39 +1,66 @@
 {
-  "updatedAt": "2026-11-04T00:00:00Z",
+  "updatedAt": "2026-11-04T01:35:01.195213+00:00",
   "featured": [
     {
-      "title": "What Kids Wish Their Parents Knew About Fun",
-      "source": "TED · 教育话题",
-      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
-      "guide": "11 岁女孩 Mila Rojas 观察到：大人早就忘了「纯粹为了好玩」是什么感觉。这篇演讲很短，话题完美对应雅思口语 Part 1 的「童年/游戏」话题。",
+      "title": "What kids wish their parents knew about fun | Mila Rojas",
+      "source": "TED Talks",
+      "link": "http://go.ted.com/milarojas",
+      "guide": "这篇TED演讲从一个11岁孩子的视角出发，探讨了玩耍和乐趣对孩子成长的重要性，以及成年人如何因忙碌而忽视了这一点。话题贴近雅思口语中的“教育”、“家庭”和“个人成长”类问题，语言简单生动，适合考生积累关于童年、学习和生活平衡的表达。",
       "points": [
-        {"phrase": "just for fun", "example": "纯粹为了好玩。I played basketball just for fun, not for competition."},
-        {"phrase": "grow up too fast", "example": "长大得太快。Kids these days are growing up too fast."},
-        {"phrase": "be present", "example": "全身心投入。When you're with your kids, be present, don't check your phone."}
+        {
+          "phrase": "bury under schedules",
+          "example": "很多成年人被日程表埋没，忘记了如何放松。"
+        },
+        {
+          "phrase": "just for fun",
+          "example": "我们做这件事只是为了好玩，而不是为了完成任务。"
+        },
+        {
+          "phrase": "shed light on",
+          "example": "这项研究揭示了玩耍对儿童发展的重要性。"
+        }
       ]
     },
     {
-      "title": "Do All My Friends Secretly Hate Me?",
-      "source": "TED · 社交话题",
-      "link": "https://www.ted.com/talks/corner_piece_do_all_my_friends_secretly_hate_me",
-      "guide": "成年人交朋友为什么这么难？Corner Piece 用幽默的方式拆解社交焦虑——这就是雅思口语 Part 3「友谊/社交」话题的绝佳素材。",
+      "title": "Sunday Pick: Do all my friends secretly hate me? | from Corner Piece",
+      "source": "TED Talks",
+      "link": "https://audiocollective.ted.com/",
+      "guide": "这期播客探讨了成年后交友为何变得困难，以及人们常有的社交焦虑——担心朋友是否真的喜欢自己。话题直接对应雅思口语中的“友谊”、“社交”和“心理健康”类问题，内容贴近生活，有助于考生表达关于人际关系和个人感受的观点。",
       "points": [
-        {"phrase": "secretly hate me", "example": "暗地里讨厌我。I keep thinking my friends secretly hate me."},
-        {"phrase": "make friends as an adult", "example": "成年后交朋友。Making friends as an adult is so hard."},
-        {"phrase": "mission impossible", "example": "不可能完成的任务。Keeping in touch with old friends feels like mission impossible."}
+        {
+          "phrase": "mission impossible",
+          "example": "对很多成年人来说，交新朋友就像不可能完成的任务。"
+        },
+        {
+          "phrase": "secretly hate me",
+          "example": "我有时会担心朋友们是不是暗地里讨厌我。"
+        },
+        {
+          "phrase": "make friends as an adult",
+          "example": "成年后交友需要主动出击，不像学生时代那么自然。"
+        }
       ]
     },
     {
-      "title": "\"I perfected deception\": My Secret Life as a Relapsed Alcoholic",
-      "source": "Guardian · 个人故事",
-      "link": "https://www.theguardian.com/lifeandstyle/2026/nov/03/my-secret-life-as-a-relapsed-alcoholic",
-      "guide": "一个戒酒成功又复发的人的真实自述。写得极其坦诚，词汇丰富，适合积累「意志力/健康/个人经历」类话题的高级表达。",
+      "title": "What crows teach us about death | Kaeli Swift (re-release)",
+      "source": "TED Talks",
+      "link": "https://audiocollective.ted.com/",
+      "guide": "这篇演讲通过乌鸦对死亡的反应，探讨了动物界的死亡仪式，并引申到人类对死亡的理解和仪式感。话题涉及“文化”、“自然”和“个人成长”，适合雅思口语中关于传统、仪式和生命教育的讨论，内容有趣且富有启发性。",
       "points": [
-        {"phrase": "relapsed", "example": "复发（尤指恶习）。He relapsed after six months sober."},
-        {"phrase": "deception", "example": "欺骗、瞒骗。She lived a life of deception for years."},
-        {"phrase": "hit rock bottom", "example": "跌到谷底。I hit rock bottom before I asked for help."}
+        {
+          "phrase": "rituals for the dead",
+          "example": "不同文化有各自独特的悼念死者的仪式。"
+        },
+        {
+          "phrase": "span much of the natural world",
+          "example": "死亡仪式存在于自然界的许多物种中。"
+        },
+        {
+          "phrase": "with charm and playful",
+          "example": "她用魅力和幽默的方式讲述了严肃的科学话题。"
+        }
       ]
     }
   ],
-  "allCount": 15
+  "allCount": 10
 }
