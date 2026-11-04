@@ -316,6 +316,9 @@
   .entry-tile:active { transform: scale(.98); }
   .tile-title { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
   .tile-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
+  .tile-icon { font-size: 28px; margin-bottom: 10px; }
+  .tile-green { background: #e8f0e8; border-top: 3px solid var(--brand); }
+  .tile-red { background: #f5ebe8; border-top: 3px solid var(--accent); }
   .entry-row {
     display: flex; justify-content: space-between; align-items: center;
     background: var(--card); border-radius: 12px; padding: 16px;
@@ -424,11 +427,13 @@
 
       <div class="entries-title">想学更多？</div>
       <div class="entries-grid">
-        <button class="entry-tile" onclick="go('corpus')">
+        <button class="entry-tile tile-green" onclick="go('corpus')">
+          <div class="tile-icon">📚</div>
           <div class="tile-title">全部语料</div>
           <div class="tile-desc">忘了哪个表达？来这里搜，全部都在这。</div>
         </button>
-        <button class="entry-tile" onclick="go('articles')">
+        <button class="entry-tile tile-red" onclick="go('articles')">
+          <div class="tile-icon">▶️</div>
           <div class="tile-title">TED 演讲</div>
           <div class="tile-desc">听真实母语者怎么说，有输入才有输出。</div>
         </button>
@@ -755,7 +760,7 @@ function renderLearnCard() {
   var item = learnState.items[learnState.current];
   if (!item) return;
 
-  document.getElementById("learnDay").textContent = "今日学习 · 3 新 2 复习";
+  document.getElementById("learnDay").textContent = "今日学习";
   document.getElementById("learnProgress").textContent = (learnState.current + 1) + " / " + learnState.items.length;
   document.getElementById("learnProgressFill").style.width = ((learnState.current + 1) / learnState.items.length * 100) + "%";
 
