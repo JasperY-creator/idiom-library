@@ -287,6 +287,10 @@
 
   /* 首页入口列表 */
   .home-entries { margin-bottom: 20px; }
+  .entries-title {
+    font-size: 13px; color: var(--ink-3); margin: 20px 0 10px;
+    padding-left: 2px;
+  }
   .entry-row {
     display: flex; justify-content: space-between; align-items: center;
     background: var(--card); border-radius: 12px; padding: 16px;
@@ -341,11 +345,13 @@
   <div class="view" id="view-home">
     <header><h1 class="brand" onclick="go('home')">地道口语<em>·</em>语料库</h1></header>
     <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
+    <h2 class="hero-title">每两天学 5 个，<br>开口不再<em>卡壳</em>。</h2>
+    <p class="hero-desc">不用背单词书，不用刷题库。每天花 2 分钟，学 5 个老外天天挂嘴边的地道表达——知道它为什么这么说，再配个能直接用的例句。</p>
 
-    <!-- 今日学习板块 -->
+    <!-- 今日学习板块（重点突出） -->
     <div class="learn-section">
       <div class="learn-header">
-        <span class="learn-day">今日学习 · 5 个表达</span>
+        <span class="learn-day">今日学习</span>
         <span class="learn-progress" id="learnProgress">1 / 5</span>
       </div>
       <div class="learn-progress-bar">
@@ -363,26 +369,27 @@
       <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
     </div>
 
-    <!-- 其他入口 -->
+    <!-- 其他入口（辅助） -->
     <div class="home-entries">
+      <div class="entries-title">想多学点？看看这些</div>
       <button class="entry-row" onclick="go('corpus')">
         <div class="entry-main">
-          <div class="entry-title">语料库</div>
-          <div class="entry-desc">全部 12 条 · 搜索 + 分类</div>
+          <div class="entry-title">全部语料库</div>
+          <div class="entry-desc">忘了哪个表达怎么说？来这里搜。12 条按场景分类，支持模糊搜索。</div>
         </div>
         <div class="entry-arrow">→</div>
       </button>
       <button class="entry-row" onclick="go('articles')">
         <div class="entry-main">
           <div class="entry-title">演讲精选</div>
-          <div class="entry-desc">TED 演讲 + 口语金句</div>
+          <div class="entry-desc">每两天更新 3 个 TED 演讲，带中文导读和能直接用的金句。</div>
         </div>
         <div class="entry-arrow">→</div>
       </button>
       <button class="entry-row" onclick="startQuiz()">
         <div class="entry-main">
-          <div class="entry-title">词汇测试</div>
-          <div class="entry-desc">6 道题测测掌握度</div>
+          <div class="entry-title">测测词汇量</div>
+          <div class="entry-desc">6 道小题，看看你掌握了多少。学完一组来测测，成就感拉满。</div>
         </div>
         <div class="entry-arrow">→</div>
       </button>
