@@ -305,6 +305,17 @@
     font-size: 13px; color: var(--ink-3); margin: 20px 0 10px;
     padding-left: 2px;
   }
+  .entries-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  }
+  .entry-tile {
+    background: var(--card); border-radius: 12px; padding: 20px 16px;
+    box-shadow: var(--shadow); cursor: pointer; border: none; text-align: left;
+    min-height: 120px;
+  }
+  .entry-tile:active { transform: scale(.98); }
+  .tile-title { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .tile-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
   .entry-row {
     display: flex; justify-content: space-between; align-items: center;
     background: var(--card); border-radius: 12px; padding: 16px;
@@ -403,31 +414,28 @@
 
     <!-- 其他入口（辅助） -->
     <div class="home-entries">
-      <div class="entries-title">想多学点？看看这些</div>
-      <button class="entry-row" onclick="go('corpus')">
-        <div class="entry-main">
-          <div class="entry-title">全部语料库</div>
-          <div class="entry-desc">忘了哪个表达怎么说？来这里搜。12 条按场景分类，支持模糊搜索。</div>
-        </div>
-        <div class="entry-arrow">→</div>
-      </button>
-      <button class="entry-row" onclick="go('articles')">
-        <div class="entry-main">
-          <div class="entry-title">演讲精选</div>
-          <div class="entry-desc">每两天更新 3 个 TED 演讲，带中文导读和能直接用的金句。</div>
-        </div>
-        <div class="entry-arrow">→</div>
-      </button>
       <button class="entry-row" onclick="startQuiz()">
         <div class="entry-main">
-          <div class="entry-title">测测词汇量</div>
-          <div class="entry-desc">6 道小题，看看你掌握了多少。学完一组来测测，成就感拉满。</div>
+          <div class="entry-title">学完了？测一测</div>
+          <div class="entry-desc">6 道小题，看看今天的 5 个你都记住了没。</div>
         </div>
         <div class="entry-arrow">→</div>
       </button>
+
+      <div class="entries-title">想学更多？</div>
+      <div class="entries-grid">
+        <button class="entry-tile" onclick="go('corpus')">
+          <div class="tile-title">全部语料</div>
+          <div class="tile-desc">忘了哪个表达？来这里搜，全部都在这。</div>
+        </button>
+        <button class="entry-tile" onclick="go('articles')">
+          <div class="tile-title">TED 演讲</div>
+          <div class="tile-desc">听真实母语者怎么说，有输入才有输出。</div>
+        </button>
+      </div>
     </div>
 
-    <footer>每两天学 5 个 · 手机随查随用</footer>
+    <footer>每天学 5 个 · 手机随查随用</footer>
   </div>
 
   <div class="view" id="view-corpus">
