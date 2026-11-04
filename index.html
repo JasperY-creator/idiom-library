@@ -371,19 +371,33 @@
       <div class="learn-progress-bar">
         <div class="learn-progress-fill" id="learnProgressFill" style="width:20%"></div>
       </div>
-      <div class="learn-card" id="learnCard">
-        <div class="learn-en" id="learnEn">Ace it</div>
-        <div class="learn-phonetic" id="learnPhonetic">/eɪs ɪt/</div>
-        <div class="learn-zh" id="learnZh">轻松通过、考得很好</div>
-        <div class="learn-detail">
-          <div class="learn-origin" id="learnOrigin"></div>
-          <div class="learn-example" id="learnExample"></div>
+      <div class="card open" id="learnCard">
+        <div class="card-head">
+          <div class="card-main">
+            <div class="en" id="learnEn">Ace it</div>
+            <div class="phonetic" id="learnPhonetic">/eɪs ɪt/</div>
+            <div class="zh" id="learnZh">轻松通过、考得很好</div>
+          </div>
+        </div>
+        <div class="detail"><div class="detail-inner">
+          <div class="label">词源 · ORIGIN</div>
+          <div class="origin" id="learnOrigin"></div>
+          <div class="label" style="margin-top:14px">例句 · EXAMPLES</div>
+          <div class="examples" id="learnExamples"></div>
+        </div></div>
+      </div>
+      <div class="learn-done" id="learnDone" style="display:none">
+        <div style="text-align:center;padding:20px 0">
+          <div style="font-size:40px;margin-bottom:10px">🎉</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:8px">今日学习完成！</div>
+          <div style="font-size:13px;color:var(--ink-2)">你已经学完了今天的 5 个表达，两天后再来学新的一组。</div>
         </div>
       </div>
       <div class="learn-btns">
         <button class="learn-btn-prev" id="learnPrevBtn" onclick="prevLearn()">← 上一个</button>
         <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
       </div>
+      <button class="cta cta-secondary restart-btn" id="restartBtn" style="display:none;width:100%" onclick="restartLearn()">再学一遍</button>
     </div>
 
     <!-- 其他入口（辅助） -->
@@ -725,8 +739,10 @@ function renderLearnCard() {
   document.getElementById("learnPhonetic").textContent = item.phonetic || "";
   document.getElementById("learnZh").textContent = item.zh;
   document.getElementById("learnOrigin").textContent = item.origin;
-  document.getElementById("learnExample").innerHTML =
-    "<b>例句：</b>" + item.examples[0][0] + "<br>" + item.examples[0][1];
+  document.getElementById("learnExamples").innerHTML =
+    item.examples.map(function(ex) {
+      return '<div class="ex"><div class="en-line">' + ex[0] + '</div><div class="zh-line">' + ex[1] + '</div></div>';
+    }).join("");
 
   // 上一个按钮状态
   document.getElementById("learnPrevBtn").disabled = (learnState.current === 0);
@@ -759,21 +775,20 @@ function nextLearn() {
     renderLearnCard();
   } else {
     // 学完了
-    document.getElementById("learnCard").innerHTML =
-      '<div style="text-align:center;padding:20px 0">' +
-      '<div style="font-size:40px;margin-bottom:10px">🎉</div>' +
-      '<div style="font-size:18px;font-weight:700;margin-bottom:8px">今日学习完成！</div>' +
-      '<div style="font-size:13px;color:var(--ink-2)">你已经学完了今天的 5 个表达，两天后再来学新的一组。</div>' +
-      '</div>';
+    document.getElementById("learnCard").style.display = "none";
     document.querySelector(".learn-btns").style.display = "none";
-    // 加一个重新学习按钮
-    var restartBtn = document.createElement("button");
-    restartBtn.className = "cta cta-secondary";
-    restartBtn.style.width = "100%";
-    restartBtn.textContent = "再学一遍";
-    restartBtn.onclick = restartLearn;
-    document.querySelector(".learn-section").appendChild(restartBtn);
+    document.getElementById("learnDone").style.display = "block";
+    document.getElementById("restartBtn").style.display = "block";
   }
+}
+
+function restartLearn() {
+  learnState.current = 0;
+  document.getElementById("learnCard").style.display = "block";
+  document.querySelector(".learn-btns").style.display = "flex";
+  document.getElementById("learnDone").style.display = "none";
+  document.getElementById("restartBtn").style.display = "none";
+  renderLearnCard();
 }
 
 initLearn();
