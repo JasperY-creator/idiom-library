@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-抓取英文媒体 RSS，调 DeepSeek 自动挑选 3 篇适合雅思考生的文章，
-生成中文导读和重点口语表达，输出 featured.json 供 H5 渲染。
-GitHub Actions 每天定时跑一次。
+抓取 TED Talks RSS，调 DeepSeek 自动挑选 3 篇适合口语学习的演讲，
+生成中文导读和重点表达，输出 featured.json 供 H5 渲染。
+GitHub Actions 每两天跑一次。
 """
 import feedparser
 import json
@@ -17,21 +17,10 @@ SOURCES = [
     {
         "name": "TED Talks",
         "url": "https://feeds.feedburner.com/tedtalks_video",
-        "color": "#E62B1E",
-    },
-    {
-        "name": "The Guardian",
-        "url": "https://www.theguardian.com/international/rss",
-        "color": "#052962",
-    },
-    {
-        "name": "BBC Learning English",
-        "url": "https://feeds.bbci.co.uk/learningenglish/news/englishatwork/rss.xml",
-        "color": "#B84A32",
     },
 ]
 
-MAX_PER_SOURCE = 5
+MAX_PER_SOURCE = 10
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 
@@ -56,11 +45,16 @@ def fetch_source(src):
     feed = feedparser.parse(src["url"])
     items = []
     for entry in feed.entries[:MAX_PER_SOURCE]:
+        link = entry.get("link", "")
+        # 过滤掉播客/精选集（链接都是同一个首页，不是具体演讲）
+        if "audiocollective.ted.com" in link:
+            continue
+        if not link.startswith("http"):
+            continue
         items.append({
             "source": src["name"],
-            "sourceColor": src["color"],
             "title": entry.get("title", "").strip(),
-            "link": entry.get("link", ""),
+            "link": link,
             "summary": clean_html(entry.get("summary", entry.get("description", ""))),
             "published": parse_date(entry),
         })
@@ -68,11 +62,10 @@ def fetch_source(src):
 
 
 def call_deepseek(api_key, prompt):
-    """调用 DeepSeek API，返回文本"""
     payload = {
         "model": "deepseek-chat",
         "messages": [
-            {"role": "system", "content": "你是一个雅思口语老师，擅长挑选适合中国学生的英文阅读材料，并从中提取可用于口语的地道表达。"},
+            {"role": "system", "content": "你是一个英语学习博主，擅长挑选有趣、有料的英文演讲，并从中提取能日常用到的地道表达。"},
             {"role": "user", "content": prompt}
         ],
         "temperature": 0.7,
@@ -93,34 +86,35 @@ def call_deepseek(api_key, prompt):
 
 
 def pick_and_generate(all_articles, api_key):
-    """让 AI 挑 3 篇并生成导读和重点表达"""
     article_brief = "\n".join([
-        f"{i+1}. [{a['source']}] {a['title']}\n   摘要: {a['summary'][:150]}\n   链接: {a['link']}"
+        f"{i+1}. {a['title']}\n   摘要: {a['summary'][:150]}\n   链接: {a['link']}"
         for i, a in enumerate(all_articles)
     ])
 
-    prompt = f"""以下是今天最新抓取的 {len(all_articles)} 篇英文文章。请从中挑选 3 篇最适合雅思考生阅读的：
+    prompt = f"""以下是最新的 {len(all_articles)} 个 TED 演讲。请从中挑选 3 个最值得看的：
 
 {article_brief}
 
 挑选标准：
-1. 话题贴近雅思口语常考话题（教育、友谊、科技、环境、个人成长、文化等）
-2. 难度适中（不要太专业、太政治化）
-3. 对中国学生有启发性
+1. 话题有趣、贴近生活（教育、成长、人际关系、科技、文化等）
+2. 难度适中，不是太学术太硬核
+3. 看完能有收获、有共鸣
 
-对每篇选中的文章，生成以下内容：
+对每个选中的演讲，生成以下内容：
 - title: 英文标题
-- source: 来源名称
-- link: 原文链接
-- guide: 中文导读（2-3句话，说明这篇讲什么、为什么适合雅思考生、对应哪个口语话题）
-- points: 3个重点口语表达，每个包含 phrase（英文短语）和 example（一句中文例句）
+- source: 来源（就写 "TED"）
+- link: 原文链接（必须从上面列表里原封不动复制，不要自己编）
+- guide: 中文导读（2-3句话，简单说这个演讲讲了什么、适合聊什么话题的时候参考）
+- points: 3个重点表达，每个包含 phrase（英文短语）和 example（一句中文例句）
+
+注意：不要在导读里提"雅思"两个字，就是普通的英语学习分享语气。
 
 请严格按 JSON 格式返回，结构如下：
 {{
   "articles": [
     {{
       "title": "...",
-      "source": "...",
+      "source": "TED",
       "link": "...",
       "guide": "...",
       "points": [
@@ -162,7 +156,6 @@ def main():
         print(f"AI selected {len(featured)} articles")
     except Exception as e:
         print(f"AI generation failed: {e}")
-        # 失败时 fallback：直接用前 3 篇，不生成导读
         featured = []
 
     # 3. 输出
