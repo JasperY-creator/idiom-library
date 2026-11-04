@@ -2,7 +2,8 @@ name: Fetch Daily Featured Articles
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    # 每两天北京时间早上 8 点跑一次（UTC 0:00，每 2 天）
+    - cron: '0 0 */2 * *'
   workflow_dispatch:
 
 permissions:
