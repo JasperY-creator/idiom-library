@@ -241,7 +241,7 @@
   .quiz-review-item:last-child { border-bottom: none; }
 
   /* 首页学习卡片 */
-  .learn-section { margin-bottom: 24px; }
+  .learn-section { margin-bottom: 20px; }
   .learn-header {
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 8px;
@@ -250,36 +250,37 @@
   .learn-progress { font-size: 12px; color: var(--ink-3); }
   .learn-progress-bar {
     height: 4px; background: var(--border); border-radius: 2px;
-    margin-bottom: 16px; overflow: hidden;
+    margin-bottom: 12px; overflow: hidden;
   }
   .learn-progress-fill {
     height: 100%; background: var(--brand); transition: width .3s;
   }
   .learn-card {
-    background: var(--card); border-radius: 16px; padding: 24px 20px;
-    box-shadow: var(--shadow); margin-bottom: 16px;
+    background: var(--card); border-radius: 12px; padding: 16px;
+    box-shadow: var(--shadow); margin-bottom: 12px; cursor: pointer;
   }
   .learn-en {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px; font-weight: 700; line-height: 1.2;
-    color: var(--ink); margin-bottom: 4px;
+    font-size: 20px; font-weight: 700; line-height: 1.2;
+    color: var(--ink); margin-bottom: 2px;
   }
   .learn-phonetic {
-    font-size: 14px; color: var(--ink-3);
+    font-size: 12.5px; color: var(--ink-3);
     font-family: "SF Mono", Menlo, Consolas, monospace;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .learn-zh {
-    font-size: 16px; color: var(--accent); font-weight: 600;
-    margin-bottom: 14px;
+    font-size: 14px; color: var(--accent); font-weight: 600;
+  }
+  .learn-detail {
+    margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line);
   }
   .learn-origin {
-    font-size: 13px; color: var(--ink-2); line-height: 1.65;
-    padding-top: 12px; border-top: 1px solid var(--line);
-    margin-bottom: 12px;
+    font-size: 12.5px; color: var(--ink-2); line-height: 1.6;
+    margin-bottom: 10px;
   }
   .learn-example {
-    font-size: 13.5px; line-height: 1.6; color: var(--ink);
+    font-size: 12.5px; line-height: 1.55; color: var(--ink);
     background: var(--bg); padding: 10px 12px; border-radius: 8px;
   }
   .learn-next-btn { width: 100%; }
@@ -339,22 +340,25 @@
 
   <div class="view" id="view-home">
     <header><h1 class="brand" onclick="go('home')">地道口语<em>·</em>语料库</h1></header>
+    <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
 
     <!-- 今日学习板块 -->
     <div class="learn-section">
       <div class="learn-header">
-        <span class="learn-day" id="learnDay">今日学习</span>
+        <span class="learn-day">今日学习 · 5 个表达</span>
         <span class="learn-progress" id="learnProgress">1 / 5</span>
       </div>
       <div class="learn-progress-bar">
         <div class="learn-progress-fill" id="learnProgressFill" style="width:20%"></div>
       </div>
-      <div class="learn-card" id="learnCard">
+      <div class="learn-card" id="learnCard" onclick="toggleLearnDetail()">
         <div class="learn-en" id="learnEn">Ace it</div>
         <div class="learn-phonetic" id="learnPhonetic">/eɪs ɪt/</div>
         <div class="learn-zh" id="learnZh">轻松通过、考得很好</div>
-        <div class="learn-origin" id="learnOrigin"></div>
-        <div class="learn-example" id="learnExample"></div>
+        <div class="learn-detail" id="learnDetail" style="display:none">
+          <div class="learn-origin" id="learnOrigin"></div>
+          <div class="learn-example" id="learnExample"></div>
+        </div>
       </div>
       <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
     </div>
@@ -700,12 +704,20 @@ function renderLearnCard() {
   document.getElementById("learnExample").innerHTML =
     "<b>例句：</b>" + item.examples[0][0] + "<br>" + item.examples[0][1];
 
+  // 切换下一个时默认折叠
+  document.getElementById("learnDetail").style.display = "none";
+
   var btn = document.getElementById("learnNextBtn");
   if (learnState.current === learnState.items.length - 1) {
     btn.textContent = "完成今日学习 ✓";
   } else {
     btn.textContent = "学会了，下一个 →";
   }
+}
+
+function toggleLearnDetail() {
+  var detail = document.getElementById("learnDetail");
+  detail.style.display = detail.style.display === "none" ? "block" : "none";
 }
 
 function nextLearn() {
