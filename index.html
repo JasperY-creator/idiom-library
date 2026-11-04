@@ -239,6 +239,63 @@
   .quiz-review { text-align: left; margin-bottom: 24px; }
   .quiz-review-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
   .quiz-review-item:last-child { border-bottom: none; }
+
+  /* 首页学习卡片 */
+  .learn-section { margin-bottom: 24px; }
+  .learn-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 8px;
+  }
+  .learn-day { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .learn-progress { font-size: 12px; color: var(--ink-3); }
+  .learn-progress-bar {
+    height: 4px; background: var(--border); border-radius: 2px;
+    margin-bottom: 16px; overflow: hidden;
+  }
+  .learn-progress-fill {
+    height: 100%; background: var(--brand); transition: width .3s;
+  }
+  .learn-card {
+    background: var(--card); border-radius: 16px; padding: 24px 20px;
+    box-shadow: var(--shadow); margin-bottom: 16px;
+  }
+  .learn-en {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px; font-weight: 700; line-height: 1.2;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .learn-phonetic {
+    font-size: 14px; color: var(--ink-3);
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    margin-bottom: 10px;
+  }
+  .learn-zh {
+    font-size: 16px; color: var(--accent); font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .learn-origin {
+    font-size: 13px; color: var(--ink-2); line-height: 1.65;
+    padding-top: 12px; border-top: 1px solid var(--line);
+    margin-bottom: 12px;
+  }
+  .learn-example {
+    font-size: 13.5px; line-height: 1.6; color: var(--ink);
+    background: var(--bg); padding: 10px 12px; border-radius: 8px;
+  }
+  .learn-next-btn { width: 100%; }
+
+  /* 首页入口列表 */
+  .home-entries { margin-bottom: 20px; }
+  .entry-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--card); border-radius: 12px; padding: 16px;
+    margin-bottom: 10px; box-shadow: var(--shadow);
+    cursor: pointer; border: none; width: 100%; text-align: left;
+  }
+  .entry-row:active { transform: scale(.99); }
+  .entry-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .entry-desc { font-size: 12.5px; color: var(--ink-3); }
+  .entry-arrow { font-size: 18px; color: var(--ink-3); }
   .article-card {
     background: var(--card); border-radius: 12px; padding: 14px 16px;
     box-shadow: var(--shadow); text-decoration: none; color: var(--ink);
@@ -282,29 +339,52 @@
 
   <div class="view" id="view-home">
     <header><h1 class="brand" onclick="go('home')">地道口语<em>·</em>语料库</h1></header>
-    <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
-    <h2 class="hero-title">背了那么多词，<br>开口还是<em>中式英语</em>？</h2>
-    <p class="hero-desc">这里收录老外天天挂嘴边的高频地道表达——每条都讲清它为什么这么说，再配两个能直接搬到口语考场上的例句。想表达什么，搜一下就有。</p>
-    <div class="cta-group">
-      <button class="cta cta-primary" onclick="go('corpus')">
-        <span class="cta-label">进入语料库</span>
-        <span class="cta-sub">12 条地道表达 · 按场景分类 · 模糊搜索</span>
+
+    <!-- 今日学习板块 -->
+    <div class="learn-section">
+      <div class="learn-header">
+        <span class="learn-day" id="learnDay">今日学习</span>
+        <span class="learn-progress" id="learnProgress">1 / 5</span>
+      </div>
+      <div class="learn-progress-bar">
+        <div class="learn-progress-fill" id="learnProgressFill" style="width:20%"></div>
+      </div>
+      <div class="learn-card" id="learnCard">
+        <div class="learn-en" id="learnEn">Ace it</div>
+        <div class="learn-phonetic" id="learnPhonetic">/eɪs ɪt/</div>
+        <div class="learn-zh" id="learnZh">轻松通过、考得很好</div>
+        <div class="learn-origin" id="learnOrigin"></div>
+        <div class="learn-example" id="learnExample"></div>
+      </div>
+      <button class="cta cta-primary learn-next-btn" id="learnNextBtn" onclick="nextLearn()">学会了，下一个 →</button>
+    </div>
+
+    <!-- 其他入口 -->
+    <div class="home-entries">
+      <button class="entry-row" onclick="go('corpus')">
+        <div class="entry-main">
+          <div class="entry-title">语料库</div>
+          <div class="entry-desc">全部 12 条 · 搜索 + 分类</div>
+        </div>
+        <div class="entry-arrow">→</div>
       </button>
-      <button class="cta cta-secondary" onclick="go('articles')">
-        <span class="cta-label">演讲精选</span>
-        <span class="cta-sub">看 TED 学地道表达 · 每两天更新 3 个精选演讲</span>
+      <button class="entry-row" onclick="go('articles')">
+        <div class="entry-main">
+          <div class="entry-title">演讲精选</div>
+          <div class="entry-desc">TED 演讲 + 口语金句</div>
+        </div>
+        <div class="entry-arrow">→</div>
       </button>
-      <button class="cta cta-tertiary" onclick="startQuiz()">
-        <span class="cta-label">测测你的词汇量</span>
-        <span class="cta-sub">6 道题 · 看看你掌握了几个</span>
+      <button class="entry-row" onclick="startQuiz()">
+        <div class="entry-main">
+          <div class="entry-title">词汇测试</div>
+          <div class="entry-desc">6 道题测测掌握度</div>
+        </div>
+        <div class="entry-arrow">→</div>
       </button>
     </div>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-num">12</div><div class="stat-label">已收录表达</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">使用场景分类</div></div>
-      <div class="stat"><div class="stat-num">24</div><div class="stat-label">实战例句</div></div>
-    </div>
-    <footer>适合雅思考生 · 手机随查随用 · 持续更新中</footer>
+
+    <footer>每两天学 5 个 · 手机随查随用</footer>
   </div>
 
   <div class="view" id="view-corpus">
@@ -580,6 +660,72 @@ function loadFeatured() {
       container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>';
     });
 }
+// ============ 首页学习卡片 ============
+var learnState = {
+  current: 0,
+  group: 0,
+  items: []
+};
+
+function initLearn() {
+  // 按日期计算今天是第几组（每两天一组）
+  var daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
+  var groupIndex = Math.floor(daysSinceEpoch / 2) % Math.ceil(EXPRESSIONS.length / 5);
+  learnState.group = groupIndex;
+  learnState.current = 0;
+
+  // 取这一组的 5 条
+  var start = groupIndex * 5;
+  learnState.items = EXPRESSIONS.slice(start, start + 5);
+  // 如果不够 5 条，从开头补
+  if (learnState.items.length < 5) {
+    learnState.items = learnState.items.concat(EXPRESSIONS.slice(0, 5 - learnState.items.length));
+  }
+
+  renderLearnCard();
+}
+
+function renderLearnCard() {
+  var item = learnState.items[learnState.current];
+  if (!item) return;
+
+  document.getElementById("learnDay").textContent = "今日学习 · 第 " + (learnState.group + 1) + " 组";
+  document.getElementById("learnProgress").textContent = (learnState.current + 1) + " / " + learnState.items.length;
+  document.getElementById("learnProgressFill").style.width = ((learnState.current + 1) / learnState.items.length * 100) + "%";
+
+  document.getElementById("learnEn").textContent = item.en;
+  document.getElementById("learnPhonetic").textContent = item.phonetic || "";
+  document.getElementById("learnZh").textContent = item.zh;
+  document.getElementById("learnOrigin").textContent = item.origin;
+  document.getElementById("learnExample").innerHTML =
+    "<b>例句：</b>" + item.examples[0][0] + "<br>" + item.examples[0][1];
+
+  var btn = document.getElementById("learnNextBtn");
+  if (learnState.current === learnState.items.length - 1) {
+    btn.textContent = "完成今日学习 ✓";
+  } else {
+    btn.textContent = "学会了，下一个 →";
+  }
+}
+
+function nextLearn() {
+  if (learnState.current < learnState.items.length - 1) {
+    learnState.current++;
+    renderLearnCard();
+  } else {
+    // 学完了
+    document.getElementById("learnCard").innerHTML =
+      '<div style="text-align:center;padding:20px 0">' +
+      '<div style="font-size:40px;margin-bottom:10px">🎉</div>' +
+      '<div style="font-size:18px;font-weight:700;margin-bottom:8px">今日学习完成！</div>' +
+      '<div style="font-size:13px;color:var(--ink-2)">你已经学完了今天的 5 个表达，两天后再来学新的一组。</div>' +
+      '</div>';
+    document.getElementById("learnNextBtn").style.display = "none";
+  }
+}
+
+initLearn();
+
 loadFeatured();
 
 // ============ 词汇测试 ============
