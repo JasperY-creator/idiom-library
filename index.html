@@ -404,8 +404,8 @@
   <div class="view" id="view-home">
     <header><h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>SayWhat</h1></header>
     <img class="hero-img" src="assets/hero.jpg" alt="在咖啡馆学英语的学生">
-    <h2 class="hero-title">每天学 5 个，<br>开口不再<em>卡壳</em>。</h2>
-    <p class="hero-desc">不用背单词书，不用刷题库。每天花 2 分钟，学 5 个老外天天挂嘴边的地道表达——知道它为什么这么说，再配个能直接用的例句。</p>
+    <h2 class="hero-title">每天学一点，<br>开口不再<em>卡壳</em>。</h2>
+    <p class="hero-desc">不用背单词书，不用刷题库。每天花 2 分钟，学几个老外天天挂嘴边的地道表达——知道它为什么这么说，再配个能直接用的例句。</p>
 
     <!-- 今日学习板块（重点突出） -->
     <div class="learn-section">
@@ -932,31 +932,35 @@ var learnState = {
 };
 
 function initLearn() {
-  // 按艾宾浩斯遗忘曲线：每天学 3 个新词 + 2 个复习（主要是 1 天前学过的）
+  // 根据用户设置的每日目标，按艾宾浩斯比例分配新词和复习
+  var dailyGoal = (currentUser && currentUser.daily_goal) || 5;
+  var newCount = Math.round(dailyGoal * 0.6);  // 60% 新词
+  var reviewCount = dailyGoal - newCount;       // 40% 复习
+
   var daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
   learnState.group = daysSinceEpoch;
 
-  // 今天的 3 个新词（按顺序每天推进 3 个，循环）
-  var newStart = daysSinceEpoch * 3;
+  // 今天的新词（按顺序每天推进 newCount 个，循环）
+  var newStart = daysSinceEpoch * newCount;
   var newItems = [];
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < newCount; i++) {
     newItems.push(EXPRESSIONS[(newStart + i) % EXPRESSIONS.length]);
   }
 
-  // 复习 2 个：昨天学过的（1 天后复习是遗忘曲线关键节点）
+  // 复习：昨天学过的（1 天后复习是遗忘曲线关键节点）
   var reviewItems = [];
   if (daysSinceEpoch > 0) {
-    var yesterdayStart = (daysSinceEpoch - 1) * 3;
-    // 昨天学的 3 个里挑 2 个复习
-    reviewItems.push(EXPRESSIONS[yesterdayStart % EXPRESSIONS.length]);
-    reviewItems.push(EXPRESSIONS[(yesterdayStart + 1) % EXPRESSIONS.length]);
+    var yesterdayStart = (daysSinceEpoch - 1) * newCount;
+    for (var i = 0; i < reviewCount; i++) {
+      reviewItems.push(EXPRESSIONS[(yesterdayStart + i) % EXPRESSIONS.length]);
+    }
   }
 
-  // 组合：3 新 + 2 复习 = 5 个
+  // 组合
   learnState.items = newItems.concat(reviewItems);
 
-  // 如果是第一天（没有复习的），补 2 个新词凑够 5 个
-  while (learnState.items.length < 5) {
+  // 如果是第一天（没有复习的），补新词凑够 dailyGoal
+  while (learnState.items.length < dailyGoal) {
     learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
   }
 
