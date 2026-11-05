@@ -580,11 +580,16 @@ try {
 
 function isLoggedIn() { return !!currentUser; }
 
+function localDateStr(d) {
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
 // 登录/注册
 async function loginOrSignup(phone, nickname) {
-  // 先查有没有这个手机号
-  let { data: existing } = await sb.from("profiles").select("*").eq("phone", phone).single();
+  // 先查有没有这个手机号（maybeSingle: 没数据不报错）
+  let { data: existing } = await sb.from("profiles").select("*").eq("phone", phone).maybeSingle();
   if (existing) {
+    // 老用户直接登录，更新本地缓存
     currentUser = existing;
   } else {
     // 新用户注册
@@ -649,7 +654,7 @@ async function renderProfile() {
   for (var i = 13; i >= 0; i--) {
     var d = new Date();
     d.setDate(d.getDate() - i);
-    var dateStr = d.toISOString().slice(0, 10);
+    var dateStr = localDateStr(d);
     var rec = recordsList.find(r => r.date === dateStr);
     var count = rec ? (rec.expression_keys || []).length : 0;
     if (count > maxCount) maxCount = count;
@@ -747,7 +752,7 @@ async function renderAdmin() {
 
   users = users || [];
   records = records || [];
-  var today = new Date().toISOString().slice(0, 10);
+  var today = localDateStr(new Date());
 
   // 今日活跃：今天有学习记录的用户数
   var todayActive = new Set(records.filter(r => r.date === today && r.completed).map(r => r.user_id)).size;
@@ -757,7 +762,7 @@ async function renderAdmin() {
   for (var i = 13; i >= 0; i--) {
     var d = new Date();
     d.setDate(d.getDate() - i);
-    var dateStr = d.toISOString().slice(0, 10);
+    var dateStr = localDateStr(d);
     var newUsers = users.filter(u => u.created_at.slice(0, 10) === dateStr).length;
     var activeUsers = new Set(records.filter(r => r.date === dateStr && r.completed).map(r => r.user_id)).size;
     days.push({ date: dateStr, day: d.getDate(), newUsers: newUsers, activeUsers: activeUsers });
@@ -835,8 +840,20 @@ function renderRoute() {
   if (view === 'profile' && isLoggedIn()) {
     renderProfile();
   }
-  if (view === 'admin' && isLoggedIn() && currentUser.is_admin) {
-    renderAdmin();
+  if (view === 'admin' && isLoggedIn()) {
+    // 重新拉用户信息，确保 is_admin 是最新的
+    sb.from("profiles").select("*").eq("id", currentUser.id).maybeSingle().then(({ data: me }) => {
+      if (me) {
+        currentUser = me;
+        localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+      }
+      if (currentUser.is_admin) {
+        renderAdmin();
+      } else {
+        alert("你没有管理员权限");
+        go('profile');
+      }
+    });
   }
 
   window.scrollTo(0, 0);
@@ -1069,56 +1086,68 @@ var learnState = {
 };
 
 function initLearn() {
-  // 按艾宾浩斯遗忘曲线分配：新词 + 多节点复习（1天前/2天前/6天前）
-  var dailyGoal = (currentUser && currentUser.daily_goal) || 5;
-  var newCount = Math.round(dailyGoal * 0.5);   // 50% 新词
-  var reviewCount = dailyGoal - newCount;        // 50% 复习
-
   var daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
   learnState.group = daysSinceEpoch;
 
-  // 今天的新词（按顺序每天推进 newCount 个，循环）
-  var newStart = daysSinceEpoch * newCount;
-  var newItems = [];
-  for (var i = 0; i < newCount; i++) {
-    newItems.push(EXPRESSIONS[(newStart + i) % EXPRESSIONS.length]);
-  }
-
-  // 复习：按遗忘曲线多节点分配
-  // 1天前（最关键）占复习量的50%，2天前占30%，6天前占20%
-  var reviewItems = [];
-  var reviewSlots = [
-    { daysAgo: 1, ratio: 0.5 },
-    { daysAgo: 2, ratio: 0.3 },
-    { daysAgo: 6, ratio: 0.2 }
-  ];
-
-  for (var slot of reviewSlots) {
-    if (daysSinceEpoch >= slot.daysAgo) {
-      var count = Math.round(reviewCount * slot.ratio);
-      var start = (daysSinceEpoch - slot.daysAgo) * newCount;
-      for (var i = 0; i < count; i++) {
-        reviewItems.push(EXPRESSIONS[(start + i) % EXPRESSIONS.length]);
-      }
-    }
-  }
-
-  // 组合
-  learnState.items = newItems.concat(reviewItems);
-
-  // 天数不够没有复习的，补新词凑够
-  while (learnState.items.length < dailyGoal) {
-    learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
-  }
-
-  // 从 localStorage 读取上次学习进度（同一天内退出再进来接着学）
+  // 先看 localStorage 里有没有当天已经定好的词
   var saved = null;
   try {
     saved = JSON.parse(localStorage.getItem("saywhat_learn") || "null");
   } catch(e) {}
+
+  if (saved && saved.group === daysSinceEpoch && saved.items) {
+    // 24小时内固定用这组词，不管 daily_goal 怎么改
+    learnState.items = saved.items.map(function(key) {
+      return EXPRESSIONS.find(function(e) { return e.en.toLowerCase() === key; });
+    }).filter(Boolean);
+  } else {
+    // 第一次：按艾宾浩斯分配
+    var dailyGoal = (currentUser && currentUser.daily_goal) || 5;
+    var newCount = Math.round(dailyGoal * 0.5);
+    var reviewCount = dailyGoal - newCount;
+
+    var newStart = daysSinceEpoch * newCount;
+    var newItems = [];
+    for (var i = 0; i < newCount; i++) {
+      newItems.push(EXPRESSIONS[(newStart + i) % EXPRESSIONS.length]);
+    }
+
+    var reviewItems = [];
+    var reviewSlots = [
+      { daysAgo: 1, ratio: 0.5 },
+      { daysAgo: 2, ratio: 0.3 },
+      { daysAgo: 6, ratio: 0.2 }
+    ];
+
+    for (var slot of reviewSlots) {
+      if (daysSinceEpoch >= slot.daysAgo) {
+        var count = Math.round(reviewCount * slot.ratio);
+        var start = (daysSinceEpoch - slot.daysAgo) * newCount;
+        for (var i = 0; i < count; i++) {
+          reviewItems.push(EXPRESSIONS[(start + i) % EXPRESSIONS.length]);
+        }
+      }
+    }
+
+    learnState.items = newItems.concat(reviewItems);
+    while (learnState.items.length < dailyGoal) {
+      learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
+    }
+
+    // 存到 localStorage，当天固定
+    try {
+      localStorage.setItem("saywhat_learn", JSON.stringify({
+        group: daysSinceEpoch,
+        current: 0,
+        done: false,
+        items: learnState.items.map(function(e) { return e.en.toLowerCase(); })
+      }));
+    } catch(e) {}
+  }
+
+  // 读学习进度
   if (saved && saved.group === daysSinceEpoch) {
     learnState.current = saved.current || 0;
-    // 如果上次已经学完了，显示完成页
     if (saved.done) {
       document.getElementById("learnCard").style.display = "none";
       document.querySelector(".learn-btns").style.display = "none";
@@ -1211,14 +1240,18 @@ function nextLearn() {
 
     // 记录到 Supabase
     if (currentUser) {
-      var today = new Date().toISOString().slice(0, 10);
+      // 用本地日期，不要 toISOString（UTC 会差一天）
+      var now = new Date();
+      var today = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
       var exprKeys = learnState.items.map(function(e) { return e.en.toLowerCase(); });
       sb.from("daily_learning").upsert({
         user_id: currentUser.id,
         date: today,
         expression_keys: exprKeys,
         completed: true
-      }, { onConflict: "user_id,date" });
+      }, { onConflict: "user_id,date" }).then(function(res) {
+        console.log("学习记录已保存:", res);
+      });
     }
   }
 }
