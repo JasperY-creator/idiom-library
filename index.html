@@ -932,10 +932,10 @@ var learnState = {
 };
 
 function initLearn() {
-  // 根据用户设置的每日目标，按艾宾浩斯比例分配新词和复习
+  // 按艾宾浩斯遗忘曲线分配：新词 + 多节点复习（1天前/2天前/6天前）
   var dailyGoal = (currentUser && currentUser.daily_goal) || 5;
-  var newCount = Math.round(dailyGoal * 0.6);  // 60% 新词
-  var reviewCount = dailyGoal - newCount;       // 40% 复习
+  var newCount = Math.round(dailyGoal * 0.5);   // 50% 新词
+  var reviewCount = dailyGoal - newCount;        // 50% 复习
 
   var daysSinceEpoch = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
   learnState.group = daysSinceEpoch;
@@ -947,19 +947,29 @@ function initLearn() {
     newItems.push(EXPRESSIONS[(newStart + i) % EXPRESSIONS.length]);
   }
 
-  // 复习：昨天学过的（1 天后复习是遗忘曲线关键节点）
+  // 复习：按遗忘曲线多节点分配
+  // 1天前（最关键）占复习量的50%，2天前占30%，6天前占20%
   var reviewItems = [];
-  if (daysSinceEpoch > 0) {
-    var yesterdayStart = (daysSinceEpoch - 1) * newCount;
-    for (var i = 0; i < reviewCount; i++) {
-      reviewItems.push(EXPRESSIONS[(yesterdayStart + i) % EXPRESSIONS.length]);
+  var reviewSlots = [
+    { daysAgo: 1, ratio: 0.5 },
+    { daysAgo: 2, ratio: 0.3 },
+    { daysAgo: 6, ratio: 0.2 }
+  ];
+
+  for (var slot of reviewSlots) {
+    if (daysSinceEpoch >= slot.daysAgo) {
+      var count = Math.round(reviewCount * slot.ratio);
+      var start = (daysSinceEpoch - slot.daysAgo) * newCount;
+      for (var i = 0; i < count; i++) {
+        reviewItems.push(EXPRESSIONS[(start + i) % EXPRESSIONS.length]);
+      }
     }
   }
 
   // 组合
   learnState.items = newItems.concat(reviewItems);
 
-  // 如果是第一天（没有复习的），补新词凑够 dailyGoal
+  // 天数不够没有复习的，补新词凑够
   while (learnState.items.length < dailyGoal) {
     learnState.items.push(EXPRESSIONS[learnState.items.length % EXPRESSIONS.length]);
   }
