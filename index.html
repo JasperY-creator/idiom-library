@@ -740,6 +740,7 @@ async function setDailyGoal(n) {
   currentUser.daily_goal = n;
   localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
   renderProfile();
+  alert("已设置为每天学" + n + "个，明天生效");
 }
 
 async function renderAdmin() {
