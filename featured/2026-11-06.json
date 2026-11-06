@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-05T04:37:01.718168+00:00",
+  "featured": [
+    {
+      "title": "What kids wish their parents knew about fun | Mila Rojas",
+      "source": "TED",
+      "link": "http://go.ted.com/milarojas",
+      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的部分。这个演讲轻松有趣，适合在聊教育方式、亲子关系或工作与生活平衡时引用。",
+      "points": [
+        {
+          "phrase": "just for fun",
+          "example": "我们周末去爬山吧，不为什么，就是图个开心。"
+        },
+        {
+          "phrase": "buried under schedules",
+          "example": "她这周被各种会议和截止日期压得喘不过气。"
+        },
+        {
+          "phrase": "lose sight of",
+          "example": "别因为太忙而忽略了生活中真正重要的事。"
+        }
+      ]
+    },
+    {
+      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
+      "source": "TED",
+      "link": "http://go.ted.com/harvillehendrix",
+      "guide": "两位著名的夫妻治疗师分享了他们自己婚姻濒临破裂的真实经历，以及如何通过重新学习沟通来挽救关系。适合在聊亲密关系、沟通技巧或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "fall apart",
+          "example": "他们的计划因为突然的变故差点泡汤。"
+        },
+        {
+          "phrase": "teach the world how to love well",
+          "example": "她写了本书，教大家如何更好地爱自己和他人。"
+        },
+        {
+          "phrase": "work through",
+          "example": "他们花了好几个月才一起克服了那次危机。"
+        }
+      ]
+    },
+    {
+      "title": "How to make friends (and keep them) | Sheridan Voysey",
+      "source": "TED",
+      "link": "http://go.ted.com/sheridanvoysey",
+      "guide": "友谊专家Sheridan Voysey认为我们正经历一场“友谊衰退”，很多人缺少可以深夜求助的朋友。他分享了如何建立并维持深层友谊的实用建议，适合在聊人际关系、孤独感或社交技巧时使用。",
+      "points": [
+        {
+          "phrase": "friendship recession",
+          "example": "疫情之后，很多人都感到社交圈缩小了，出现了友谊衰退。"
+        },
+        {
+          "phrase": "call at 2am",
+          "example": "真正的朋友是那种你凌晨两点打电话也会接的人。"
+        },
+        {
+          "phrase": "keep in touch",
+          "example": "即使搬家了，我们也应该保持联系。"
+        }
+      ]
+    }
+  ],
+  "allCount": 5
+}

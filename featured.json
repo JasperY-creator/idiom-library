@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-05T04:37:01.718168+00:00",
+  "updatedAt": "2026-11-06T04:36:22.025682+00:00",
   "featured": [
     {
       "title": "What kids wish their parents knew about fun | Mila Rojas",
       "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的部分。这个演讲轻松有趣，适合在聊教育方式、亲子关系或工作与生活平衡时引用。",
+      "guide": "11岁的小女孩Mila Rojas从孩子的视角出发，提醒大人们不要被日程和期望压垮，要记得为了快乐而玩耍。这个演讲轻松有趣，适合在聊育儿、工作生活平衡或童年回忆时引用。",
       "points": [
         {
-          "phrase": "just for fun",
-          "example": "我们周末去爬山吧，不为什么，就是图个开心。"
+          "phrase": "buried under",
+          "example": "很多成年人被工作和家务压得喘不过气，忘了怎么玩。"
         },
         {
-          "phrase": "buried under schedules",
-          "example": "她这周被各种会议和截止日期压得喘不过气。"
+          "phrase": "just for fun",
+          "example": "周末我打算什么都不做，就为了好玩去公园散步。"
         },
         {
           "phrase": "lose sight of",
-          "example": "别因为太忙而忽略了生活中真正重要的事。"
+          "example": "我们常常在忙碌中忽略了生活中真正重要的事情。"
         }
       ]
     },
@@ -25,39 +25,39 @@
       "title": "The couples therapists who nearly got divorced | Harville Hendrix",
       "source": "TED",
       "link": "http://go.ted.com/harvillehendrix",
-      "guide": "两位著名的夫妻治疗师分享了他们自己婚姻濒临破裂的真实经历，以及如何通过重新学习沟通来挽救关系。适合在聊亲密关系、沟通技巧或自我成长时参考。",
+      "guide": "一对婚姻治疗师夫妇在教别人如何经营感情的同时，自己的婚姻却濒临破裂。他们坦诚分享如何走出危机，适合聊亲密关系、沟通技巧或个人成长时参考。",
       "points": [
         {
           "phrase": "fall apart",
-          "example": "他们的计划因为突然的变故差点泡汤。"
-        },
-        {
-          "phrase": "teach the world how to love well",
-          "example": "她写了本书，教大家如何更好地爱自己和他人。"
+          "example": "他们的婚姻在巨大的压力下几乎崩溃。"
         },
         {
           "phrase": "work through",
-          "example": "他们花了好几个月才一起克服了那次危机。"
+          "example": "夫妻之间需要一起努力解决分歧，而不是逃避。"
+        },
+        {
+          "phrase": "turn things around",
+          "example": "通过坦诚沟通，他们成功扭转了局面。"
         }
       ]
     },
     {
-      "title": "How to make friends (and keep them) | Sheridan Voysey",
+      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
       "source": "TED",
-      "link": "http://go.ted.com/sheridanvoysey",
-      "guide": "友谊专家Sheridan Voysey认为我们正经历一场“友谊衰退”，很多人缺少可以深夜求助的朋友。他分享了如何建立并维持深层友谊的实用建议，适合在聊人际关系、孤独感或社交技巧时使用。",
+      "link": "http://go.ted.com/dantaberski",
+      "guide": "纪录片播客Dan Taberski调查了纽约一个小镇高中里神秘出现的抽搐和怪声现象，探讨了传染与连接之间微妙的界限。这个演讲故事性强，适合聊社会现象、心理健康或群体行为时引用。",
       "points": [
         {
-          "phrase": "friendship recession",
-          "example": "疫情之后，很多人都感到社交圈缩小了，出现了友谊衰退。"
+          "phrase": "sweep through",
+          "example": "一种神秘的病症迅速席卷了整个学校。"
         },
         {
-          "phrase": "call at 2am",
-          "example": "真正的朋友是那种你凌晨两点打电话也会接的人。"
+          "phrase": "set out to",
+          "example": "他着手调查这个奇怪现象背后的原因。"
         },
         {
-          "phrase": "keep in touch",
-          "example": "即使搬家了，我们也应该保持联系。"
+          "phrase": "razor-thin line",
+          "example": "善意的关心和过度的干涉之间只有一线之隔。"
         }
       ]
     }
