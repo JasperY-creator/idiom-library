@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-06T04:36:22.025682+00:00",
+  "updatedAt": "2026-11-06T08:17:35.627836+00:00",
   "featured": [
     {
       "title": "What kids wish their parents knew about fun | Mila Rojas",
       "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "11岁的小女孩Mila Rojas从孩子的视角出发，提醒大人们不要被日程和期望压垮，要记得为了快乐而玩耍。这个演讲轻松有趣，适合在聊育儿、工作生活平衡或童年回忆时引用。",
+      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的一部分。她分享了孩子们希望父母理解的关于“ fun”的真相，适合在聊育儿、教育压力、工作与生活平衡时参考。",
       "points": [
         {
-          "phrase": "buried under",
-          "example": "很多成年人被工作和家务压得喘不过气，忘了怎么玩。"
-        },
-        {
           "phrase": "just for fun",
-          "example": "周末我打算什么都不做，就为了好玩去公园散步。"
+          "example": "我们周末去爬山吧，就为了好玩，不设任何目标。"
         },
         {
-          "phrase": "lose sight of",
-          "example": "我们常常在忙碌中忽略了生活中真正重要的事情。"
+          "phrase": "buried under",
+          "example": "他最近被各种会议和截止日期埋得喘不过气。"
+        },
+        {
+          "phrase": "the pressure to succeed",
+          "example": "很多孩子从小就被成功的压力推着走，很少有时间自由玩耍。"
         }
       ]
     },
@@ -25,19 +25,19 @@
       "title": "The couples therapists who nearly got divorced | Harville Hendrix",
       "source": "TED",
       "link": "http://go.ted.com/harvillehendrix",
-      "guide": "一对婚姻治疗师夫妇在教别人如何经营感情的同时，自己的婚姻却濒临破裂。他们坦诚分享如何走出危机，适合聊亲密关系、沟通技巧或个人成长时参考。",
+      "guide": "一对教了全世界几十年“如何好好相爱”的夫妻治疗师，却差点把自己的婚姻搞砸。他们坦诚分享那段低谷和修复过程，适合在聊亲密关系、沟通技巧、婚姻经营时引用。",
       "points": [
         {
           "phrase": "fall apart",
-          "example": "他们的婚姻在巨大的压力下几乎崩溃。"
+          "example": "那段时间他们的婚姻几乎要瓦解了，但最终还是撑了过来。"
         },
         {
           "phrase": "work through",
-          "example": "夫妻之间需要一起努力解决分歧，而不是逃避。"
+          "example": "与其回避冲突，不如一起把问题捋清楚。"
         },
         {
-          "phrase": "turn things around",
-          "example": "通过坦诚沟通，他们成功扭转了局面。"
+          "phrase": "take a step back",
+          "example": "吵架的时候，先退一步冷静一下，往往能看得更清楚。"
         }
       ]
     },
@@ -45,19 +45,19 @@
       "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
       "source": "TED",
       "link": "http://go.ted.com/dantaberski",
-      "guide": "纪录片播客Dan Taberski调查了纽约一个小镇高中里神秘出现的抽搐和怪声现象，探讨了传染与连接之间微妙的界限。这个演讲故事性强，适合聊社会现象、心理健康或群体行为时引用。",
+      "guide": "一所学高中突然出现神秘的抽搐和发声症状，像传染病一样蔓延。调查记者Dan Taberski带你走进这个真实事件，探讨人与人之间的影响到底有多微妙。适合在聊社会心理、群体行为、真实故事时分享。",
       "points": [
         {
           "phrase": "sweep through",
-          "example": "一种神秘的病症迅速席卷了整个学校。"
+          "example": "一种奇怪的症状迅速席卷了整个学校，大家都慌了。"
         },
         {
           "phrase": "set out to",
-          "example": "他着手调查这个奇怪现象背后的原因。"
+          "example": "他决定着手调查这件事的来龙去脉。"
         },
         {
-          "phrase": "razor-thin line",
-          "example": "善意的关心和过度的干涉之间只有一线之隔。"
+          "phrase": "the line between",
+          "example": "有时候，共情和过度卷入之间的界限非常模糊。"
         }
       ]
     }
