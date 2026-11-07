@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-06T08:17:35.627836+00:00",
+  "featured": [
+    {
+      "title": "What kids wish their parents knew about fun | Mila Rojas",
+      "source": "TED",
+      "link": "http://go.ted.com/milarojas",
+      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的一部分。她分享了孩子们希望父母理解的关于“ fun”的真相，适合在聊育儿、教育压力、工作与生活平衡时参考。",
+      "points": [
+        {
+          "phrase": "just for fun",
+          "example": "我们周末去爬山吧，就为了好玩，不设任何目标。"
+        },
+        {
+          "phrase": "buried under",
+          "example": "他最近被各种会议和截止日期埋得喘不过气。"
+        },
+        {
+          "phrase": "the pressure to succeed",
+          "example": "很多孩子从小就被成功的压力推着走，很少有时间自由玩耍。"
+        }
+      ]
+    },
+    {
+      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
+      "source": "TED",
+      "link": "http://go.ted.com/harvillehendrix",
+      "guide": "一对教了全世界几十年“如何好好相爱”的夫妻治疗师，却差点把自己的婚姻搞砸。他们坦诚分享那段低谷和修复过程，适合在聊亲密关系、沟通技巧、婚姻经营时引用。",
+      "points": [
+        {
+          "phrase": "fall apart",
+          "example": "那段时间他们的婚姻几乎要瓦解了，但最终还是撑了过来。"
+        },
+        {
+          "phrase": "work through",
+          "example": "与其回避冲突，不如一起把问题捋清楚。"
+        },
+        {
+          "phrase": "take a step back",
+          "example": "吵架的时候，先退一步冷静一下，往往能看得更清楚。"
+        }
+      ]
+    },
+    {
+      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
+      "source": "TED",
+      "link": "http://go.ted.com/dantaberski",
+      "guide": "一所学高中突然出现神秘的抽搐和发声症状，像传染病一样蔓延。调查记者Dan Taberski带你走进这个真实事件，探讨人与人之间的影响到底有多微妙。适合在聊社会心理、群体行为、真实故事时分享。",
+      "points": [
+        {
+          "phrase": "sweep through",
+          "example": "一种奇怪的症状迅速席卷了整个学校，大家都慌了。"
+        },
+        {
+          "phrase": "set out to",
+          "example": "他决定着手调查这件事的来龙去脉。"
+        },
+        {
+          "phrase": "the line between",
+          "example": "有时候，共情和过度卷入之间的界限非常模糊。"
+        }
+      ]
+    }
+  ],
+  "allCount": 5
+}
