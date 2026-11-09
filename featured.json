@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-08T03:46:21.734743+00:00",
+  "updatedAt": "2026-11-09T03:58:44.456656+00:00",
   "featured": [
     {
       "title": "What kids wish their parents knew about fun",
       "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "11岁的小女孩Mila Rojas观察到，大人们总是被日程、期待和压力淹没，忘记了玩耍的乐趣。她分享了自己的观察，提醒父母们玩耍对孩子成长的重要性。这个演讲适合在聊教育方式、亲子关系或工作生活平衡时参考。",
+      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们别被日程和压力淹没，重新找回纯粹玩耍的乐趣。适合聊亲子关系、工作生活平衡或“长大后的我们丢掉了什么”这类话题时引用。",
       "points": [
         {
           "phrase": "buried under",
-          "example": "他整天被工作压得喘不过气来，完全没时间陪家人。"
+          "example": "很多成年人被工作和琐事埋没，忘了怎么放松。"
         },
         {
           "phrase": "just for fun",
-          "example": "我学画画纯粹是为了好玩，没想过要成为专业画家。"
+          "example": "她建议我们每周留出一点时间，纯粹为了好玩而做点什么。"
         },
         {
           "phrase": "lose sight of",
-          "example": "在追求成绩的过程中，我们常常忽略了学习的真正乐趣。"
+          "example": "别在忙碌中忽略了生活中真正重要的东西。"
         }
       ]
     },
@@ -25,42 +25,42 @@
       "title": "The couples therapists who nearly got divorced",
       "source": "TED",
       "link": "http://go.ted.com/harvillehendrix",
-      "guide": "Harville Hendrix和Helen LaKelly Hunt是著名的夫妻治疗师，他们教了全世界如何好好相爱，但自己的婚姻却一度濒临破裂。他们坦诚地分享了这段经历，以及如何修复关系。这个演讲适合在聊亲密关系、沟通技巧或自我成长时参考。",
+      "guide": "一对教了全世界几十年如何经营婚姻的夫妻治疗师，坦诚分享自己婚姻差点破裂的经历。适合聊亲密关系、沟通技巧或“专家也会翻车”的趣事时参考。",
       "points": [
         {
           "phrase": "fall apart",
-          "example": "他们的婚姻在经历那次危机后几乎崩溃。"
+          "example": "他们的婚姻在事业最忙的时候几乎崩溃。"
         },
         {
-          "phrase": "work on",
-          "example": "他们花了好几年时间努力改善彼此的关系。"
+          "phrase": "work on a relationship",
+          "example": "经营一段关系需要双方持续投入和沟通。"
         },
         {
-          "phrase": "open up",
-          "example": "在咨询中，她终于敞开心扉，谈起了自己的恐惧。"
+          "phrase": "turn things around",
+          "example": "通过坦诚沟通，他们最终扭转了局面。"
         }
       ]
     },
     {
-      "title": "The razor-thin line between contagion and connection",
+      "title": "The surprising beauty of mosquitos",
       "source": "TED",
-      "link": "http://go.ted.com/dantaberski",
-      "guide": "纪录片播客Dan Taberski调查了纽约一个小镇高中里神秘出现的抽搐和眨眼现象，探讨了传染与联系之间的微妙界限。这个演讲适合在聊社会现象、心理健康或人际关系时参考。",
+      "link": "http://go.ted.com/felixhol",
+      "guide": "生物技术专家Felix Hol带你走进他的实验室，展示蚊子不为人知的美，并解释它们对科学研究的价值。适合聊“换个角度看讨厌的事物”、生物科技或科普趣闻时使用。",
       "points": [
         {
-          "phrase": "sweep through",
-          "example": "一种神秘的疾病迅速席卷了整个学校。"
+          "phrase": "take a closer look",
+          "example": "如果你仔细观察，会发现蚊子其实有惊人的结构。"
         },
         {
-          "phrase": "set out to",
-          "example": "他着手调查这个奇怪现象的起因。"
+          "phrase": "change one's mind about",
+          "example": "这个演讲可能会改变你对蚊子的看法。"
         },
         {
-          "phrase": "razor-thin",
-          "example": "成功与失败之间只有一线之隔。"
+          "phrase": "play a role in",
+          "example": "蚊子在生态系统中也扮演着重要角色。"
         }
       ]
     }
   ],
-  "allCount": 7
+  "allCount": 6
 }
