@@ -22,6 +22,8 @@
     --c-describe-bg: #DDE6EE;    --c-describe-fg: #35557A;
     --c-social-bg: #F0E6CC;      --c-social-fg: #8A6D2F;
     --c-daily-bg: #E4E7EE;       --c-daily-fg: #4A5470;
+    --c-online-bg: #EDE0E6;      --c-online-fg: #7A4557;
+    --c-screen-bg: #E6E9DC;      --c-screen-fg: #5C6432;
     --radius: 14px;
     --shadow: 0 1px 2px rgba(43,42,38,.04), 0 4px 14px rgba(43,42,38,.06);
   }
@@ -137,6 +139,8 @@
   .tag.describe    { background: var(--c-describe-bg);    color: var(--c-describe-fg); }
   .tag.social      { background: var(--c-social-bg);      color: var(--c-social-fg); }
   .tag.daily       { background: var(--c-daily-bg);       color: var(--c-daily-fg); }
+  .tag.online      { background: var(--c-online-bg);      color: var(--c-online-fg); }
+  .tag.screen      { background: var(--c-screen-bg);      color: var(--c-screen-fg); }
   .chevron {
     flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%;
     background: var(--bg); display: flex; align-items: center; justify-content: center;
@@ -511,6 +515,8 @@
       <button class="chip" data-cat="describe">聊别人</button>
       <button class="chip" data-cat="social">社交应答</button>
       <button class="chip" data-cat="daily">日常状况</button>
+      <button class="chip" data-cat="online">网上冲浪</button>
+      <button class="chip" data-cat="screen">聊影视</button>
     </div>
     <div class="list" id="list"></div>
   </div>
@@ -1112,10 +1118,58 @@ const EXPRESSIONS = [
   { en: "I'm always scrolling before bed", phonetic: "/aɪm ˈɔːlweɪz ˈskrəʊlɪŋ bɪˈfɔː bed/", zh: "我睡前总刷手机", cat: "daily",
     keywords: ["刷手机","睡前","熬夜","短视频","习惯","scrolling","phone","bed","night","addicted"],
     origin: "scroll 原意是「卷轴、滚动」，智能手机时代专门指上下滑动刷内容——刷朋友圈、刷短视频都是 scroll，后面不用接宾语。before bed 就是睡前。",
-    examples: [["I'm always scrolling before bed — bad habit.","我睡前总忍不住刷手机，坏习惯。"],["I'm always scrolling before bed, and then I can't fall asleep.","我睡前老刷手机，结果就睡不着。"]] }
+    examples: [["I'm always scrolling before bed — bad habit.","我睡前总忍不住刷手机，坏习惯。"],["I'm always scrolling before bed, and then I can't fall asleep.","我睡前老刷手机，结果就睡不着。"]] },
+  { en: "It went viral", phonetic: "/ɪt went ˈvaɪrəl/", zh: "它一夜爆火、疯传", cat: "online",
+    keywords: ["爆火","火了","刷屏","病毒式传播","传播","热门","viral","trending","spread","blow up"],
+    origin: "viral 来自 virus（病毒），本意是「病毒性的」。病毒靠人传人扩散，内容靠转发扩散，这个比喻 20 世纪后期就有了；1996 年出现 viral marketing（病毒式营销）的说法，YouTube 时代彻底变成说内容爆火的口语。",
+    examples: [["That video went viral overnight.","那条视频一夜之间爆火了。"],["Her dance clip went viral within a day.","她的跳舞片段一天就刷屏了。"]] },
+  { en: "That's an epic fail", phonetic: "/ðæts ˈepɪk feɪl/", zh: "简直是大型翻车现场", cat: "online",
+    keywords: ["翻车","失败","搞砸","丢人","离谱","fail","disaster","embarrassing"],
+    origin: "fail 原本只是动词「失败」。2000 年代末的网游和论坛里，玩家在操作崩掉的瞬间直接打一个 FAIL，它才变成名词。epic 来自希腊语 epos（史诗），游戏里指最高等级，所以 epic fail 是「史诗级的失败」——败得离谱、败得值得围观。",
+    examples: [["He slipped on stage — an epic fail.","他在台上摔了一跤，大型翻车现场。"],["I tried to cook for my date and it was an epic fail.","我想给约会对象做顿饭，结果大型翻车。"]] },
+  { en: "Don't feed the trolls", phonetic: "/dəʊnt fiːd ðə trəʊlz/", zh: "别理那些杠精", cat: "online",
+    keywords: ["杠精","喷子","网络暴力","恶评","别回","troll","hater","comment","argue"],
+    origin: "troll 最早是北欧神话里住在桥下、专找过路人麻烦的怪物。网络时代借它指故意挑事的人。feed 是「喂食」：你回一句、给个赞，等于给怪物投食，它就更来劲。所以网上有条老规矩——别喂。",
+    examples: [["Ignore the hate comments — don't feed the trolls.","别理那些恶评，别给杠精回话。"],["Someone's arguing in the comments — just don't feed the trolls.","有人在评论区吵架，别接话就行。"]] },
+  { en: "I'm just lurking", phonetic: "/aɪm dʒʌst ˈlɜːkɪŋ/", zh: "我只潜水不发言", cat: "online",
+    keywords: ["潜水","不说话","只看不发","群","围观","lurk","silent","read only","group chat"],
+    origin: "lurk 是中古英语 lurken，「潜伏、躲在暗处等猎物」。上世纪八九十年代的 Usenet 论坛里，只看不发的人被叫作 lurker，这个词一直沿用到今天的群聊和论坛。",
+    examples: [["I read the group chat, but I'm just lurking.","群消息我都看，但我只潜水不说话。"],["I've been lurking here for a year and never posted.","我在这儿潜水一年了，从没发过言。"]] },
+  { en: "I'm binge-watching it", phonetic: "/aɪm bɪndʒ ˈwɒtʃɪŋ ɪt/", zh: "我在刷剧", cat: "screen",
+    keywords: ["刷剧","追剧","一口气看完","整季","binge","netflix","episode","marathon"],
+    origin: "binge 原本是喝酒的词，binge drinking 是「连续猛灌」。2013 年 Netflix 一次性放出整季，《纸牌屋》让 binge-watching 变成全民说法，后来进了词典——一口气把整季看完。",
+    examples: [["I binge-watched the whole season in one night.","我一晚上刷完了一整季。"],["Don't call me tonight — I'm binge-watching the new season.","今晚别找我，我在刷新一季。"]] },
+  { en: "I'm hooked", phonetic: "/aɪm hʊkt/", zh: "我彻底上头了", cat: "screen",
+    keywords: ["上头","入坑","上瘾","停不下来","追","hooked","addicted","obsessed","can't stop"],
+    origin: "hook 是鱼钩。鱼咬钩就挣不脱，所以 be hooked 从 20 世纪初就用来形容「戒不掉」：hooked on drugs 是成瘾，hooked on a show 就是追剧追到停不下来。",
+    examples: [["Two episodes in and I'm already hooked.","才看了两集我就彻底上头了。"],["I told myself one episode, and now I'm hooked.","我说好只看一集，结果上头了。"]] },
+  { en: "No spoilers, please!", phonetic: "/nəʊ ˈspɔɪləz pliːz/", zh: "求别剧透", cat: "screen",
+    keywords: ["剧透","别告诉我","结局","spoiler","ruin","ending","surprise"],
+    origin: "spoil 来自拉丁语 spoliare，「掠夺、毁掉」。spoiler 指提前说出结局、把观影乐趣毁掉的人或信息；上世纪七八十年代影迷讨论里开始用，Usenet 时代形成了发帖前先标 spoiler warning 的规矩。",
+    examples: [["I'm only on episode three — no spoilers!","我才看到第三集，千万别剧透！"],["Don't tell me anything about the finale — no spoilers!","结局一个字都别说，别剧透！"]] },
+  { en: "It's a must-watch", phonetic: "/ɪts ə ˈmʌst wɒtʃ/", zh: "这部必看", cat: "screen",
+    keywords: ["必看","强烈推荐","不能错过","must watch","recommend","worth watching"],
+    origin: "must 表示「必须」。19 世纪末起英语里就用 must-see、must-read 这类 must- 组合词，给「非看不可」的东西打标签；must-watch 是同一套构词法在影视上的延伸。",
+    examples: [["Trust me, it's a must-watch.","相信我，这部必看。"],["If you only watch one documentary this year, make it this — it's a must-watch.","今年只看一部纪录片就看这部，必看。"]] },
+  { en: "It's so overrated", phonetic: "/ɪts səʊ ˌəʊvəˈreɪtɪd/", zh: "被吹过头了", cat: "screen",
+    keywords: ["吹过头","过誉","名不副实","失望","overrated","hyped","overhyped","not that good"],
+    origin: "rate 是「估价、评定」，来自拉丁语 ratus（计算过的）。over- 表示过头，overrate 就是评价高过实际水平，17 世纪就有这个词；今天多用来吐槽被过度追捧的作品。",
+    examples: [["Everyone loves it, but it's so overrated.","人人都夸，可我觉得被吹过头了。"],["I finally watched it and honestly, it's so overrated.","我终于看了，说实话被吹过头了。"]] },
+  { en: "The plot is all over the place", phonetic: "/ðə plɒt ɪz ɔːl ˈəʊvə ðə pleɪs/", zh: "剧情乱七八糟", cat: "screen",
+    keywords: ["剧情","乱","看不懂","散","拖","plot","messy","confusing","storyline"],
+    origin: "plot 原意是「一块地」，后来指故事的情节线。all over the place 是 20 世纪中期形成的固定短语，本来说东西「到处都是、散得满地」；借来形容剧情，就是线索乱飞、收不拢。",
+    examples: [["I got lost — the plot is all over the place.","我都看糊涂了，剧情乱七八糟。"],["The first half was great, but the plot is all over the place after that.","前半段挺好，后面剧情就乱了。"]] },
+  { en: "I skipped through most of it", phonetic: "/aɪ skɪpt θruː məʊst əv ɪt/", zh: "我大部分都快进了", cat: "screen",
+    keywords: ["快进","跳过","拖进度条","无聊","skip","fast forward","boring","drag"],
+    origin: "skip 本义是「轻巧地跳」，13 世纪从古北欧语进入英语；16 世纪引申出「跳过、略过」。所以 skip through 就是一路跳着穿过去，中间大部分都略掉。",
+    examples: [["Too boring — I skipped through most of it.","太无聊了，我大部分都是快进的。"],["I skipped through most of it and just watched the ending.","我大部分快进了，只看了个结尾。"]] },
+  { en: "I need to know how it ends", phonetic: "/aɪ niːd tə nəʊ haʊ ɪt endz/", zh: "我必须知道结局", cat: "screen",
+    keywords: ["结局","收尾","睡不着","悬念","ending","finale","how it ends","cliffhanger"],
+    origin: "end 来自古英语 ende，「终点、边界」。说 how it ends 而不说 the ending，是因为 how 问的是「怎么收场」这个过程，比单说结局更强调忍不住想知道后面发生了什么。",
+    examples: [["I can't sleep — I need to know how it ends.","我睡不着，必须知道结局才行。"],["I can't go to bed not knowing — I need to know how it ends.","不知道结局我睡不着，必须看完。"]] }
 ];
 
-var CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答", daily: "日常状况" };
+var CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答", daily: "日常状况", online: "网上冲浪", screen: "聊影视" };
 var currentCat = "all";
 var keyword = "";
 
