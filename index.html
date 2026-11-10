@@ -21,6 +21,7 @@
     --c-performance-bg: #E3EDE8; --c-performance-fg: #2F5D50;
     --c-describe-bg: #DDE6EE;    --c-describe-fg: #35557A;
     --c-social-bg: #F0E6CC;      --c-social-fg: #8A6D2F;
+    --c-daily-bg: #E4E7EE;       --c-daily-fg: #4A5470;
     --radius: 14px;
     --shadow: 0 1px 2px rgba(43,42,38,.04), 0 4px 14px rgba(43,42,38,.06);
   }
@@ -135,6 +136,7 @@
   .tag.performance { background: var(--c-performance-bg); color: var(--c-performance-fg); }
   .tag.describe    { background: var(--c-describe-bg);    color: var(--c-describe-fg); }
   .tag.social      { background: var(--c-social-bg);      color: var(--c-social-fg); }
+  .tag.daily       { background: var(--c-daily-bg);       color: var(--c-daily-fg); }
   .chevron {
     flex: 0 0 auto; width: 28px; height: 28px; border-radius: 50%;
     background: var(--bg); display: flex; align-items: center; justify-content: center;
@@ -508,6 +510,7 @@
       <button class="chip" data-cat="performance">聊表现</button>
       <button class="chip" data-cat="describe">聊别人</button>
       <button class="chip" data-cat="social">社交应答</button>
+      <button class="chip" data-cat="daily">日常状况</button>
     </div>
     <div class="list" id="list"></div>
   </div>
@@ -1093,10 +1096,26 @@ const EXPRESSIONS = [
   { en: "I'm stoked", phonetic: "/aɪm stoʊkt/", zh: "我超兴奋", cat: "mood",
     keywords: ["开心","兴奋","激动","期待","stoked","excited","thrilled","pumped"],
     origin: "stoke 原本是「往火里添煤」的意思，stoke a fire 就是让火烧得更旺。引申为情绪被点燃了——特别兴奋、特别期待。",
-    examples: [["I just got the job offer, I'm stoked!","我刚收到工作邀请，我超开心！"],["We're stoked about the trip next week.","我们对下周的旅行超期待。"]] }
+    examples: [["I just got the job offer, I'm stoked!","我刚收到工作邀请，我超开心！"],["We're stoked about the trip next week.","我们对下周的旅行超期待。"]] },
+  { en: "My phone died", phonetic: "/maɪ fəʊn daɪd/", zh: "我手机没电关机了", cat: "daily",
+    keywords: ["手机","没电","关机","电量","找不到我","phone","battery","dead","die","charge"],
+    origin: "英语里形容电器断电、停止工作直接用 die，跟「死亡」没关系，是把手机当人说的拟人用法。电池耗尽、彻底开不了机都叫 die，比 my phone is out of battery 更好说也更地道。",
+    examples: [["Sorry I missed your call — my phone died.","没接到你电话，手机没电关机了。"],["My phone died right in the middle of the meeting.","开会开一半，手机就没电关机了。"]] },
+  { en: "I'm out of data", phonetic: "/aɪm aʊt əv ˈdeɪtə/", zh: "我流量用完了", cat: "daily",
+    keywords: ["流量","套餐","手机","上网","不够用","data","gb","traffic","internet"],
+    origin: "data 在手机套餐语境里专指「移动数据流量」，不是「数据资料」。out of 是「用光了」的固定说法，没油了、没牛奶了、没耐心了都用它。",
+    examples: [["I'm out of data until next month.","我流量用完了，得撑到下个月。"],["Can you turn on your hotspot? I'm out of data.","能开个热点吗？我流量没了。"]] },
+  { en: "The signal is terrible here", phonetic: "/ðə ˈsɪɡnəl ɪz ˈterəbl hɪə/", zh: "这儿信号特别差", cat: "daily",
+    keywords: ["信号","网络","断网","卡","电梯","地铁","signal","network","coverage","weak"],
+    origin: "signal 就是手机信号格。terrible 是口语里最高频的「糟透了」，比 bad 重、比 awful 轻，抱怨天气、服务、信号几乎都用它。",
+    examples: [["The signal is terrible in the elevator.","电梯里信号特别差。"],["The signal is terrible here — let me call you back outside.","这儿信号太差了，我出去再打给你。"]] },
+  { en: "I'm always scrolling before bed", phonetic: "/aɪm ˈɔːlweɪz ˈskrəʊlɪŋ bɪˈfɔː bed/", zh: "我睡前总刷手机", cat: "daily",
+    keywords: ["刷手机","睡前","熬夜","短视频","习惯","scrolling","phone","bed","night","addicted"],
+    origin: "scroll 原意是「卷轴、滚动」，智能手机时代专门指上下滑动刷内容——刷朋友圈、刷短视频都是 scroll，后面不用接宾语。before bed 就是睡前。",
+    examples: [["I'm always scrolling before bed — bad habit.","我睡前总忍不住刷手机，坏习惯。"],["I'm always scrolling before bed, and then I can't fall asleep.","我睡前老刷手机，结果就睡不着。"]] }
 ];
 
-var CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答" };
+var CAT_LABEL = { mood: "聊心情", performance: "聊表现", describe: "聊别人", social: "社交应答", daily: "日常状况" };
 var currentCat = "all";
 var keyword = "";
 
