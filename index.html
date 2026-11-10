@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SayWhat · 每天学5个地道口语</title>
+<title>SayWhat · 每天学几个地道口语</title>
 <script src="https://fastly.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D50'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23F5F1E8' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
 <style>
@@ -378,16 +378,20 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="width:32px;height:32px"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
       </div>
       <h1 style="font-family:Georgia,serif;font-size:28px;font-weight:700;margin-bottom:8px">SayWhat</h1>
-      <p style="color:var(--ink-2);font-size:14px;margin-bottom:40px">每天学 5 个地道口语，开口不再卡壳</p>
+      <p style="color:var(--ink-2);font-size:14px;margin-bottom:40px">每天学几个地道口语，开口不再卡壳</p>
 
       <div style="max-width:320px;margin:0 auto;text-align:left">
         <label style="font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px">手机号</label>
-        <input type="tel" id="loginPhone" placeholder="输入手机号" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:16px;box-sizing:border-box">
+        <input type="tel" id="loginPhone" placeholder="输入手机号" oninput="resetLoginState()" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:12px;box-sizing:border-box">
 
-        <label style="font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px">昵称</label>
-        <input type="text" id="loginNickname" placeholder="给自己起个名字" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:24px;box-sizing:border-box">
+        <div id="nicknameField" style="display:none">
+          <label style="font-size:13px;color:var(--ink-2);display:block;margin-bottom:6px">给自己起个昵称</label>
+          <input type="text" id="loginNickname" placeholder="比如：小明" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;margin-bottom:12px;box-sizing:border-box">
+        </div>
 
-        <button class="cta cta-primary" style="width:100%" onclick="handleLogin()">开始学习 →</button>
+        <div id="loginHint" style="font-size:12px;color:var(--ink-3);margin-bottom:16px;min-height:16px"></div>
+
+        <button class="cta cta-primary" id="loginSubmitBtn" style="width:100%" onclick="handlePhoneSubmit()">继续 →</button>
       </div>
     </div>
   </div>
@@ -448,7 +452,7 @@
         <div style="text-align:center;padding:20px 0">
           <div style="font-size:40px;margin-bottom:10px">🎉</div>
           <div style="font-size:18px;font-weight:700;margin-bottom:8px">今日学习完成！</div>
-          <div style="font-size:13px;color:var(--ink-2)">你已经学完了今天的 5 个表达，两天后再来学新的一组。</div>
+          <div style="font-size:13px;color:var(--ink-2)" id="learnDoneText">你已经学完了今天的表达，明天再来学新的一组。</div>
         </div>
       </div>
       <div class="learn-btns">
@@ -463,7 +467,7 @@
       <button class="entry-row" onclick="startQuiz()">
         <div class="entry-main">
           <div class="entry-title">学完了？测一测</div>
-          <div class="entry-desc">学完 5 个，花 1 分钟测测掌握度。</div>
+          <div class="entry-desc">学完今天的词，花 1 分钟测测掌握度。</div>
         </div>
         <div class="entry-arrow">→</div>
       </button>
@@ -483,7 +487,7 @@
       </div>
     </div>
 
-    <footer>每天学 5 个 · 手机随查随用</footer>
+    <footer>每天学几个 · 手机随查随用</footer>
   </div>
 
   <div class="view" id="view-corpus">
@@ -623,16 +627,72 @@ if (!isLoggedIn()) {
 
 function go(view) { location.hash = '/' + view; }
 
-async function handleLogin() {
+function resetLoginState() {
+  var field = document.getElementById("nicknameField");
+  var hint = document.getElementById("loginHint");
+  var btn = document.getElementById("loginSubmitBtn");
+  if (field) field.style.display = "none";
+  if (hint) hint.textContent = "";
+  if (btn) { btn.textContent = "继续 →"; btn.onclick = handlePhoneSubmit; }
+}
+
+// 第一步：验手机号，识别老用户还是新用户
+async function handlePhoneSubmit() {
   var phone = document.getElementById("loginPhone").value.trim();
-  var nickname = document.getElementById("loginNickname").value.trim();
-  if (!phone || phone.length < 11) { alert("请输入正确的手机号"); return; }
-  if (!nickname) { alert("请输入昵称"); return; }
+  if (!/^1\d{10}$/.test(phone)) { alert("请输入 11 位手机号"); return; }
+
+  var hint = document.getElementById("loginHint");
+  var btn = document.getElementById("loginSubmitBtn");
+  var field = document.getElementById("nicknameField");
+  btn.disabled = true; btn.textContent = "查询中...";
+
   try {
-    await loginOrSignup(phone, nickname);
-    alert("欢迎，" + nickname + "！");
+    var { data: existing } = await sb.from("profiles").select("*").eq("phone", phone).maybeSingle();
+    if (existing) {
+      // 老用户：直接登录
+      currentUser = existing;
+      localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+      location.hash = "/home";
+      renderRoute();
+      return;
+    }
+    // 新用户：露出昵称输入
+    field.style.display = "block";
+    hint.textContent = "这个手机号还没注册，起个昵称就能开始";
+    btn.textContent = "注册并开始 →";
+    btn.disabled = false;
+    btn.onclick = handleSignup;
+    document.getElementById("loginNickname").focus();
   } catch(e) {
     alert("出错了：" + e.message);
+    btn.disabled = false;
+    btn.textContent = "继续 →";
+  }
+}
+
+// 第二步：新用户注册
+async function handleSignup() {
+  var phone = document.getElementById("loginPhone").value.trim();
+  var nickname = document.getElementById("loginNickname").value.trim();
+  if (!nickname) { alert("请起个昵称"); return; }
+  if (nickname.length > 12) { alert("昵称最多 12 个字"); return; }
+
+  var btn = document.getElementById("loginSubmitBtn");
+  btn.disabled = true; btn.textContent = "注册中...";
+  try {
+    var { data: newUser, error } = await sb.from("profiles").insert({
+      phone: phone,
+      nickname: nickname
+    }).select().single();
+    if (error) throw error;
+    currentUser = newUser;
+    localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+    location.hash = "/home";
+    renderRoute();
+  } catch(e) {
+    alert("注册失败：" + e.message);
+    btn.disabled = false;
+    btn.textContent = "注册并开始 →";
   }
 }
 
@@ -676,8 +736,21 @@ async function renderProfile() {
 
   el.innerHTML = `
     <div style="background:var(--card);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)">
-      <div style="font-size:24px;font-weight:700;margin-bottom:4px">${currentUser.nickname}</div>
-      <div style="font-size:13px;color:var(--ink-3)">${currentUser.phone}</div>
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div style="min-width:0">
+          <div style="font-size:24px;font-weight:700;margin-bottom:4px">${currentUser.nickname}</div>
+          <div style="font-size:13px;color:var(--ink-3)">${currentUser.phone}</div>
+        </div>
+        <button onclick="startRename()" style="flex-shrink:0;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;color:var(--ink-2);cursor:pointer">改名</button>
+      </div>
+      <div id="renameBox" style="display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+        <input type="text" id="renameInput" maxlength="12" placeholder="新昵称" style="width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-size:15px;margin-bottom:10px;box-sizing:border-box">
+        <div style="display:flex;gap:10px">
+          <button class="cta cta-primary" style="flex:1;padding:10px" onclick="saveRename()">保存</button>
+          <button class="cta cta-secondary" style="flex:1;padding:10px" onclick="cancelRename()">取消</button>
+        </div>
+        <div id="renameHint" style="font-size:12px;color:var(--ink-3);margin-top:8px">${renameLeftText()}</div>
+      </div>
     </div>
 
     <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
@@ -745,6 +818,69 @@ async function setDailyGoal(n) {
   localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
   renderProfile();
   alert("已设置为每天学" + n + "个，明天生效");
+}
+
+// ============ 改名（每月 3 次上限） ============
+var RENAME_LIMIT = 3;
+
+function currentMonthKey() {
+  var d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+}
+
+function getRenameCount() {
+  if (!currentUser) return 0;
+  try {
+    var data = JSON.parse(localStorage.getItem("saywhat_rename_" + currentUser.id) || "{}");
+    if (data.month !== currentMonthKey()) return 0;
+    return data.count || 0;
+  } catch(e) { return 0; }
+}
+
+function renameLeftText() {
+  var left = RENAME_LIMIT - getRenameCount();
+  if (left <= 0) return "本月改名次数已用完，下月恢复";
+  return "本月还可改名 " + left + " 次";
+}
+
+function startRename() {
+  if (getRenameCount() >= RENAME_LIMIT) {
+    alert("本月改名次数已用完，" + (new Date().getMonth() + 2) + " 月恢复");
+    return;
+  }
+  var box = document.getElementById("renameBox");
+  box.style.display = "block";
+  var input = document.getElementById("renameInput");
+  input.value = currentUser.nickname;
+  input.focus();
+}
+
+function cancelRename() {
+  document.getElementById("renameBox").style.display = "none";
+}
+
+async function saveRename() {
+  var input = document.getElementById("renameInput");
+  var newName = input.value.trim();
+  if (!newName) { alert("昵称不能为空"); return; }
+  if (newName.length > 12) { alert("昵称最多 12 个字"); return; }
+  if (newName === currentUser.nickname) { alert("和现在的昵称一样"); return; }
+  if (getRenameCount() >= RENAME_LIMIT) { alert("本月改名次数已用完"); return; }
+
+  var { error } = await sb.from("profiles").update({ nickname: newName }).eq("id", currentUser.id);
+  if (error) { alert("改名失败：" + error.message); return; }
+
+  // 记一次改名
+  var count = getRenameCount() + 1;
+  localStorage.setItem("saywhat_rename_" + currentUser.id, JSON.stringify({
+    month: currentMonthKey(),
+    count: count
+  }));
+
+  currentUser.nickname = newName;
+  localStorage.setItem("saywhat_user", JSON.stringify(currentUser));
+  renderProfile();
+  alert("改好了，以后就叫你「" + newName + "」");
 }
 
 async function renderAdmin() {
@@ -1172,7 +1308,8 @@ function saveLearnProgress() {
     localStorage.setItem("saywhat_learn", JSON.stringify({
       group: learnState.group,
       current: learnState.current,
-      done: false
+      done: false,
+      items: learnState.items.map(function(e) { return e.en.toLowerCase(); })
     }));
   } catch(e) {}
 }
@@ -1286,12 +1423,17 @@ function nextLearn() {
     document.querySelector(".learn-btns").style.display = "none";
     document.getElementById("learnDone").style.display = "block";
     document.getElementById("restartBtn").style.display = "block";
-    // 保存完成状态
+    var doneTextEl = document.getElementById("learnDoneText");
+    if (doneTextEl) {
+      doneTextEl.textContent = "你已经学完了今天的 " + learnState.items.length + " 个表达，明天再来学新的一组。";
+    }
+    // 保存完成状态（items 要一起存，否则重新进来会重新抽词）
     try {
       localStorage.setItem("saywhat_learn", JSON.stringify({
         group: learnState.group,
         current: learnState.current,
-        done: true
+        done: true,
+        items: learnState.items.map(function(e) { return e.en.toLowerCase(); })
       }));
     } catch(e) {}
 
@@ -1320,6 +1462,7 @@ function restartLearn() {
   document.getElementById("learnDone").style.display = "none";
   document.getElementById("restartBtn").style.display = "none";
   renderLearnCard();
+  saveLearnProgress();
 }
 
 initLearn();
