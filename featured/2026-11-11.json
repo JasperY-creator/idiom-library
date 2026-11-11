@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-10T05:32:00.210530+00:00",
+  "featured": [
+    {
+      "title": "How to rewire your brain — and find your flow",
+      "source": "TED",
+      "link": "http://go.ted.com/heatherberlin",
+      "guide": "神经科学家探讨一个有趣的悖论：越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "grip a little tighter",
+          "example": "遇到不确定的事情时，我们常常会本能地 grip a little tighter，结果反而更焦虑。"
+        },
+        {
+          "phrase": "rewire your brain",
+          "example": "通过刻意练习，你可以 rewire your brain，养成新的思维习惯。"
+        },
+        {
+          "phrase": "find your flow",
+          "example": "找到适合自己的节奏，才能更容易 find your flow，工作效率也会更高。"
+        }
+      ]
+    },
+    {
+      "title": "What kids wish their parents knew about fun",
+      "source": "TED",
+      "link": "http://go.ted.com/milarojas",
+      "guide": "一个11岁的小女孩观察到，大人们总是被日程和期待压得喘不过气，忘了纯粹为了好玩而玩耍。这个演讲轻松有趣，适合聊亲子关系、教育或生活平衡时参考。",
+      "points": [
+        {
+          "phrase": "just for fun",
+          "example": "周末不妨放下手机，做点 just for fun 的事情，比如画画或者散步。"
+        },
+        {
+          "phrase": "buried under schedules",
+          "example": "很多上班族 buried under schedules，连吃饭都匆匆忙忙。"
+        },
+        {
+          "phrase": "the pressure to ...",
+          "example": "孩子们常常感受到 the pressure to 表现得更好，这让他们很难放松。"
+        }
+      ]
+    },
+    {
+      "title": "The couples therapists who nearly got divorced",
+      "source": "TED",
+      "link": "http://go.ted.com/harvillehendrix",
+      "guide": "两位著名的夫妻治疗师教了全世界如何好好相爱，自己的婚姻却差点走到尽头。他们坦诚分享这段经历，适合聊亲密关系、沟通技巧或个人成长时参考。",
+      "points": [
+        {
+          "phrase": "fall apart",
+          "example": "如果双方都不愿意倾听，再好的关系也可能 fall apart。"
+        },
+        {
+          "phrase": "teach the world how to love well",
+          "example": "这对夫妻花了数十年 teach the world how to love well，却忽略了自己的感情。"
+        },
+        {
+          "phrase": "work on a relationship",
+          "example": "好的感情需要双方一起 work on a relationship，而不是单方面付出。"
+        }
+      ]
+    }
+  ],
+  "allCount": 7
+}
