@@ -1,66 +1,66 @@
 {
-  "updatedAt": "2026-11-11T04:04:02.656195+00:00",
+  "updatedAt": "2026-11-12T05:15:58.698214+00:00",
   "featured": [
     {
-      "title": "How to rewire your brain — and find your flow | Heather Berlin",
+      "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家Heather Berlin探讨了一个有趣的悖论：越是试图控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、效率提升或心理健康时参考。",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越想控制一切，反而越失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "当生活变得不确定时，我们往往会grip a little tighter，试图抓住更多控制权。"
+          "example": "遇到不确定的情况时，我们常常会本能地 grip a little tighter，试图抓住更多控制权。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "通过冥想和刻意练习，你可以rewire your brain，改变固有的思维模式。"
+          "example": "通过刻意练习，你可以 rewire your brain，让积极的思维模式成为习惯。"
         },
         {
           "phrase": "find your flow",
-          "example": "找到让你沉浸其中的活动，你就能find your flow，工作效率倍增。"
+          "example": "当你完全沉浸在喜欢的事情中时，就能 find your flow，忘记时间的流逝。"
         }
       ]
     },
     {
-      "title": "What kids wish their parents knew about fun | Mila Rojas",
+      "title": "What kids wish their parents knew about fun",
       "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "11岁的Mila Rojas观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了乐趣而玩耍的感觉。她分享了孩子们希望父母了解的关于“玩”的真相，适合在聊家庭教育、亲子关系或生活平衡时参考。",
+      "guide": "11 岁的 Mila Rojas 观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了好玩而玩耍的快乐。这个演讲轻松有趣，适合在聊亲子关系、生活平衡或童年回忆时分享。",
       "points": [
         {
-          "phrase": "buried under schedules",
-          "example": "很多成年人buried under schedules，几乎没有时间放松。"
-        },
-        {
           "phrase": "just for fun",
-          "example": "我们应该偶尔做些事情just for fun，不为任何功利目的。"
+          "example": "周末我决定放下工作， just for fun 去公园散了散步。"
         },
         {
-          "phrase": "the pressure of expectations",
-          "example": "孩子们常常感受到the pressure of expectations，需要父母的理解。"
+          "phrase": "buried under schedules",
+          "example": "很多成年人 buried under schedules，几乎没有时间做自己喜欢的事。"
+        },
+        {
+          "phrase": "the pressure to perform",
+          "example": "孩子们常常感受到 the pressure to perform，无论是在学校还是在课外活动中。"
         }
       ]
     },
     {
-      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
+      "title": "The couples therapists who nearly got divorced",
       "source": "TED",
       "link": "http://go.ted.com/harvillehendrix",
-      "guide": "夫妻治疗师Harville Hendrix和Helen LaKelly Hunt夫妇教了全世界几十年如何好好相爱，却差点自己的婚姻破裂。他们坦诚分享了这段经历和修复关系的方法，适合在聊亲密关系、沟通技巧或自我成长时参考。",
+      "guide": "夫妻治疗师 Harville Hendrix 和 Helen LaKelly Hunt 教了全世界几十年如何好好相爱，却差点让自己的婚姻破裂。他们坦诚分享了自己的故事和修复关系的方法，适合在聊亲密关系、沟通技巧或婚姻经营时参考。",
       "points": [
         {
           "phrase": "love well",
-          "example": "学会love well是每个人一生的功课，需要不断练习。"
+          "example": "学会 love well 是一辈子的功课，需要双方不断学习和调整。"
         },
         {
           "phrase": "fall apart",
-          "example": "即使是最坚固的关系，也可能在压力下fall apart。"
+          "example": "他们的婚姻一度 fall apart，但通过努力沟通又重新走到了一起。"
         },
         {
-          "phrase": "work through problems",
-          "example": "健康的伴侣会一起work through problems，而不是逃避。"
+          "phrase": "teach the world how to",
+          "example": "这对夫妻花了数十年 teach the world how to 建立健康的亲密关系。"
         }
       ]
     }
   ],
-  "allCount": 8
+  "allCount": 9
 }
