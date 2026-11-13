@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-12T05:15:58.698214+00:00",
+  "featured": [
+    {
+      "title": "How to rewire your brain — and find your flow",
+      "source": "TED",
+      "link": "http://go.ted.com/heatherberlin",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越想控制一切，反而越失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、专注力或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "grip a little tighter",
+          "example": "遇到不确定的情况时，我们常常会本能地 grip a little tighter，试图抓住更多控制权。"
+        },
+        {
+          "phrase": "rewire your brain",
+          "example": "通过刻意练习，你可以 rewire your brain，让积极的思维模式成为习惯。"
+        },
+        {
+          "phrase": "find your flow",
+          "example": "当你完全沉浸在喜欢的事情中时，就能 find your flow，忘记时间的流逝。"
+        }
+      ]
+    },
+    {
+      "title": "What kids wish their parents knew about fun",
+      "source": "TED",
+      "link": "http://go.ted.com/milarojas",
+      "guide": "11 岁的 Mila Rojas 观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了好玩而玩耍的快乐。这个演讲轻松有趣，适合在聊亲子关系、生活平衡或童年回忆时分享。",
+      "points": [
+        {
+          "phrase": "just for fun",
+          "example": "周末我决定放下工作， just for fun 去公园散了散步。"
+        },
+        {
+          "phrase": "buried under schedules",
+          "example": "很多成年人 buried under schedules，几乎没有时间做自己喜欢的事。"
+        },
+        {
+          "phrase": "the pressure to perform",
+          "example": "孩子们常常感受到 the pressure to perform，无论是在学校还是在课外活动中。"
+        }
+      ]
+    },
+    {
+      "title": "The couples therapists who nearly got divorced",
+      "source": "TED",
+      "link": "http://go.ted.com/harvillehendrix",
+      "guide": "夫妻治疗师 Harville Hendrix 和 Helen LaKelly Hunt 教了全世界几十年如何好好相爱，却差点让自己的婚姻破裂。他们坦诚分享了自己的故事和修复关系的方法，适合在聊亲密关系、沟通技巧或婚姻经营时参考。",
+      "points": [
+        {
+          "phrase": "love well",
+          "example": "学会 love well 是一辈子的功课，需要双方不断学习和调整。"
+        },
+        {
+          "phrase": "fall apart",
+          "example": "他们的婚姻一度 fall apart，但通过努力沟通又重新走到了一起。"
+        },
+        {
+          "phrase": "teach the world how to",
+          "example": "这对夫妻花了数十年 teach the world how to 建立健康的亲密关系。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}

@@ -1,23 +1,43 @@
 {
-  "updatedAt": "2026-11-12T05:15:58.698214+00:00",
+  "updatedAt": "2026-11-13T04:30:18.454070+00:00",
   "featured": [
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越想控制一切，反而越失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、专注力或自我成长时参考。",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑回路来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "遇到不确定的情况时，我们常常会本能地 grip a little tighter，试图抓住更多控制权。"
+          "example": "当生活变得不确定时，我们往往会把手握得更紧。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "通过刻意练习，你可以 rewire your brain，让积极的思维模式成为习惯。"
+          "example": "你可以通过刻意练习来重塑你的大脑回路。"
         },
         {
           "phrase": "find your flow",
-          "example": "当你完全沉浸在喜欢的事情中时，就能 find your flow，忘记时间的流逝。"
+          "example": "找到你的心流状态，工作会变得更高效也更享受。"
+        }
+      ]
+    },
+    {
+      "title": "Your phone is disgusting. Here's how to clean it",
+      "source": "TED",
+      "link": "http://go.ted.com/lottitajouri",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
+      "points": [
+        {
+          "phrase": "a gaping hole",
+          "example": "我们的日常清洁 routine 里有一个巨大的漏洞：从来没洗过手机。"
+        },
+        {
+          "phrase": "scrub our hands clean",
+          "example": "我们把手搓洗干净，却把手机带上了床。"
+        },
+        {
+          "phrase": "hygiene routine",
+          "example": "你的卫生习惯里包括清洁手机吗？"
         }
       ]
     },
@@ -25,39 +45,19 @@
       "title": "What kids wish their parents knew about fun",
       "source": "TED",
       "link": "http://go.ted.com/milarojas",
-      "guide": "11 岁的 Mila Rojas 观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了好玩而玩耍的快乐。这个演讲轻松有趣，适合在聊亲子关系、生活平衡或童年回忆时分享。",
+      "guide": "十一岁的 Mila Rojas 观察到，大人们被日程和期望压得喘不过气，早就忘了纯粹为了好玩而玩是什么感觉。她分享了孩子们希望父母明白的关于“玩”的事，适合聊亲子关系、教育或生活平衡时参考。",
       "points": [
-        {
-          "phrase": "just for fun",
-          "example": "周末我决定放下工作， just for fun 去公园散了散步。"
-        },
         {
           "phrase": "buried under schedules",
-          "example": "很多成年人 buried under schedules，几乎没有时间做自己喜欢的事。"
+          "example": "很多成年人被日程表埋得严严实实，根本没时间玩。"
         },
         {
-          "phrase": "the pressure to perform",
-          "example": "孩子们常常感受到 the pressure to perform，无论是在学校还是在课外活动中。"
-        }
-      ]
-    },
-    {
-      "title": "The couples therapists who nearly got divorced",
-      "source": "TED",
-      "link": "http://go.ted.com/harvillehendrix",
-      "guide": "夫妻治疗师 Harville Hendrix 和 Helen LaKelly Hunt 教了全世界几十年如何好好相爱，却差点让自己的婚姻破裂。他们坦诚分享了自己的故事和修复关系的方法，适合在聊亲密关系、沟通技巧或婚姻经营时参考。",
-      "points": [
-        {
-          "phrase": "love well",
-          "example": "学会 love well 是一辈子的功课，需要双方不断学习和调整。"
+          "phrase": "just for fun",
+          "example": "你上一次纯粹为了好玩而做一件事是什么时候？"
         },
         {
-          "phrase": "fall apart",
-          "example": "他们的婚姻一度 fall apart，但通过努力沟通又重新走到了一起。"
-        },
-        {
-          "phrase": "teach the world how to",
-          "example": "这对夫妻花了数十年 teach the world how to 建立健康的亲密关系。"
+          "phrase": "the pressure of expectations",
+          "example": "在期望的压力下，玩变成了一种奢侈。"
         }
       ]
     }
