@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-13T04:30:18.454070+00:00",
+  "updatedAt": "2026-11-14T04:27:59.711528+00:00",
   "featured": [
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑回路来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "当生活变得不确定时，我们往往会把手握得更紧。"
+          "example": "遇到不确定性时，我们常常会本能地抓得更紧。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "你可以通过刻意练习来重塑你的大脑回路。"
+          "example": "通过刻意练习，你可以重塑大脑的神经连接。"
         },
         {
           "phrase": "find your flow",
-          "example": "找到你的心流状态，工作会变得更高效也更享受。"
+          "example": "找到心流状态能让你做事更高效也更享受。"
         }
       ]
     },
@@ -25,39 +25,39 @@
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
       "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、科技与生活时引用。",
       "points": [
         {
           "phrase": "a gaping hole",
-          "example": "我们的日常清洁 routine 里有一个巨大的漏洞：从来没洗过手机。"
+          "example": "我们的日常清洁流程里有一个巨大的漏洞。"
         },
         {
           "phrase": "scrub our hands clean",
-          "example": "我们把手搓洗干净，却把手机带上了床。"
+          "example": "我们认真把手搓洗干净，却忘了擦手机。"
         },
         {
           "phrase": "hygiene routine",
-          "example": "你的卫生习惯里包括清洁手机吗？"
+          "example": "把清洁手机加入你的日常卫生习惯吧。"
         }
       ]
     },
     {
-      "title": "What kids wish their parents knew about fun",
+      "title": "How to repair harm — in relationships and nations",
       "source": "TED",
-      "link": "http://go.ted.com/milarojas",
-      "guide": "十一岁的 Mila Rojas 观察到，大人们被日程和期望压得喘不过气，早就忘了纯粹为了好玩而玩是什么感觉。她分享了孩子们希望父母明白的关于“玩”的事，适合聊亲子关系、教育或生活平衡时参考。",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "Aria Florant 创办了一个推动赔偿运动的非营利组织，但不到一年，她和联合创始人的合作就出了问题。她分享了如何修复伤害——无论是人际关系还是国家层面，适合聊冲突解决、合作与和解时参考。",
       "points": [
         {
-          "phrase": "buried under schedules",
-          "example": "很多成年人被日程表埋得严严实实，根本没时间玩。"
+          "phrase": "repair harm",
+          "example": "修复伤害需要双方都愿意面对问题。"
         },
         {
-          "phrase": "just for fun",
-          "example": "你上一次纯粹为了好玩而做一件事是什么时候？"
+          "phrase": "accelerate the movement",
+          "example": "这个组织旨在加速赔偿运动的进展。"
         },
         {
-          "phrase": "the pressure of expectations",
-          "example": "在期望的压力下，玩变成了一种奢侈。"
+          "phrase": "partnership with her cofounder",
+          "example": "她和联合创始人的合作关系出现了裂痕。"
         }
       ]
     }
