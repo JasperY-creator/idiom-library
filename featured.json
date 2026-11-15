@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-14T04:27:59.711528+00:00",
+  "updatedAt": "2026-11-15T04:12:32.031337+00:00",
   "featured": [
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑的运作方式，进入专注又放松的“心流”状态。适合聊压力管理、效率提升或个人成长话题时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "遇到不确定性时，我们常常会本能地抓得更紧。"
+          "example": "遇到突发状况时，她总是本能地 grip a little tighter，结果反而更焦虑。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "通过刻意练习，你可以重塑大脑的神经连接。"
+          "example": "通过刻意练习，你可以 rewire your brain，养成新的思维习惯。"
         },
         {
           "phrase": "find your flow",
-          "example": "找到心流状态能让你做事更高效也更享受。"
+          "example": "把任务难度调到刚刚好，就更容易 find your flow。"
         }
       ]
     },
@@ -25,39 +25,39 @@
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
       "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、科技与生活时引用。",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们认真洗手却常常忽略手机这个“细菌大户”。演讲用轻松有趣的方式讲了手机有多脏以及怎么清洁。适合聊日常卫生、健康习惯或科技产品话题时参考。",
       "points": [
         {
-          "phrase": "a gaping hole",
-          "example": "我们的日常清洁流程里有一个巨大的漏洞。"
-        },
-        {
-          "phrase": "scrub our hands clean",
-          "example": "我们认真把手搓洗干净，却忘了擦手机。"
+          "phrase": "gaping hole",
+          "example": "日常清洁里有一个 gaping hole，就是从来没人擦手机。"
         },
         {
           "phrase": "hygiene routine",
-          "example": "把清洁手机加入你的日常卫生习惯吧。"
+          "example": "把擦手机加入你的 hygiene routine，其实只要几秒钟。"
+        },
+        {
+          "phrase": "scrub our hands clean",
+          "example": "我们认真 scrub our hands clean，却把手机直接放回口袋。"
         }
       ]
     },
     {
-      "title": "How to repair harm — in relationships and nations",
+      "title": "The surprising beauty of mosquitos",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
-      "guide": "Aria Florant 创办了一个推动赔偿运动的非营利组织，但不到一年，她和联合创始人的合作就出了问题。她分享了如何修复伤害——无论是人际关系还是国家层面，适合聊冲突解决、合作与和解时参考。",
+      "link": "http://go.ted.com/felixhol",
+      "guide": "生物技术专家 Felix Hol 从实验室视角带我们重新认识蚊子，发现它们令人意外的“美”。演讲结合科研与个人观察，角度新颖。适合聊科学趣闻、生物多样性或换个角度看问题的话题时参考。",
       "points": [
         {
-          "phrase": "repair harm",
-          "example": "修复伤害需要双方都愿意面对问题。"
+          "phrase": "think outside the box",
+          "example": "面对讨厌的蚊子，他鼓励大家 think outside the box，看到它们的另一面。"
         },
         {
-          "phrase": "accelerate the movement",
-          "example": "这个组织旨在加速赔偿运动的进展。"
+          "phrase": "take us inside",
+          "example": "演讲者 take us inside 他的实验室，展示日常研究。"
         },
         {
-          "phrase": "partnership with her cofounder",
-          "example": "她和联合创始人的合作关系出现了裂痕。"
+          "phrase": "develop a new perspective",
+          "example": "了解蚊子之后，你会 develop a new perspective on 这些小生物。"
         }
       ]
     }

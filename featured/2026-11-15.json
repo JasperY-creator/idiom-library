@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-14T04:27:59.711528+00:00",
+  "featured": [
+    {
+      "title": "How to rewire your brain — and find your flow",
+      "source": "TED",
+      "link": "http://go.ted.com/heatherberlin",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "grip a little tighter",
+          "example": "遇到不确定性时，我们常常会本能地抓得更紧。"
+        },
+        {
+          "phrase": "rewire your brain",
+          "example": "通过刻意练习，你可以重塑大脑的神经连接。"
+        },
+        {
+          "phrase": "find your flow",
+          "example": "找到心流状态能让你做事更高效也更享受。"
+        }
+      ]
+    },
+    {
+      "title": "Your phone is disgusting. Here's how to clean it",
+      "source": "TED",
+      "link": "http://go.ted.com/lottitajouri",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、科技与生活时引用。",
+      "points": [
+        {
+          "phrase": "a gaping hole",
+          "example": "我们的日常清洁流程里有一个巨大的漏洞。"
+        },
+        {
+          "phrase": "scrub our hands clean",
+          "example": "我们认真把手搓洗干净，却忘了擦手机。"
+        },
+        {
+          "phrase": "hygiene routine",
+          "example": "把清洁手机加入你的日常卫生习惯吧。"
+        }
+      ]
+    },
+    {
+      "title": "How to repair harm — in relationships and nations",
+      "source": "TED",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "Aria Florant 创办了一个推动赔偿运动的非营利组织，但不到一年，她和联合创始人的合作就出了问题。她分享了如何修复伤害——无论是人际关系还是国家层面，适合聊冲突解决、合作与和解时参考。",
+      "points": [
+        {
+          "phrase": "repair harm",
+          "example": "修复伤害需要双方都愿意面对问题。"
+        },
+        {
+          "phrase": "accelerate the movement",
+          "example": "这个组织旨在加速赔偿运动的进展。"
+        },
+        {
+          "phrase": "partnership with her cofounder",
+          "example": "她和联合创始人的合作关系出现了裂痕。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}
