@@ -1,23 +1,43 @@
 {
-  "updatedAt": "2026-11-15T04:12:32.031337+00:00",
+  "updatedAt": "2026-11-16T04:11:50.762342+00:00",
   "featured": [
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑的运作方式，进入专注又放松的“心流”状态。适合聊压力管理、效率提升或个人成长话题时参考。",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越是试图控制一切，越容易失去掌控。她分享了如何通过调整大脑的运作方式，进入专注而流畅的“心流”状态。适合在聊压力管理、效率提升或自我成长时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "遇到突发状况时，她总是本能地 grip a little tighter，结果反而更焦虑。"
+          "example": "当生活变得不确定时，我们往往会抓得更紧，但有时放松反而更有效。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "通过刻意练习，你可以 rewire your brain，养成新的思维习惯。"
+          "example": "通过练习正念，你可以重新连接大脑的神经通路，改变习惯性反应。"
         },
         {
           "phrase": "find your flow",
-          "example": "把任务难度调到刚刚好，就更容易 find your flow。"
+          "example": "找到你的心流状态，工作会变得像游戏一样投入而愉快。"
+        }
+      ]
+    },
+    {
+      "title": "Could this ancient Greek idea make us better citizens?",
+      "source": "TED",
+      "link": "http://go.ted.com/ScottReich",
+      "guide": "两千多年前的古雅典要求年轻公民完成为期两年的“ephebeia”公民服务项目，学习如何成为更好的公民。演讲者 Scott Reich 探讨这个古老理念对现代社会的启发。适合聊教育、公民责任或历史借鉴时引用。",
+      "points": [
+        {
+          "phrase": "civic service program",
+          "example": "许多国家都有公民服务项目，鼓励年轻人参与社区建设。"
+        },
+        {
+          "phrase": "be required to",
+          "example": "在古代雅典，年轻公民被要求完成两年的公民服务。"
+        },
+        {
+          "phrase": "make us better citizens",
+          "example": "学习历史和公民教育可以帮助我们成为更好的公民。"
         }
       ]
     },
@@ -25,39 +45,19 @@
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
       "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家 Lotti Tajouri 指出，我们认真洗手却常常忽略手机这个“细菌大户”。演讲用轻松有趣的方式讲了手机有多脏以及怎么清洁。适合聊日常卫生、健康习惯或科技产品话题时参考。",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯中有一个巨大的盲区。他分享了如何正确清洁手机，以及为什么这很重要。适合聊健康习惯、日常卫生或科技生活时参考。",
       "points": [
         {
           "phrase": "gaping hole",
-          "example": "日常清洁里有一个 gaping hole，就是从来没人擦手机。"
+          "example": "我们的卫生习惯中存在一个巨大的漏洞：几乎从不清洁手机。"
         },
         {
           "phrase": "hygiene routine",
-          "example": "把擦手机加入你的 hygiene routine，其实只要几秒钟。"
+          "example": "把清洁手机加入日常卫生习惯，可以降低感染风险。"
         },
         {
           "phrase": "scrub our hands clean",
-          "example": "我们认真 scrub our hands clean，却把手机直接放回口袋。"
-        }
-      ]
-    },
-    {
-      "title": "The surprising beauty of mosquitos",
-      "source": "TED",
-      "link": "http://go.ted.com/felixhol",
-      "guide": "生物技术专家 Felix Hol 从实验室视角带我们重新认识蚊子，发现它们令人意外的“美”。演讲结合科研与个人观察，角度新颖。适合聊科学趣闻、生物多样性或换个角度看问题的话题时参考。",
-      "points": [
-        {
-          "phrase": "think outside the box",
-          "example": "面对讨厌的蚊子，他鼓励大家 think outside the box，看到它们的另一面。"
-        },
-        {
-          "phrase": "take us inside",
-          "example": "演讲者 take us inside 他的实验室，展示日常研究。"
-        },
-        {
-          "phrase": "develop a new perspective",
-          "example": "了解蚊子之后，你会 develop a new perspective on 这些小生物。"
+          "example": "我们把手洗得干干净净，却把手机带进卫生间。"
         }
       ]
     }
