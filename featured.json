@@ -1,43 +1,23 @@
 {
-  "updatedAt": "2026-11-16T04:11:50.762342+00:00",
+  "updatedAt": "2026-11-17T05:58:17.113188+00:00",
   "featured": [
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
       "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越是试图控制一切，越容易失去掌控。她分享了如何通过调整大脑的运作方式，进入专注而流畅的“心流”状态。适合在聊压力管理、效率提升或自我成长时参考。",
+      "guide": "神经科学家Heather Berlin探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
           "phrase": "grip a little tighter",
-          "example": "当生活变得不确定时，我们往往会抓得更紧，但有时放松反而更有效。"
+          "example": "遇到不确定性时，我们常常会本能地 grip a little tighter，结果却适得其反。"
         },
         {
           "phrase": "rewire your brain",
-          "example": "通过练习正念，你可以重新连接大脑的神经通路，改变习惯性反应。"
+          "example": "通过冥想和刻意练习，你可以 rewire your brain，建立新的思维习惯。"
         },
         {
           "phrase": "find your flow",
-          "example": "找到你的心流状态，工作会变得像游戏一样投入而愉快。"
-        }
-      ]
-    },
-    {
-      "title": "Could this ancient Greek idea make us better citizens?",
-      "source": "TED",
-      "link": "http://go.ted.com/ScottReich",
-      "guide": "两千多年前的古雅典要求年轻公民完成为期两年的“ephebeia”公民服务项目，学习如何成为更好的公民。演讲者 Scott Reich 探讨这个古老理念对现代社会的启发。适合聊教育、公民责任或历史借鉴时引用。",
-      "points": [
-        {
-          "phrase": "civic service program",
-          "example": "许多国家都有公民服务项目，鼓励年轻人参与社区建设。"
-        },
-        {
-          "phrase": "be required to",
-          "example": "在古代雅典，年轻公民被要求完成两年的公民服务。"
-        },
-        {
-          "phrase": "make us better citizens",
-          "example": "学习历史和公民教育可以帮助我们成为更好的公民。"
+          "example": "当你完全沉浸在喜欢的事情中时，就更容易 find your flow。"
         }
       ]
     },
@@ -45,22 +25,42 @@
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
       "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯中有一个巨大的盲区。他分享了如何正确清洁手机，以及为什么这很重要。适合聊健康习惯、日常卫生或科技生活时参考。",
+      "guide": "分子生物学家Lotti Tajouri指出，我们的手机可能比手还脏，而日常清洁却常常忽略它。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
       "points": [
         {
-          "phrase": "gaping hole",
-          "example": "我们的卫生习惯中存在一个巨大的漏洞：几乎从不清洁手机。"
-        },
-        {
-          "phrase": "hygiene routine",
-          "example": "把清洁手机加入日常卫生习惯，可以降低感染风险。"
+          "phrase": "a gaping hole",
+          "example": "在个人卫生习惯中，手机清洁是一个 a gaping hole，很多人从未注意。"
         },
         {
           "phrase": "scrub our hands clean",
-          "example": "我们把手洗得干干净净，却把手机带进卫生间。"
+          "example": "我们认真 scrub our hands clean，却忘了给手机消毒。"
+        },
+        {
+          "phrase": "hygiene routine",
+          "example": "把清洁手机加入你的 daily hygiene routine，能减少细菌传播。"
+        }
+      ]
+    },
+    {
+      "title": "How to repair harm — in relationships and nations",
+      "source": "TED",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "Aria Florant分享了她与合伙人关系破裂后如何修复伤害的经历，并将个人修复与国家级赔偿运动联系起来。适合聊人际关系、冲突解决或社会正义时参考。",
+      "points": [
+        {
+          "phrase": "repair harm",
+          "example": "真正的道歉不只是说对不起，而是要主动 repair harm。"
+        },
+        {
+          "phrase": "partnership with her own cofounder",
+          "example": "创业初期，她与 cofounder 的 partnership 出现了严重裂痕。"
+        },
+        {
+          "phrase": "accelerate the reparations movement",
+          "example": "这个非营利组织致力于 accelerate the reparations movement，推动社会公平。"
         }
       ]
     }
   ],
-  "allCount": 9
+  "allCount": 8
 }

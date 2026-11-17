@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-16T04:11:50.762342+00:00",
+  "featured": [
+    {
+      "title": "How to rewire your brain — and find your flow",
+      "source": "TED",
+      "link": "http://go.ted.com/heatherberlin",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越是试图控制一切，越容易失去掌控。她分享了如何通过调整大脑的运作方式，进入专注而流畅的“心流”状态。适合在聊压力管理、效率提升或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "grip a little tighter",
+          "example": "当生活变得不确定时，我们往往会抓得更紧，但有时放松反而更有效。"
+        },
+        {
+          "phrase": "rewire your brain",
+          "example": "通过练习正念，你可以重新连接大脑的神经通路，改变习惯性反应。"
+        },
+        {
+          "phrase": "find your flow",
+          "example": "找到你的心流状态，工作会变得像游戏一样投入而愉快。"
+        }
+      ]
+    },
+    {
+      "title": "Could this ancient Greek idea make us better citizens?",
+      "source": "TED",
+      "link": "http://go.ted.com/ScottReich",
+      "guide": "两千多年前的古雅典要求年轻公民完成为期两年的“ephebeia”公民服务项目，学习如何成为更好的公民。演讲者 Scott Reich 探讨这个古老理念对现代社会的启发。适合聊教育、公民责任或历史借鉴时引用。",
+      "points": [
+        {
+          "phrase": "civic service program",
+          "example": "许多国家都有公民服务项目，鼓励年轻人参与社区建设。"
+        },
+        {
+          "phrase": "be required to",
+          "example": "在古代雅典，年轻公民被要求完成两年的公民服务。"
+        },
+        {
+          "phrase": "make us better citizens",
+          "example": "学习历史和公民教育可以帮助我们成为更好的公民。"
+        }
+      ]
+    },
+    {
+      "title": "Your phone is disgusting. Here's how to clean it",
+      "source": "TED",
+      "link": "http://go.ted.com/lottitajouri",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯中有一个巨大的盲区。他分享了如何正确清洁手机，以及为什么这很重要。适合聊健康习惯、日常卫生或科技生活时参考。",
+      "points": [
+        {
+          "phrase": "gaping hole",
+          "example": "我们的卫生习惯中存在一个巨大的漏洞：几乎从不清洁手机。"
+        },
+        {
+          "phrase": "hygiene routine",
+          "example": "把清洁手机加入日常卫生习惯，可以降低感染风险。"
+        },
+        {
+          "phrase": "scrub our hands clean",
+          "example": "我们把手洗得干干净净，却把手机带进卫生间。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}
