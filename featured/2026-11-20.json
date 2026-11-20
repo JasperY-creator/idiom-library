@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-19T05:26:01.388208+00:00",
+  "featured": [
+    {
+      "title": "How to rewire your brain — and find your flow",
+      "source": "TED",
+      "link": "http://go.ted.com/heatherberlin",
+      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "points": [
+        {
+          "phrase": "grip a little tighter",
+          "example": "遇到不确定的事情时，我们常常会本能地 grip a little tighter，结果却适得其反。"
+        },
+        {
+          "phrase": "rewire your brain",
+          "example": "通过刻意练习，你可以 rewire your brain，建立新的思维习惯。"
+        },
+        {
+          "phrase": "find your flow",
+          "example": "当你完全沉浸在喜欢的事情中时，就容易 find your flow，忘记时间流逝。"
+        }
+      ]
+    },
+    {
+      "title": "Your phone is disgusting. Here's how to clean it",
+      "source": "TED",
+      "link": "http://go.ted.com/lottitajouri",
+      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里存在一个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
+      "points": [
+        {
+          "phrase": "a gaping hole",
+          "example": "我们的日常清洁流程里有一个 a gaping hole，就是从来没想过要擦手机。"
+        },
+        {
+          "phrase": "scrub our hands clean",
+          "example": "饭前便后我们会 scrub our hands clean，却常常忽略手机屏幕上的细菌。"
+        },
+        {
+          "phrase": "hygiene routine",
+          "example": "把清洁手机加入你的 hygiene routine，可以大大减少细菌传播。"
+        }
+      ]
+    },
+    {
+      "title": "How we’ll actually ditch fossil fuels — by the numbers",
+      "source": "TED",
+      "link": "http://go.ted.com/michaelliebreich",
+      "guide": "能源分析师 Michael Liebreich 用简单的四行表格模型，反驳了“清洁能源转型失败”的论调，并展示了我们如何真正摆脱化石燃料。适合聊环保、能源话题时参考，数据清晰不枯燥。",
+      "points": [
+        {
+          "phrase": "ditch fossil fuels",
+          "example": "越来越多的国家正在制定计划，要逐步 ditch fossil fuels，转向可再生能源。"
+        },
+        {
+          "phrase": "by the numbers",
+          "example": "别光听口号，我们来看看 by the numbers，清洁能源到底进展如何。"
+        },
+        {
+          "phrase": "clean energy transition",
+          "example": "the clean energy transition 不是一蹴而就的，但数据表明它正在加速。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}

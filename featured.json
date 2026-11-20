@@ -1,63 +1,63 @@
 {
-  "updatedAt": "2026-11-19T05:26:01.388208+00:00",
+  "updatedAt": "2026-11-20T05:12:20.803059+00:00",
   "featured": [
     {
-      "title": "How to rewire your brain — and find your flow",
+      "title": "The “godfather of AI” on the risks that worry him most | Geoffrey Hinton",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
-      "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
+      "link": "http://go.ted.com/GeoffreyHinton",
+      "guide": "AI教父Geoffrey Hinton亲自讲述他对人工智能未来最深的担忧——从虚假信息到自主武器，再到AI可能取代人类工作的速度。适合聊科技伦理、未来职业规划或“AI会不会抢我饭碗”时引用。",
       "points": [
         {
-          "phrase": "grip a little tighter",
-          "example": "遇到不确定的事情时，我们常常会本能地 grip a little tighter，结果却适得其反。"
+          "phrase": "warn about",
+          "example": "很多科学家都在警告过度依赖AI的风险。"
         },
         {
-          "phrase": "rewire your brain",
-          "example": "通过刻意练习，你可以 rewire your brain，建立新的思维习惯。"
+          "phrase": "take over",
+          "example": "他担心有一天机器会接管人类的工作。"
         },
         {
-          "phrase": "find your flow",
-          "example": "当你完全沉浸在喜欢的事情中时，就容易 find your flow，忘记时间流逝。"
+          "phrase": "be worried about",
+          "example": "你最担心AI带来的哪个问题？"
         }
       ]
     },
     {
-      "title": "Your phone is disgusting. Here's how to clean it",
+      "title": "How to repair harm — in relationships and nations | Aria Florant",
+      "source": "TED",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "Aria Florant分享了她与联合创始人在推动赔偿运动时关系破裂又修复的故事，把人际和解的经验延伸到国家层面的历史创伤修复。适合聊人际关系、冲突解决或社会公平话题时参考。",
+      "points": [
+        {
+          "phrase": "repair harm",
+          "example": "真正的道歉不只是说对不起，而是要修复伤害。"
+        },
+        {
+          "phrase": "fall apart",
+          "example": "他们的合作关系在不到一年内就破裂了。"
+        },
+        {
+          "phrase": "make amends",
+          "example": "她试图通过对话来弥补过去的错误。"
+        }
+      ]
+    },
+    {
+      "title": "Your phone is disgusting. Here's how to clean it | Lotti Tajouri",
       "source": "TED",
       "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里存在一个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
+      "guide": "分子生物学家Lotti Tajouri揭示了一个被忽视的卫生盲区：你的手机可能比马桶圈还脏，并给出了简单实用的清洁方法。适合聊日常健康、生活习惯或“你多久擦一次手机”这种轻松话题。",
       "points": [
+        {
+          "phrase": "be covered in",
+          "example": "你的手机屏幕上布满了细菌。"
+        },
         {
           "phrase": "a gaping hole",
-          "example": "我们的日常清洁流程里有一个 a gaping hole，就是从来没想过要擦手机。"
+          "example": "我们的日常清洁习惯里有一个巨大的漏洞。"
         },
         {
-          "phrase": "scrub our hands clean",
-          "example": "饭前便后我们会 scrub our hands clean，却常常忽略手机屏幕上的细菌。"
-        },
-        {
-          "phrase": "hygiene routine",
-          "example": "把清洁手机加入你的 hygiene routine，可以大大减少细菌传播。"
-        }
-      ]
-    },
-    {
-      "title": "How we’ll actually ditch fossil fuels — by the numbers",
-      "source": "TED",
-      "link": "http://go.ted.com/michaelliebreich",
-      "guide": "能源分析师 Michael Liebreich 用简单的四行表格模型，反驳了“清洁能源转型失败”的论调，并展示了我们如何真正摆脱化石燃料。适合聊环保、能源话题时参考，数据清晰不枯燥。",
-      "points": [
-        {
-          "phrase": "ditch fossil fuels",
-          "example": "越来越多的国家正在制定计划，要逐步 ditch fossil fuels，转向可再生能源。"
-        },
-        {
-          "phrase": "by the numbers",
-          "example": "别光听口号，我们来看看 by the numbers，清洁能源到底进展如何。"
-        },
-        {
-          "phrase": "clean energy transition",
-          "example": "the clean energy transition 不是一蹴而就的，但数据表明它正在加速。"
+          "phrase": "scrub ... clean",
+          "example": "我们认真洗手，却忘了把手机擦干净。"
         }
       ]
     }
