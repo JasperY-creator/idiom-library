@@ -1,63 +1,63 @@
 {
-  "updatedAt": "2026-11-20T05:12:20.803059+00:00",
+  "updatedAt": "2026-11-21T05:04:25.913752+00:00",
   "featured": [
     {
-      "title": "The “godfather of AI” on the risks that worry him most | Geoffrey Hinton",
+      "title": "The “godfather of AI” on the risks that worry him most",
       "source": "TED",
       "link": "http://go.ted.com/GeoffreyHinton",
-      "guide": "AI教父Geoffrey Hinton亲自讲述他对人工智能未来最深的担忧——从虚假信息到自主武器，再到AI可能取代人类工作的速度。适合聊科技伦理、未来职业规划或“AI会不会抢我饭碗”时引用。",
+      "guide": "被称为“AI教父”的Geoffrey Hinton亲自讲述他对人工智能最深的担忧。适合聊科技伦理、未来就业或人类命运时引用，内容既有分量又不难懂。",
       "points": [
         {
           "phrase": "warn about",
-          "example": "很多科学家都在警告过度依赖AI的风险。"
+          "example": "专家们不断警告过度使用塑料对海洋的危害。"
         },
         {
-          "phrase": "take over",
-          "example": "他担心有一天机器会接管人类的工作。"
+          "phrase": "behind the scenes",
+          "example": "在幕后，团队花了几个月时间准备这场发布会。"
         },
         {
-          "phrase": "be worried about",
-          "example": "你最担心AI带来的哪个问题？"
+          "phrase": "come to terms with",
+          "example": "我们需要学会接受生活中的不确定性。"
         }
       ]
     },
     {
-      "title": "How to repair harm — in relationships and nations | Aria Florant",
+      "title": "How to repair harm — in relationships and nations",
       "source": "TED",
       "link": "http://go.ted.com/ariaflorant",
-      "guide": "Aria Florant分享了她与联合创始人在推动赔偿运动时关系破裂又修复的故事，把人际和解的经验延伸到国家层面的历史创伤修复。适合聊人际关系、冲突解决或社会公平话题时参考。",
+      "guide": "演讲者分享了自己与合伙人关系破裂后如何修复伤害的故事，并把这种修复思路延伸到国家层面。适合聊人际关系、冲突解决或社会公正时参考。",
       "points": [
         {
           "phrase": "repair harm",
-          "example": "真正的道歉不只是说对不起，而是要修复伤害。"
+          "example": "真正的道歉不仅仅是说对不起，而是要修复造成的伤害。"
         },
         {
           "phrase": "fall apart",
-          "example": "他们的合作关系在不到一年内就破裂了。"
+          "example": "他们的合作因为信任问题而破裂了。"
         },
         {
-          "phrase": "make amends",
-          "example": "她试图通过对话来弥补过去的错误。"
+          "phrase": "hold someone accountable",
+          "example": "我们需要让决策者为自己的行为负责。"
         }
       ]
     },
     {
-      "title": "Your phone is disgusting. Here's how to clean it | Lotti Tajouri",
+      "title": "What you hear when you stop talking",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
-      "guide": "分子生物学家Lotti Tajouri揭示了一个被忽视的卫生盲区：你的手机可能比马桶圈还脏，并给出了简单实用的清洁方法。适合聊日常健康、生活习惯或“你多久擦一次手机”这种轻松话题。",
+      "link": "http://go.ted.com/JohnLloyd",
+      "guide": "导演John Lloyd好奇为什么没人统计过我们每天听到多少种声音，他通过这个演讲带你重新发现日常中被忽略的听觉世界。适合聊感官体验、好奇心或生活观察时引用。",
       "points": [
         {
-          "phrase": "be covered in",
-          "example": "你的手机屏幕上布满了细菌。"
+          "phrase": "stop talking",
+          "example": "有时候你需要停止说话，才能真正听到别人的想法。"
         },
         {
-          "phrase": "a gaping hole",
-          "example": "我们的日常清洁习惯里有一个巨大的漏洞。"
+          "phrase": "pay attention to",
+          "example": "试着注意一下你周围那些平时忽略的声音。"
         },
         {
-          "phrase": "scrub ... clean",
-          "example": "我们认真洗手，却忘了把手机擦干净。"
+          "phrase": "take something for granted",
+          "example": "我们常常把安静的环境视为理所当然。"
         }
       ]
     }
