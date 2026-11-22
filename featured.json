@@ -1,23 +1,23 @@
 {
-  "updatedAt": "2026-11-21T05:04:25.913752+00:00",
+  "updatedAt": "2026-11-22T04:30:10.162822+00:00",
   "featured": [
     {
       "title": "The “godfather of AI” on the risks that worry him most",
       "source": "TED",
       "link": "http://go.ted.com/GeoffreyHinton",
-      "guide": "被称为“AI教父”的Geoffrey Hinton亲自讲述他对人工智能最深的担忧。适合聊科技伦理、未来就业或人类命运时引用，内容既有分量又不难懂。",
+      "guide": "被称为“AI教父”的Geoffrey Hinton分享了他对人工智能潜在风险的担忧，以及为什么他认为我们需要认真对待这些问题。适合在讨论科技发展、伦理道德或未来趋势时参考。",
       "points": [
         {
           "phrase": "warn about",
-          "example": "专家们不断警告过度使用塑料对海洋的危害。"
+          "example": "专家们警告说，过度依赖AI可能导致人类失去控制。"
         },
         {
-          "phrase": "behind the scenes",
-          "example": "在幕后，团队花了几个月时间准备这场发布会。"
+          "phrase": "neural networks",
+          "example": "神经网络是深度学习的基础，让机器能够模拟人脑处理信息。"
         },
         {
-          "phrase": "come to terms with",
-          "example": "我们需要学会接受生活中的不确定性。"
+          "phrase": "where it’s heading",
+          "example": "我们需要关注AI的发展方向，确保它造福人类。"
         }
       ]
     },
@@ -25,39 +25,39 @@
       "title": "How to repair harm — in relationships and nations",
       "source": "TED",
       "link": "http://go.ted.com/ariaflorant",
-      "guide": "演讲者分享了自己与合伙人关系破裂后如何修复伤害的故事，并把这种修复思路延伸到国家层面。适合聊人际关系、冲突解决或社会公正时参考。",
+      "guide": "Aria Florant讲述了她在推动赔偿运动时与合伙人关系破裂的故事，并探讨了如何在人际关系和国家层面修复伤害。适合在聊和解、冲突解决或社会正义时引用。",
       "points": [
         {
           "phrase": "repair harm",
-          "example": "真正的道歉不仅仅是说对不起，而是要修复造成的伤害。"
+          "example": "真正的道歉不仅仅是说对不起，而是要努力修复造成的伤害。"
         },
         {
-          "phrase": "fall apart",
-          "example": "他们的合作因为信任问题而破裂了。"
+          "phrase": "cofound",
+          "example": "她和朋友共同创立了一个非营利组织，致力于帮助弱势群体。"
         },
         {
-          "phrase": "hold someone accountable",
-          "example": "我们需要让决策者为自己的行为负责。"
+          "phrase": "partnership with",
+          "example": "与合作伙伴的良好关系是项目成功的关键。"
         }
       ]
     },
     {
-      "title": "What you hear when you stop talking",
+      "title": "How we’ll actually ditch fossil fuels — by the numbers",
       "source": "TED",
-      "link": "http://go.ted.com/JohnLloyd",
-      "guide": "导演John Lloyd好奇为什么没人统计过我们每天听到多少种声音，他通过这个演讲带你重新发现日常中被忽略的听觉世界。适合聊感官体验、好奇心或生活观察时引用。",
+      "link": "http://go.ted.com/michaelliebreich",
+      "guide": "能源分析师Michael Liebreich用简单的数字模型展示了清洁能源转型的实际进展，反驳了“转型失败”的悲观论调。适合在聊环保、能源或数据驱动决策时参考。",
       "points": [
         {
-          "phrase": "stop talking",
-          "example": "有时候你需要停止说话，才能真正听到别人的想法。"
+          "phrase": "ditch",
+          "example": "为了环保，我们应该尽快抛弃一次性塑料制品。"
         },
         {
-          "phrase": "pay attention to",
-          "example": "试着注意一下你周围那些平时忽略的声音。"
+          "phrase": "by the numbers",
+          "example": "让我们用数据说话，看看这个计划是否可行。"
         },
         {
-          "phrase": "take something for granted",
-          "example": "我们常常把安静的环境视为理所当然。"
+          "phrase": "clean energy transition",
+          "example": "清洁能源转型需要政府、企业和个人的共同努力。"
         }
       ]
     }

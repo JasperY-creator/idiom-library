@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-21T05:04:25.913752+00:00",
+  "featured": [
+    {
+      "title": "The “godfather of AI” on the risks that worry him most",
+      "source": "TED",
+      "link": "http://go.ted.com/GeoffreyHinton",
+      "guide": "被称为“AI教父”的Geoffrey Hinton亲自讲述他对人工智能最深的担忧。适合聊科技伦理、未来就业或人类命运时引用，内容既有分量又不难懂。",
+      "points": [
+        {
+          "phrase": "warn about",
+          "example": "专家们不断警告过度使用塑料对海洋的危害。"
+        },
+        {
+          "phrase": "behind the scenes",
+          "example": "在幕后，团队花了几个月时间准备这场发布会。"
+        },
+        {
+          "phrase": "come to terms with",
+          "example": "我们需要学会接受生活中的不确定性。"
+        }
+      ]
+    },
+    {
+      "title": "How to repair harm — in relationships and nations",
+      "source": "TED",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "演讲者分享了自己与合伙人关系破裂后如何修复伤害的故事，并把这种修复思路延伸到国家层面。适合聊人际关系、冲突解决或社会公正时参考。",
+      "points": [
+        {
+          "phrase": "repair harm",
+          "example": "真正的道歉不仅仅是说对不起，而是要修复造成的伤害。"
+        },
+        {
+          "phrase": "fall apart",
+          "example": "他们的合作因为信任问题而破裂了。"
+        },
+        {
+          "phrase": "hold someone accountable",
+          "example": "我们需要让决策者为自己的行为负责。"
+        }
+      ]
+    },
+    {
+      "title": "What you hear when you stop talking",
+      "source": "TED",
+      "link": "http://go.ted.com/JohnLloyd",
+      "guide": "导演John Lloyd好奇为什么没人统计过我们每天听到多少种声音，他通过这个演讲带你重新发现日常中被忽略的听觉世界。适合聊感官体验、好奇心或生活观察时引用。",
+      "points": [
+        {
+          "phrase": "stop talking",
+          "example": "有时候你需要停止说话，才能真正听到别人的想法。"
+        },
+        {
+          "phrase": "pay attention to",
+          "example": "试着注意一下你周围那些平时忽略的声音。"
+        },
+        {
+          "phrase": "take something for granted",
+          "example": "我们常常把安静的环境视为理所当然。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}
