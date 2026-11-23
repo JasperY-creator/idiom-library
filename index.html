@@ -623,6 +623,7 @@ async function loginOrSignup(phone, nickname) {
 }
 
 function logout() {
+  try { localStorage.removeItem(profileCacheKey()); } catch (e) {}
   currentUser = null;
   localStorage.removeItem("saywhat_user");
   location.hash = "/login";
@@ -705,32 +706,44 @@ async function handleSignup() {
   }
 }
 
-async function renderProfile() {
-  if (!currentUser) return;
-  var el = document.getElementById("profileContent");
+var PROFILE_CACHE_PREFIX = "saywhat_profile_";
 
-  // 拉我的收藏和喜欢
-  var { data: favs } = await sb.from("favorites").select("*").eq("user_id", currentUser.id);
-  var { data: likes } = await sb.from("likes").select("*").eq("user_id", currentUser.id);
-  var { data: records } = await sb.from("daily_learning").select("*").eq("user_id", currentUser.id).order("date", { ascending: true });
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise(function (_, reject) {
+      setTimeout(function () { reject(new Error("请求超时")); }, ms);
+    })
+  ]);
+}
 
-  var favKeys = (favs || []).map(f => f.expression_key);
-  var likeKeys = (likes || []).map(l => l.expression_key);
-  var recordsList = records || [];
+function profileCacheKey() {
+  return PROFILE_CACHE_PREFIX + (currentUser ? currentUser.id : "guest");
+}
 
-  var favItems = EXPRESSIONS.filter(e => favKeys.includes(e.en.toLowerCase()));
-  var likeItems = EXPRESSIONS.filter(e => likeKeys.includes(e.en.toLowerCase()));
+function readProfileCache() {
+  try { return JSON.parse(localStorage.getItem(profileCacheKey()) || "null"); } catch (e) { return null; }
+}
+
+function profileHtml(data) {
+  var favs = (data && data.favs) || [];
+  var likes = (data && data.likes) || [];
+  var recordsList = (data && data.records) || [];
+
+  var favKeys = favs.map(function (f) { return f.expression_key; });
+  var likeKeys = likes.map(function (l) { return l.expression_key; });
+
+  var favItems = EXPRESSIONS.filter(function (e) { return favKeys.indexOf(e.en.toLowerCase()) !== -1; });
+  var likeItems = EXPRESSIONS.filter(function (e) { return likeKeys.indexOf(e.en.toLowerCase()) !== -1; });
 
   // 画最近 14 天的柱状图
   var barsHtml = '';
-  var maxCount = 5;
   for (var i = 13; i >= 0; i--) {
     var d = new Date();
     d.setDate(d.getDate() - i);
     var dateStr = localDateStr(d);
-    var rec = recordsList.find(r => r.date === dateStr);
+    var rec = recordsList.find(function (r) { return r.date === dateStr; });
     var count = rec ? (rec.expression_keys || []).length : 0;
-    if (count > maxCount) maxCount = count;
     var h = count > 0 ? Math.max(count / 10 * 60, 8) : 4;
     var dayLabel = d.getDate();
     var hasData = count > 0;
@@ -743,7 +756,7 @@ async function renderProfile() {
     `;
   }
 
-  el.innerHTML = `
+    return `
     <div style="background:var(--card);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)">
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div style="min-width:0">
@@ -797,8 +810,47 @@ async function renderProfile() {
   `;
 }
 
+async function renderProfile() {
+  if (!currentUser) return;
+  var el = document.getElementById("profileContent");
+
+  // 先用上次成功拉到的数据秒出内容，避免空白等待
+  var cache = readProfileCache();
+  if (cache) {
+    el.innerHTML = profileHtml(cache);
+  } else {
+    el.innerHTML = '<div style="background:var(--card);border-radius:12px;padding:28px 20px;text-align:center;box-shadow:var(--shadow)"><div style="font-size:15px;font-weight:600;margin-bottom:6px">正在加载…</div><div style="font-size:13px;color:var(--ink-3)">收藏、喜欢和学习记录</div></div>';
+  }
+
+  // 三个请求并发拉，最多等 10 秒
+  var data;
+  try {
+    var res = await withTimeout(Promise.all([
+      sb.from("favorites").select("*").eq("user_id", currentUser.id),
+      sb.from("likes").select("*").eq("user_id", currentUser.id),
+      sb.from("daily_learning").select("*").eq("user_id", currentUser.id).order("date", { ascending: true })
+    ]), 10000);
+    data = {
+      favs: res[0].data || [],
+      likes: res[1].data || [],
+      records: (res[2].data || []).slice(-30)
+    };
+    var qErr = res[0].error || res[1].error || res[2].error;
+    if (qErr) throw new Error(qErr.message || "查询失败");
+  } catch (e) {
+    console.warn("profile load failed:", e && e.message);
+    if (!cache) {
+      el.innerHTML = '<div style="background:var(--card);border-radius:12px;padding:28px 20px;text-align:center;box-shadow:var(--shadow)"><div style="font-size:15px;font-weight:600;margin-bottom:6px">加载失败</div><div style="font-size:13px;color:var(--ink-3);margin-bottom:16px">网络有点慢，没能取到你的数据</div><button class="cta cta-secondary" style="width:100%" onclick="renderProfile()">重试</button></div>';
+    }
+    return;
+  }
+
+  try { localStorage.setItem(profileCacheKey(), JSON.stringify(data)); } catch (e) {}
+  el.innerHTML = profileHtml(data);
+}
+
 async function reviewDay(dateStr) {
-  var { data: rec } = await sb.from("daily_learning").select("*").eq("user_id", currentUser.id).eq("date", dateStr).single();
+  var { data: rec } = await sb.from("daily_learning").select("*").eq("user_id", currentUser.id).eq("date", dateStr).maybeSingle();
   if (!rec) { alert("那天没学习记录"); return; }
 
   var exprKeys = rec.expression_keys || [];
