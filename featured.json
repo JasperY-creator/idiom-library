@@ -1,66 +1,66 @@
 {
-  "updatedAt": "2026-11-22T04:30:10.162822+00:00",
+  "updatedAt": "2026-11-23T05:05:38.687816+00:00",
   "featured": [
     {
       "title": "The “godfather of AI” on the risks that worry him most",
       "source": "TED",
       "link": "http://go.ted.com/GeoffreyHinton",
-      "guide": "被称为“AI教父”的Geoffrey Hinton分享了他对人工智能潜在风险的担忧，以及为什么他认为我们需要认真对待这些问题。适合在讨论科技发展、伦理道德或未来趋势时参考。",
+      "guide": " Geoffrey Hinton，被称为“AI教父”，他帮助创造了现代AI的神经网络，并因此获得诺贝尔奖。但近年来，他一直在警告AI可能带来的风险。这个演讲适合在聊科技发展、AI安全、伦理等话题时参考。",
       "points": [
         {
           "phrase": "warn about",
-          "example": "专家们警告说，过度依赖AI可能导致人类失去控制。"
+          "example": "许多专家警告过度依赖AI可能导致人类失去批判性思维。"
         },
         {
-          "phrase": "neural networks",
-          "example": "神经网络是深度学习的基础，让机器能够模拟人脑处理信息。"
+          "phrase": "come to terms with",
+          "example": "我们需要学会接受AI已经融入日常生活这一事实。"
         },
         {
-          "phrase": "where it’s heading",
-          "example": "我们需要关注AI的发展方向，确保它造福人类。"
+          "phrase": "a double-edged sword",
+          "example": "社交媒体是一把双刃剑，既连接了人们，也带来了隐私问题。"
         }
       ]
     },
     {
-      "title": "How to repair harm — in relationships and nations",
+      "title": "What you hear when you stop talking",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
-      "guide": "Aria Florant讲述了她在推动赔偿运动时与合伙人关系破裂的故事，并探讨了如何在人际关系和国家层面修复伤害。适合在聊和解、冲突解决或社会正义时引用。",
+      "link": "http://go.ted.com/JohnLloyd",
+      "guide": "科学家们已经估算出我们能看见多少种颜色、闻到多少种气味，但导演John Lloyd找不到任何人计算过我们一生中会听到多少种声音。这个演讲探讨了倾听的重要性，适合在聊沟通技巧、人际关系或自我反思时参考。",
       "points": [
         {
-          "phrase": "repair harm",
-          "example": "真正的道歉不仅仅是说对不起，而是要努力修复造成的伤害。"
+          "phrase": "tune out",
+          "example": "在地铁上，我常常屏蔽周围的噪音，专注于自己的书。"
         },
         {
-          "phrase": "cofound",
-          "example": "她和朋友共同创立了一个非营利组织，致力于帮助弱势群体。"
+          "phrase": "pay attention to",
+          "example": "好的倾听者会注意说话者的语气和肢体语言。"
         },
         {
-          "phrase": "partnership with",
-          "example": "与合作伙伴的良好关系是项目成功的关键。"
+          "phrase": "in the background",
+          "example": "咖啡馆里播放着轻柔的音乐作为背景音。"
         }
       ]
     },
     {
-      "title": "How we’ll actually ditch fossil fuels — by the numbers",
+      "title": "Could this ancient Greek idea make us better citizens?",
       "source": "TED",
-      "link": "http://go.ted.com/michaelliebreich",
-      "guide": "能源分析师Michael Liebreich用简单的数字模型展示了清洁能源转型的实际进展，反驳了“转型失败”的悲观论调。适合在聊环保、能源或数据驱动决策时参考。",
+      "link": "http://go.ted.com/ScottReich",
+      "guide": "两千多年前的古雅典，年轻公民需要完成两年的“ephebeia”公民服务项目，学习如何成为好公民。这个演讲探讨了古代理念对现代公民教育的启示，适合在聊教育、社会责任、社区参与等话题时参考。",
       "points": [
         {
-          "phrase": "ditch",
-          "example": "为了环保，我们应该尽快抛弃一次性塑料制品。"
+          "phrase": "civic engagement",
+          "example": "参加社区清洁活动是公民参与的一种简单方式。"
         },
         {
-          "phrase": "by the numbers",
-          "example": "让我们用数据说话，看看这个计划是否可行。"
+          "phrase": "come of age",
+          "example": "在许多文化中，18岁标志着一个人成年。"
         },
         {
-          "phrase": "clean energy transition",
-          "example": "清洁能源转型需要政府、企业和个人的共同努力。"
+          "phrase": "a sense of duty",
+          "example": "他有一种强烈的责任感，总是帮助有需要的人。"
         }
       ]
     }
   ],
-  "allCount": 9
+  "allCount": 8
 }

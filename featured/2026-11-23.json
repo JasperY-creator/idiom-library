@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-11-22T04:30:10.162822+00:00",
+  "featured": [
+    {
+      "title": "The “godfather of AI” on the risks that worry him most",
+      "source": "TED",
+      "link": "http://go.ted.com/GeoffreyHinton",
+      "guide": "被称为“AI教父”的Geoffrey Hinton分享了他对人工智能潜在风险的担忧，以及为什么他认为我们需要认真对待这些问题。适合在讨论科技发展、伦理道德或未来趋势时参考。",
+      "points": [
+        {
+          "phrase": "warn about",
+          "example": "专家们警告说，过度依赖AI可能导致人类失去控制。"
+        },
+        {
+          "phrase": "neural networks",
+          "example": "神经网络是深度学习的基础，让机器能够模拟人脑处理信息。"
+        },
+        {
+          "phrase": "where it’s heading",
+          "example": "我们需要关注AI的发展方向，确保它造福人类。"
+        }
+      ]
+    },
+    {
+      "title": "How to repair harm — in relationships and nations",
+      "source": "TED",
+      "link": "http://go.ted.com/ariaflorant",
+      "guide": "Aria Florant讲述了她在推动赔偿运动时与合伙人关系破裂的故事，并探讨了如何在人际关系和国家层面修复伤害。适合在聊和解、冲突解决或社会正义时引用。",
+      "points": [
+        {
+          "phrase": "repair harm",
+          "example": "真正的道歉不仅仅是说对不起，而是要努力修复造成的伤害。"
+        },
+        {
+          "phrase": "cofound",
+          "example": "她和朋友共同创立了一个非营利组织，致力于帮助弱势群体。"
+        },
+        {
+          "phrase": "partnership with",
+          "example": "与合作伙伴的良好关系是项目成功的关键。"
+        }
+      ]
+    },
+    {
+      "title": "How we’ll actually ditch fossil fuels — by the numbers",
+      "source": "TED",
+      "link": "http://go.ted.com/michaelliebreich",
+      "guide": "能源分析师Michael Liebreich用简单的数字模型展示了清洁能源转型的实际进展，反驳了“转型失败”的悲观论调。适合在聊环保、能源或数据驱动决策时参考。",
+      "points": [
+        {
+          "phrase": "ditch",
+          "example": "为了环保，我们应该尽快抛弃一次性塑料制品。"
+        },
+        {
+          "phrase": "by the numbers",
+          "example": "让我们用数据说话，看看这个计划是否可行。"
+        },
+        {
+          "phrase": "clean energy transition",
+          "example": "清洁能源转型需要政府、企业和个人的共同努力。"
+        }
+      ]
+    }
+  ],
+  "allCount": 9
+}
