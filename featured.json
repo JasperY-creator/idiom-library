@@ -1,66 +1,69 @@
 {
-  "updatedAt": "2026-11-23T05:05:38.687816+00:00",
+  "updatedAt": "2026-11-06T08:17:35.627836+00:00",
   "featured": [
     {
-      "title": "The “godfather of AI” on the risks that worry him most",
+      "title": "What kids wish their parents knew about fun | Mila Rojas",
       "source": "TED",
-      "link": "http://go.ted.com/GeoffreyHinton",
-      "guide": " Geoffrey Hinton，被称为“AI教父”，他帮助创造了现代AI的神经网络，并因此获得诺贝尔奖。但近年来，他一直在警告AI可能带来的风险。这个演讲适合在聊科技发展、AI安全、伦理等话题时参考。",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
+      "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的一部分。她分享了孩子们希望父母理解的关于“ fun”的真相，适合在聊育儿、教育压力、工作与生活平衡时参考。",
       "points": [
         {
-          "phrase": "warn about",
-          "example": "许多专家警告过度依赖AI可能导致人类失去批判性思维。"
+          "phrase": "just for fun",
+          "example": "我们周末去爬山吧，就为了好玩，不设任何目标。"
         },
         {
-          "phrase": "come to terms with",
-          "example": "我们需要学会接受AI已经融入日常生活这一事实。"
+          "phrase": "buried under",
+          "example": "他最近被各种会议和截止日期埋得喘不过气。"
         },
         {
-          "phrase": "a double-edged sword",
-          "example": "社交媒体是一把双刃剑，既连接了人们，也带来了隐私问题。"
+          "phrase": "the pressure to succeed",
+          "example": "很多孩子从小就被成功的压力推着走，很少有时间自由玩耍。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun"
     },
     {
-      "title": "What you hear when you stop talking",
+      "title": "The couples therapists who nearly got divorced | Harville Hendrix",
       "source": "TED",
-      "link": "http://go.ted.com/JohnLloyd",
-      "guide": "科学家们已经估算出我们能看见多少种颜色、闻到多少种气味，但导演John Lloyd找不到任何人计算过我们一生中会听到多少种声音。这个演讲探讨了倾听的重要性，适合在聊沟通技巧、人际关系或自我反思时参考。",
+      "link": "https://www.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced",
+      "guide": "一对教了全世界几十年“如何好好相爱”的夫妻治疗师，却差点把自己的婚姻搞砸。他们坦诚分享那段低谷和修复过程，适合在聊亲密关系、沟通技巧、婚姻经营时引用。",
       "points": [
         {
-          "phrase": "tune out",
-          "example": "在地铁上，我常常屏蔽周围的噪音，专注于自己的书。"
+          "phrase": "fall apart",
+          "example": "那段时间他们的婚姻几乎要瓦解了，但最终还是撑了过来。"
         },
         {
-          "phrase": "pay attention to",
-          "example": "好的倾听者会注意说话者的语气和肢体语言。"
+          "phrase": "work through",
+          "example": "与其回避冲突，不如一起把问题捋清楚。"
         },
         {
-          "phrase": "in the background",
-          "example": "咖啡馆里播放着轻柔的音乐作为背景音。"
+          "phrase": "take a step back",
+          "example": "吵架的时候，先退一步冷静一下，往往能看得更清楚。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced"
     },
     {
-      "title": "Could this ancient Greek idea make us better citizens?",
+      "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
       "source": "TED",
-      "link": "http://go.ted.com/ScottReich",
-      "guide": "两千多年前的古雅典，年轻公民需要完成两年的“ephebeia”公民服务项目，学习如何成为好公民。这个演讲探讨了古代理念对现代公民教育的启示，适合在聊教育、社会责任、社区参与等话题时参考。",
+      "link": "https://www.ted.com/talks/dan_taberski_the_razor_thin_line_between_contagion_and_connection",
+      "guide": "一所学高中突然出现神秘的抽搐和发声症状，像传染病一样蔓延。调查记者Dan Taberski带你走进这个真实事件，探讨人与人之间的影响到底有多微妙。适合在聊社会心理、群体行为、真实故事时分享。",
       "points": [
         {
-          "phrase": "civic engagement",
-          "example": "参加社区清洁活动是公民参与的一种简单方式。"
+          "phrase": "sweep through",
+          "example": "一种奇怪的症状迅速席卷了整个学校，大家都慌了。"
         },
         {
-          "phrase": "come of age",
-          "example": "在许多文化中，18岁标志着一个人成年。"
+          "phrase": "set out to",
+          "example": "他决定着手调查这件事的来龙去脉。"
         },
         {
-          "phrase": "a sense of duty",
-          "example": "他有一种强烈的责任感，总是帮助有需要的人。"
+          "phrase": "the line between",
+          "example": "有时候，共情和过度卷入之间的界限非常模糊。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/dan_taberski_the_razor_thin_line_between_contagion_and_connection"
     }
   ],
-  "allCount": 8
+  "allCount": 5
 }
