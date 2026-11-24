@@ -23,6 +23,44 @@ SOURCES = [
 MAX_PER_SOURCE = 10
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
+# TED RSS 给的是 go.ted.com 短链（会经 http 中转，微信/国内常打不开），
+# 这里统一解析成 https://www.ted.com/talks/<slug>，并额外记下官方播放器地址。
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36"
+
+
+def http_ok(url, timeout=15):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA}, method="HEAD")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return 200 <= r.status < 400
+    except Exception:
+        return False
+
+
+def talk_slug(link):
+    m = re.search(r"ted\.com/talks/([^/?#\"]+)", link or "")
+    return m.group(1) if m else ""
+
+
+def resolve_talk(link):
+    """短链 -> (正式页链接, 播放器链接)；解析不到或没有视频就返回 ("'', "'')"""
+    slug = talk_slug(link)
+    if not slug and "go.ted.com" in (link or ""):
+        try:
+            req = urllib.request.Request(link, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=25) as r:
+                slug = talk_slug(r.geturl())
+        except Exception as e:
+            print(f"  短链解析失败 {link}: {e}")
+            return "", ""
+    if not slug:
+        return "", ""
+    embed = f"https://embed.ted.com/talks/{slug}"
+    if not http_ok(embed):
+        print(f"  跳过，没有可播放视频: {slug}")
+        return "", ""
+    return f"https://www.ted.com/talks/{slug}", embed
+
 
 def clean_html(raw):
     if not raw:
@@ -51,10 +89,14 @@ def fetch_source(src):
             continue
         if not link.startswith("http"):
             continue
+        page, embed = resolve_talk(link)
+        if not page:
+            continue
         items.append({
             "source": src["name"],
             "title": entry.get("title", "").strip(),
-            "link": link,
+            "link": page,
+            "embed": embed,
             "summary": clean_html(entry.get("summary", entry.get("description", ""))),
             "published": parse_date(entry),
         })
@@ -104,6 +146,7 @@ def pick_and_generate(all_articles, api_key):
 - title: 英文标题
 - source: 来源（就写 "TED"）
 - link: 原文链接（必须从上面列表里原封不动复制，不要自己编）
+- embed: 视频播放链接（固定格式 https://embed.ted.com/talks/<slug>，slug 取自上面链接的最后一段）
 - guide: 中文导读（2-3句话，简单说这个演讲讲了什么、适合聊什么话题的时候参考）
 - points: 3个重点表达，每个包含 phrase（英文短语）和 example（一句中文例句）
 
@@ -116,6 +159,7 @@ def pick_and_generate(all_articles, api_key):
       "title": "...",
       "source": "TED",
       "link": "...",
+      "embed": "...",
       "guide": "...",
       "points": [
         {{"phrase": "...", "example": "..."}}
@@ -154,6 +198,21 @@ def main():
         result = pick_and_generate(all_items, api_key)
         featured = result.get("articles", [])
         print(f"AI selected {len(featured)} articles")
+
+        # 逐个校验链接可用性，坏的直接丢掉
+        bad = []
+        for a in featured:
+            page = a.get("link", "")
+            if "go.ted.com" in page or not talk_slug(page):
+                page, embed = resolve_talk(page)
+                a["link"], a["embed"] = page, embed
+            elif not a.get("embed"):
+                a["embed"] = "https://embed.ted.com/talks/" + talk_slug(page)
+            if not a.get("link") or not a.get("embed"):
+                bad.append(a)
+        if bad:
+            print(f"WARN: {len(bad)} 条链接无效已移除: {[a.get('title', '')[:30] for a in bad]}")
+            featured = [a for a in featured if a.get("link") and a.get("embed")]
     except Exception as e:
         print(f"AI generation failed: {e}")
         featured = []
