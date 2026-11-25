@@ -1,0 +1,48 @@
+{
+  "updatedAt": "2026-11-24T07:52:40.794082+00:00",
+  "featured": [
+    {
+      "title": "A letter to the end of time | Lau Noah",
+      "source": "TED",
+      "link": "https://www.ted.com/talks/lau_noah_a_letter_to_the_end_of_time",
+      "embed": "https://embed.ted.com/talks/lau_noah_a_letter_to_the_end_of_time",
+      "guide": "作曲家Lau Noah通过音乐和讲述，邀请我们想象在生命尽头回望时能感到平静。这个演讲适合在聊人生感悟、自我反思或艺术治愈时参考，语言诗意但易懂。",
+      "points": [
+        {
+          "phrase": "look back on",
+          "example": "当我回顾我的童年时，我充满了感激。"
+        },
+        {
+          "phrase": "at peace",
+          "example": "经过多年的挣扎，她终于内心平静了。"
+        },
+        {
+          "phrase": "a letter to",
+          "example": "他写了一封信给未来的自己。"
+        }
+      ]
+    },
+    {
+      "title": "The digital detectives preserving the truth of war | Hadi Al Khatib",
+      "source": "TED",
+      "link": "https://www.ted.com/talks/hadi_al_khatib_the_digital_detectives_preserving_the_truth_of_war",
+      "embed": "https://embed.ted.com/talks/hadi_al_khatib_the_digital_detectives_preserving_the_truth_of_war",
+      "guide": "数字档案员Hadi Al Khatib讲述如何收集和保存战争视频，以追寻真相和正义。这个演讲适合聊科技伦理、人权或信息保存时参考，内容真实有力。",
+      "points": [
+        {
+          "phrase": "preserve the truth",
+          "example": "记者们努力保存真相，即使面对压力。"
+        },
+        {
+          "phrase": "shot on phones",
+          "example": "这段视频是用手机拍摄的，但画面很清晰。"
+        },
+        {
+          "phrase": "never meant to",
+          "example": "这个平台本来就不是为了永久存储数据而设计的。"
+        }
+      ]
+    }
+  ],
+  "allCount": 2
+}
