@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑回路来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "找到你的心流状态，工作会变得更高效也更享受。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里有个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "hygiene routine",
           "example": "你的卫生习惯里包括清洁手机吗？"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     },
     {
       "title": "What kids wish their parents knew about fun",
       "source": "TED",
-      "link": "http://go.ted.com/milarojas",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
       "guide": "十一岁的 Mila Rojas 观察到，大人们被日程和期望压得喘不过气，早就忘了纯粹为了好玩而玩是什么感觉。她分享了孩子们希望父母明白的关于“玩”的事，适合聊亲子关系、教育或生活平衡时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "the pressure of expectations",
           "example": "在期望的压力下，玩变成了一种奢侈。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun"
     }
   ],
   "allCount": 9
