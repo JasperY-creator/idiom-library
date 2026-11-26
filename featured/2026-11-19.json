@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、效率提升或个人成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "the harder you try to control everything",
           "example": "The harder you try to control everything，越容易感到焦虑和疲惫。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "How to repair harm — in relationships and nations",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
+      "link": "https://www.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations",
       "guide": "Aria Florant 分享了她在推动赔偿运动时与合伙人关系破裂的经历，探讨了如何修复人际关系乃至国家层面的伤害。适合聊冲突解决、道歉与原谅、社会正义等话题时参考。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "accelerate the reparations movement",
           "example": "这个非营利组织致力于 accelerate the reparations movement，推动社会公平。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯存在巨大盲区。他分享了如何正确清洁手机，适合聊卫生习惯、健康生活或科技产品时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "What’s dirtier: your phone or your hands?",
           "example": "下次有人问你 What’s dirtier: your phone or your hands? 你可以自信地给出科学答案。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     }
   ],
   "allCount": 8
