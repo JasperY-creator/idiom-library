@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家Heather Berlin探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "当你完全沉浸在喜欢的事情中时，就更容易 find your flow。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家Lotti Tajouri指出，我们的手机可能比手还脏，而日常清洁却常常忽略它。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "hygiene routine",
           "example": "把清洁手机加入你的 daily hygiene routine，能减少细菌传播。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     },
     {
       "title": "How to repair harm — in relationships and nations",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
+      "link": "https://www.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations",
       "guide": "Aria Florant分享了她与合伙人关系破裂后如何修复伤害的经历，并将个人修复与国家级赔偿运动联系起来。适合聊人际关系、冲突解决或社会正义时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "accelerate the reparations movement",
           "example": "这个非营利组织致力于 accelerate the reparations movement，推动社会公平。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations"
     }
   ],
   "allCount": 8
