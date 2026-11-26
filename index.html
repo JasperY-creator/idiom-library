@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2F5D50">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="SayWhat">
 <title>SayWhat · 每天学几个地道口语</title>
 <script src="https://fastly.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5D50'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' font-style='italic' fill='%23F5F1E8' text-anchor='middle'%3Ea%3C/text%3E%3C/svg%3E">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <style>
   :root {
     --bg: #F5F1E8;
@@ -282,6 +289,54 @@
   .talk-note { font-size: 12px; color: var(--ink-3); margin-top: 10px; line-height: 1.6; }
   .talk-note a { color: var(--brand); }
 
+  /* 添加到桌面：引导条 + 步骤面板 */
+  .install-bar {
+    display: none; align-items: center; gap: 10px;
+    background: var(--brand); color: #fff;
+    border-radius: 12px; padding: 12px 14px; margin-bottom: 16px;
+  }
+  .install-bar-text { flex: 1; min-width: 0; }
+  .install-bar-text b { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
+  .install-bar-text span { font-size: 12px; opacity: .82; }
+  .install-bar-btn {
+    flex-shrink: 0; background: #fff; color: var(--brand); border: none;
+    border-radius: 999px; padding: 7px 14px; font-size: 12.5px; font-weight: 600;
+    font-family: inherit; cursor: pointer;
+  }
+  .install-bar-close {
+    flex-shrink: 0; background: none; border: none; color: #fff; opacity: .7;
+    font-size: 16px; line-height: 1; padding: 2px 0 2px 4px; cursor: pointer;
+  }
+
+  .install-sheet {
+    position: fixed; inset: 0; z-index: 310; display: none;
+    align-items: flex-end; justify-content: center;
+    background: rgba(24, 22, 18, .55);
+  }
+  .install-sheet.show { display: flex; }
+  .install-sheet-inner {
+    width: 100%; max-width: 480px; background: var(--card);
+    border-radius: 18px 18px 0 0; padding: 20px 22px calc(22px + env(safe-area-inset-bottom));
+    box-sizing: border-box;
+  }
+  .install-sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .install-sheet-title { font-size: 17px; font-weight: 700; color: var(--ink); }
+  .install-sheet-close {
+    background: none; border: 1px solid var(--line); border-radius: 8px;
+    padding: 5px 10px; font-size: 12px; color: var(--ink-2); font-family: inherit; cursor: pointer;
+  }
+  .install-step { display: flex; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+  .install-step:first-child { border-top: none; padding-top: 0; }
+  .install-step-no {
+    flex: 0 0 22px; height: 22px; border-radius: 50%; background: var(--brand-soft);
+    color: var(--brand); font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .install-step-body { flex: 1; min-width: 0; }
+  .install-step-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .install-step-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.6; }
+  .install-sheet-note { font-size: 12px; color: var(--ink-3); line-height: 1.6; margin-top: 14px; }
+
   /* 往期精选 */
   .archive-head {
     display: flex; align-items: baseline; gap: 8px;
@@ -525,6 +580,16 @@
     <h2 class="hero-title">每天学一点，<br>开口不再<em>卡壳</em>。</h2>
     <p class="hero-desc">不用背单词书，不用刷题库。每天花 2 分钟，学几个老外天天挂嘴边的地道表达——知道它为什么这么说，再配个能直接用的例句。</p>
 
+    <!-- 添加到桌面引导（非独立窗口、未关闭时显示） -->
+    <div class="install-bar" id="installBar">
+      <div class="install-bar-text">
+        <b>把 SayWhat 放到桌面</b>
+        <span>下次点图标直接进，不用再记网址</span>
+      </div>
+      <button class="install-bar-btn" onclick="openInstallSheet()">添加</button>
+      <button class="install-bar-close" onclick="dismissInstallBar()" aria-label="关闭">×</button>
+    </div>
+
     <!-- 今日学习板块（重点突出） -->
     <div class="learn-section">
       <div class="learn-header">
@@ -677,6 +742,17 @@
     </div>
   </div>
 
+</div>
+
+<div id="installSheet" class="install-sheet" onclick="closeInstallSheet()">
+  <div class="install-sheet-inner" onclick="event.stopPropagation()">
+    <div class="install-sheet-head">
+      <div class="install-sheet-title" id="installSheetTitle">把 SayWhat 放到桌面</div>
+      <button class="install-sheet-close" onclick="closeInstallSheet()">关闭</button>
+    </div>
+    <div id="installSteps"></div>
+    <div class="install-sheet-note" id="installNote"></div>
+  </div>
 </div>
 
 <div id="talkModal" class="talk-modal" onclick="closeTalk()">
@@ -1439,6 +1515,101 @@ try {
   }
 }
 
+// ============ 添加到桌面（PWA） ============
+var INSTALL_DISMISS_KEY = "saywhat_install_dismissed";
+
+function isStandalone() {
+  try {
+    return (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) ||
+      window.navigator.standalone === true;
+  } catch (e) { return false; }
+}
+
+function uaHas(pattern) { return new RegExp(pattern, "i").test(navigator.userAgent || ""); }
+
+function initInstallBar() {
+  if (isStandalone()) return;
+  var dismissed = false;
+  try { dismissed = localStorage.getItem(INSTALL_DISMISS_KEY) === "1"; } catch (e) {}
+  if (dismissed) return;
+  var bar = document.getElementById("installBar");
+  if (bar) bar.style.display = "flex";
+}
+
+function dismissInstallBar() {
+  var bar = document.getElementById("installBar");
+  if (bar) bar.style.display = "none";
+  try { localStorage.setItem(INSTALL_DISMISS_KEY, "1"); } catch (e) {}
+}
+
+function installSteps() {
+  if (uaHas("MicroMessenger")) {
+    return {
+      steps: [
+        ["点右上角「···」", "菜单里选「在浏览器打开」，微信里没有添加桌面的入口"],
+        ["在浏览器里再添加一次", "iPhone 点底部分享按钮；安卓点右上角菜单里的「添加到主屏幕」"]
+      ],
+      note: "微信浏览器不支持添加到桌面，必须先跳去系统浏览器。"
+    };
+  }
+  if (uaHas("iPhone|iPad|iPod")) {
+    return {
+      steps: [
+        ["点底部的「分享」按钮", "方框里带向上箭头的那个图标"],
+        ["往下滑，选「添加到主屏幕」", "列表里没看到就先点「编辑操作」把它加上"],
+        ["点右上角「添加」", "桌面上会出现 SayWhat 图标"]
+      ],
+      note: "iOS 上这是网页书签形式，打开时没有地址栏，看起来和 App 一样。"
+    };
+  }
+  if (uaHas("Android")) {
+    return {
+      steps: [
+        ["点浏览器右上角的菜单", "Chrome 是「⋮」，部分国产浏览器在底部或左上角"],
+        ["选「添加到主屏幕」或「安装应用」", "Chrome 里显示的是「安装应用」"],
+        ["确认添加", "桌面上会出现 SayWhat 图标"]
+      ],
+      note: "安卓 Chrome 添加后会生成独立窗口，有启动闪屏，最接近 App 的体验。"
+    };
+  }
+  return {
+    steps: [
+      ["用手机浏览器打开这个链接", "微信里先点「···」选择在浏览器打开"],
+      ["在浏览器菜单里找「添加到主屏幕」", "iPhone 是分享按钮，安卓是菜单"],
+      ["确认添加", "桌面上就会出现 SayWhat 图标"]
+    ],
+    note: ""
+  };
+}
+
+function openInstallSheet() {
+  var data = installSteps();
+  document.getElementById("installSteps").innerHTML = data.steps.map(function (st, i) {
+    return '<div class="install-step">' +
+      '<div class="install-step-no">' + (i + 1) + '</div>' +
+      '<div class="install-step-body">' +
+        '<div class="install-step-title">' + st[0] + '</div>' +
+        '<div class="install-step-desc">' + st[1] + '</div>' +
+      '</div>' +
+    '</div>';
+  }).join("");
+  document.getElementById("installNote").textContent = data.note || "";
+  document.getElementById("installSheet").classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeInstallSheet() {
+  document.getElementById("installSheet").classList.remove("show");
+  document.body.style.overflow = "";
+}
+
+// Service Worker：只有 https / localhost 才注册得起来
+if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost" || location.hostname === "127.0.0.1")) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("sw.js").catch(function () {});
+  });
+}
+
 // ============ 演讲视频弹层 ============
 function escapeAttr(str) {
   return String(str == null ? "" : str)
@@ -1878,6 +2049,7 @@ function restartLearn() {
 
 initLearn();
 initExpandHint();
+initInstallBar();
 
 loadFeatured();
 
