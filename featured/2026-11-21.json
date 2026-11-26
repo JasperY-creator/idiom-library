@@ -4,7 +4,7 @@
     {
       "title": "The “godfather of AI” on the risks that worry him most | Geoffrey Hinton",
       "source": "TED",
-      "link": "http://go.ted.com/GeoffreyHinton",
+      "link": "https://www.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most",
       "guide": "AI教父Geoffrey Hinton亲自讲述他对人工智能未来最深的担忧——从虚假信息到自主武器，再到AI可能取代人类工作的速度。适合聊科技伦理、未来职业规划或“AI会不会抢我饭碗”时引用。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "be worried about",
           "example": "你最担心AI带来的哪个问题？"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most"
     },
     {
       "title": "How to repair harm — in relationships and nations | Aria Florant",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
+      "link": "https://www.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations",
       "guide": "Aria Florant分享了她与联合创始人在推动赔偿运动时关系破裂又修复的故事，把人际和解的经验延伸到国家层面的历史创伤修复。适合聊人际关系、冲突解决或社会公平话题时参考。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "make amends",
           "example": "她试图通过对话来弥补过去的错误。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it | Lotti Tajouri",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家Lotti Tajouri揭示了一个被忽视的卫生盲区：你的手机可能比马桶圈还脏，并给出了简单实用的清洁方法。适合聊日常健康、生活习惯或“你多久擦一次手机”这种轻松话题。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "scrub ... clean",
           "example": "我们认真洗手，却忘了把手机擦干净。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     }
   ],
   "allCount": 9
