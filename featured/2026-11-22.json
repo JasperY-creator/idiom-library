@@ -4,7 +4,7 @@
     {
       "title": "The “godfather of AI” on the risks that worry him most",
       "source": "TED",
-      "link": "http://go.ted.com/GeoffreyHinton",
+      "link": "https://www.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most",
       "guide": "被称为“AI教父”的Geoffrey Hinton亲自讲述他对人工智能最深的担忧。适合聊科技伦理、未来就业或人类命运时引用，内容既有分量又不难懂。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "come to terms with",
           "example": "我们需要学会接受生活中的不确定性。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most"
     },
     {
       "title": "How to repair harm — in relationships and nations",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
+      "link": "https://www.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations",
       "guide": "演讲者分享了自己与合伙人关系破裂后如何修复伤害的故事，并把这种修复思路延伸到国家层面。适合聊人际关系、冲突解决或社会公正时参考。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "hold someone accountable",
           "example": "我们需要让决策者为自己的行为负责。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations"
     },
     {
       "title": "What you hear when you stop talking",
       "source": "TED",
-      "link": "http://go.ted.com/JohnLloyd",
+      "link": "https://www.ted.com/talks/john_lloyd_what_you_hear_when_you_stop_talking",
       "guide": "导演John Lloyd好奇为什么没人统计过我们每天听到多少种声音，他通过这个演讲带你重新发现日常中被忽略的听觉世界。适合聊感官体验、好奇心或生活观察时引用。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "take something for granted",
           "example": "我们常常把安静的环境视为理所当然。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/john_lloyd_what_you_hear_when_you_stop_talking"
     }
   ],
   "allCount": 9
