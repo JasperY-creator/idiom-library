@@ -1,0 +1,105 @@
+{
+  "updatedAt": "2026-11-26T02:36:54.628273+00:00",
+  "issues": [
+    {
+      "date": "2026-11-25",
+      "count": 2,
+      "titles": [
+        "A letter to the end of time | Lau Noah",
+        "The digital detectives preserving the truth of war | Hadi Al Khatib"
+      ],
+      "slugs": [
+        "lau_noah_a_letter_to_the_end_of_time",
+        "hadi_al_khatib_the_digital_detectives_preserving_the_truth_of_war"
+      ]
+    },
+    {
+      "date": "2026-11-24",
+      "count": 3,
+      "titles": [
+        "What kids wish their parents knew about fun | Mila Rojas",
+        "The couples therapists who nearly got divorced | Harville Hendrix",
+        "The razor-thin line between contagion and connection | Dan Taberski (re-release)"
+      ],
+      "slugs": [
+        "mila_rojas_what_kids_wish_their_parents_knew_about_fun",
+        "harville_hendrix_the_couples_therapists_who_nearly_got_divorced",
+        "dan_taberski_the_razor_thin_line_between_contagion_and_connection"
+      ]
+    },
+    {
+      "date": "2026-11-23",
+      "count": 3,
+      "titles": [
+        "The “godfather of AI” on the risks that worry him most",
+        "How to repair harm — in relationships and nations",
+        "How we’ll actually ditch fossil fuels — by the numbers"
+      ],
+      "slugs": [
+        "geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most",
+        "aria_florant_how_to_repair_harm_in_relationships_and_nations",
+        "michael_liebreich_why_clean_energy_is_an_unstoppable_force"
+      ]
+    },
+    {
+      "date": "2026-11-22",
+      "count": 1,
+      "titles": [
+        "What you hear when you stop talking"
+      ],
+      "slugs": [
+        "john_lloyd_what_you_hear_when_you_stop_talking"
+      ]
+    },
+    {
+      "date": "2026-11-21",
+      "count": 1,
+      "titles": [
+        "Your phone is disgusting. Here's how to clean it | Lotti Tajouri"
+      ],
+      "slugs": [
+        "lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
+      ]
+    },
+    {
+      "date": "2026-11-20",
+      "count": 1,
+      "titles": [
+        "How to rewire your brain — and find your flow"
+      ],
+      "slugs": [
+        "heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
+      ]
+    },
+    {
+      "date": "2026-11-17",
+      "count": 1,
+      "titles": [
+        "Could this ancient Greek idea make us better citizens?"
+      ],
+      "slugs": [
+        "scott_reich_could_this_ancient_greek_idea_make_us_better_citizens"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "count": 1,
+      "titles": [
+        "The surprising beauty of mosquitos"
+      ],
+      "slugs": [
+        "felix_hol_the_surprising_beauty_of_mosquitos"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "count": 1,
+      "titles": [
+        "How to make friends (and keep them) | Sheridan Voysey"
+      ],
+      "slugs": [
+        "sheridan_voysey_how_to_make_friends_and_keep_them"
+      ]
+    }
+  ]
+}
