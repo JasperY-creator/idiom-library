@@ -4,7 +4,7 @@
     {
       "title": "The “godfather of AI” on the risks that worry him most",
       "source": "TED",
-      "link": "http://go.ted.com/GeoffreyHinton",
+      "link": "https://www.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most",
       "guide": "被称为“AI教父”的Geoffrey Hinton分享了他对人工智能潜在风险的担忧，以及为什么他认为我们需要认真对待这些问题。适合在讨论科技发展、伦理道德或未来趋势时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "where it’s heading",
           "example": "我们需要关注AI的发展方向，确保它造福人类。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/geoffrey_hinton_the_godfather_of_ai_on_the_risks_that_worry_him_most"
     },
     {
       "title": "How to repair harm — in relationships and nations",
       "source": "TED",
-      "link": "http://go.ted.com/ariaflorant",
+      "link": "https://www.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations",
       "guide": "Aria Florant讲述了她在推动赔偿运动时与合伙人关系破裂的故事，并探讨了如何在人际关系和国家层面修复伤害。适合在聊和解、冲突解决或社会正义时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "partnership with",
           "example": "与合作伙伴的良好关系是项目成功的关键。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/aria_florant_how_to_repair_harm_in_relationships_and_nations"
     },
     {
       "title": "How we’ll actually ditch fossil fuels — by the numbers",
       "source": "TED",
-      "link": "http://go.ted.com/michaelliebreich",
+      "link": "https://www.ted.com/talks/michael_liebreich_why_clean_energy_is_an_unstoppable_force",
       "guide": "能源分析师Michael Liebreich用简单的数字模型展示了清洁能源转型的实际进展，反驳了“转型失败”的悲观论调。适合在聊环保、能源或数据驱动决策时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "clean energy transition",
           "example": "清洁能源转型需要政府、企业和个人的共同努力。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/michael_liebreich_why_clean_energy_is_an_unstoppable_force"
     }
   ],
   "allCount": 9
