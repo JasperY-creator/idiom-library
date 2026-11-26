@@ -5,6 +5,7 @@
 GitHub Actions 每两天跑一次。
 """
 import feedparser
+import time
 import json
 import os
 import re
@@ -20,7 +21,8 @@ SOURCES = [
     },
 ]
 
-MAX_PER_SOURCE = 10
+MAX_PER_SOURCE = 20     # 候选池大小，AI 再从里面挑 3 条
+MAX_SCAN = 80           # RSS 前 80 条里筛，很多是播客或短链失效
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"
 
 # TED RSS 给的是 go.ted.com 短链（会经 http 中转，微信/国内常打不开），
@@ -79,10 +81,24 @@ def parse_date(entry):
     return ""
 
 
+def fetch_feed(url):
+    """自己拉 RSS，带 UA；feedparser 直连有时拿不到内容"""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=40) as r:
+            return feedparser.parse(r.read())
+    except Exception as e:
+        print(f"  直连失败 {url}: {e}，改用 feedparser 默认方式")
+        return feedparser.parse(url)
+
+
 def fetch_source(src):
-    feed = feedparser.parse(src["url"])
+    feed = fetch_feed(src["url"])
+    print(f"  RSS entries: {len(feed.entries)}")
     items = []
-    for entry in feed.entries[:MAX_PER_SOURCE]:
+    for entry in feed.entries[:MAX_SCAN]:
+        if len(items) >= MAX_PER_SOURCE:
+            break
         link = entry.get("link", "")
         # 过滤掉播客/精选集（链接都是同一个首页，不是具体演讲）
         if "audiocollective.ted.com" in link:
@@ -90,6 +106,9 @@ def fetch_source(src):
         if not link.startswith("http"):
             continue
         page, embed = resolve_talk(link)
+        if not page:
+            time.sleep(0.4)   # 别把 TED 请求打太快，容易 403
+            page, embed = resolve_talk(link)
         if not page:
             continue
         items.append({
@@ -174,6 +193,59 @@ def pick_and_generate(all_articles, api_key):
     return json.loads(result)
 
 
+def load_seen_slugs():
+    """读出历史各期里出现过的演讲 slug"""
+    import glob
+    seen = set()
+    for path in glob.glob("featured/*.json"):
+        if path.endswith("index.json"):
+            continue
+        try:
+            data = json.load(open(path, encoding="utf-8"))
+        except Exception:
+            continue
+        for a in data.get("featured", []):
+            slug = talk_slug(a.get("link", ""))
+            if slug:
+                seen.add(slug)
+    return seen
+
+
+def write_index():
+    """把 featured/ 里所有历史文件汇总成 index.json，供前端「往期」列表使用"""
+    import glob
+    os.makedirs("featured", exist_ok=True)
+    entries = []
+    seen = set()
+    for path in sorted(glob.glob("featured/*.json"), reverse=True):
+        if path.endswith("index.json"):
+            continue
+        date = os.path.basename(path).replace(".json", "")
+        try:
+            data = json.load(open(path, encoding="utf-8"))
+        except Exception:
+            continue
+        items = data.get("featured", [])
+        if not items:
+            continue
+        slugs = [talk_slug(a.get("link", "")) for a in items]
+        titles = [a.get("title", "") for a in items]
+        # 每条演讲只在往期里出现一次：更近期已经出现过的，这里就不再重复
+        keep = [(t, s) for t, s in zip(titles, slugs) if s and s not in seen]
+        if not keep:
+            continue
+        seen.update(s for _, s in keep)
+        entries.append({
+            "date": date,
+            "count": len(keep),
+            "titles": [t for t, _ in keep],
+            "slugs": [s for _, s in keep],
+        })
+    with open("featured/index.json", "w", encoding="utf-8") as f:
+        json.dump({"updatedAt": datetime.now(timezone.utc).isoformat(), "issues": entries}, f, ensure_ascii=False, indent=2)
+    print(f"index.json: {len(entries)} 期")
+
+
 def main():
     api_key = os.environ.get("DEEPSEEK_API_KEY")
     if not api_key:
@@ -192,6 +264,13 @@ def main():
 
     all_items.sort(key=lambda x: x["published"], reverse=True)
     print(f"Total articles fetched: {len(all_items)}")
+
+    # 跳过以前推过的演讲，保证每期都是新内容
+    seen = load_seen_slugs()
+    fresh = [a for a in all_items if talk_slug(a["link"]) not in seen]
+    print(f"历史上已推过 {len(seen)} 个，去掉重复后剩 {len(fresh)} 个")
+    if len(fresh) >= 6:
+        all_items = fresh
 
     # 2. 调 DeepSeek 挑选并生成
     try:
@@ -217,14 +296,28 @@ def main():
         print(f"AI generation failed: {e}")
         featured = []
 
+    if len(featured) < 2:
+        print(f"WARN: 只拿到 {len(featured)} 条有效演讲，保留上一版 featured.json 不动")
+        write_index()
+        return
+
     # 3. 先把旧的 featured.json 备份到 featured/ 目录，按日期命名，留存历史
     import shutil
     os.makedirs("featured", exist_ok=True)
     today_str = datetime.now().strftime("%Y-%m-%d")
-    backup_path = f"featured/{today_str}.json"
+    old_date = today_str
     if os.path.exists("featured.json"):
-        shutil.copy("featured.json", backup_path)
-        print(f"Old featured.json backed up to {backup_path}")
+        try:
+            old_updated = json.load(open("featured.json", encoding="utf-8")).get("updatedAt", "")
+            if old_updated:
+                old_date = old_updated[:10]
+        except Exception:
+            pass
+        backup_path = f"featured/{old_date}.json"
+        # 归档按「这一期是哪天发布的」命名，同一天不重复归档
+        if not os.path.exists(backup_path):
+            shutil.copy("featured.json", backup_path)
+            print(f"旧的一期已归档: {backup_path}")
 
     # 4. 输出新的
     output = {
@@ -237,6 +330,7 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
 
     print(f"Done: {len(featured)} featured articles written to featured.json")
+    write_index()
 
 
 if __name__ == "__main__":
