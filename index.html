@@ -807,6 +807,57 @@ function localDateStr(d) {
   return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
 }
 
+// ============ 访客统计 ============
+var VISIT_ID_KEY = "saywhat_vid";
+
+function visitorId() {
+  var v = null;
+  try { v = localStorage.getItem(VISIT_ID_KEY); } catch (e) {}
+  if (!v) {
+    v = "v" + Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 6);
+    try { localStorage.setItem(VISIT_ID_KEY, v); } catch (e) {}
+  }
+  return v;
+}
+
+// 每天每台设备只记一次，不要求登录
+var VISIT_SQL = "create table if not exists public.visits (\n" +
+  "  id bigserial primary key,\n" +
+  "  day date not null,\n" +
+  "  visitor text not null,\n" +
+  "  created_at timestamptz not null default now()\n" +
+  ");\n" +
+  "create unique index if not exists visits_day_visitor on public.visits (day, visitor);\n" +
+  "grant select, insert on public.visits to anon, authenticated;\n" +
+  "alter table public.visits enable row level security;\n" +
+  "drop policy if exists \"visits insert anon\" on public.visits;\n" +
+  "create policy \"visits insert anon\" on public.visits for insert to anon, authenticated with check (true);\n" +
+  "drop policy if exists \"visits select anon\" on public.visits;\n" +
+  "create policy \"visits select anon\" on public.visits for select to anon, authenticated using (true);";
+
+function copyVisitSql(btn) {
+  var done = function () { btn.innerText = "已复制，去 Supabase 粘贴"; };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(VISIT_SQL).then(done, function () { btn.innerText = "复制失败，请长按选中"; });
+  } else {
+    btn.innerText = "请长按上面的语句全选复制";
+  }
+}
+
+function trackVisit() {
+  var day = localDateStr(new Date());
+  var flagKey = "saywhat_visit_" + day;
+  try { if (localStorage.getItem(flagKey)) return; } catch (e) {}
+  sb.from("visits").upsert(
+    { day: day, visitor: visitorId() },
+    { onConflict: "day,visitor", ignoreDuplicates: true }
+  ).then(function (res) {
+    if (!res.error) {
+      try { localStorage.setItem(flagKey, "1"); } catch (e) {}
+    }
+  }).catch(function () {});
+}
+
 // 登录/注册
 async function loginOrSignup(phone, nickname) {
   // 先查有没有这个手机号（maybeSingle: 没数据不报错）
@@ -1154,56 +1205,96 @@ async function renderAdmin() {
   var el = document.getElementById("adminContent");
   el.innerHTML = '<div style="text-align:center;padding:40px;color:var(--ink-3)">加载中...</div>';
 
-  // 拉所有用户和学习记录
-  var { data: users } = await sb.from("profiles").select("*").order("created_at", { ascending: false });
-  var { data: records } = await sb.from("daily_learning").select("*");
-
-  users = users || [];
-  records = records || [];
-  var today = localDateStr(new Date());
-
-  // 今日活跃：今天有学习记录的用户数
-  var todayActive = new Set(records.filter(r => r.date === today && r.completed).map(r => r.user_id)).size;
-
-  // 近 14 天每日新增用户和活跃用户
-  var days = [];
+  var dayList = [];
   for (var i = 13; i >= 0; i--) {
     var d = new Date();
     d.setDate(d.getDate() - i);
-    var dateStr = localDateStr(d);
-    var newUsers = users.filter(u => u.created_at.slice(0, 10) === dateStr).length;
-    var activeUsers = new Set(records.filter(r => r.date === dateStr && r.completed).map(r => r.user_id)).size;
-    days.push({ date: dateStr, day: d.getDate(), newUsers: newUsers, activeUsers: activeUsers });
+    dayList.push(localDateStr(d));
+  }
+  var todayStr = dayList[dayList.length - 1];
+
+  var res = await Promise.all([
+    sb.from("profiles").select("*").order("created_at", { ascending: false }),
+    sb.from("daily_learning").select("*"),
+    sb.from("visits").select("day,visitor").gte("day", dayList[0])
+  ]);
+  var users = res[0].data || [];
+  var records = res[1].data || [];
+  var visitRows = res[2].data || [];
+  var visitsReady = !res[2].error;
+
+  var visitMap = {};
+  dayList.forEach(function (dd) { visitMap[dd] = new Set(); });
+  visitRows.forEach(function (v) { if (visitMap[v.day]) visitMap[v.day].add(v.visitor); });
+
+  var days = dayList.map(function (dateStr) {
+    var parts = dateStr.split("-");
+    var dd = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    return {
+      day: dd.getDate(),
+      newUsers: users.filter(function (u) { return (u.created_at || "").slice(0, 10) === dateStr; }).length,
+      activeUsers: new Set(records.filter(function (r) { return r.date === dateStr && r.completed; }).map(function (r) { return r.user_id; })).size,
+      visitors: visitMap[dateStr].size
+    };
+  });
+
+  var todayVisitors = days[days.length - 1].visitors;
+  var todayActive = days[days.length - 1].activeUsers;
+  var weekSum = days.slice(-7).reduce(function (a, b) { return a + b.visitors; }, 0);
+  var weekAvg = Math.round(weekSum / 7 * 10) / 10;
+
+  function bars(items, key, color) {
+    var vals = items.map(function (d) { return d[key]; }).concat([1]);
+    var max = Math.max.apply(null, vals);
+    return items.map(function (d) {
+      var h = d[key] > 0 ? Math.max(d[key] / max * 60, 8) : 4;
+      return '<div style="display:flex;flex-direction:column;align-items:center;flex:1">' +
+        '<div style="font-size:10px;color:var(--ink-3);margin-bottom:4px">' + (d[key] > 0 ? d[key] : '') + '</div>' +
+        '<div style="width:100%;max-width:20px;height:' + h + 'px;background:' + (d[key] > 0 ? color : 'var(--line)') + ';border-radius:3px 3px 0 0"></div>' +
+        '<div style="font-size:10px;color:var(--ink-3);margin-top:4px">' + d.day + '</div>' +
+        '</div>';
+    }).join('');
   }
 
-  var maxActive = Math.max(...days.map(d => d.activeUsers), 1);
-  var barsHtml = days.map(d => {
-    var h = d.activeUsers > 0 ? Math.max(d.activeUsers / maxActive * 60, 8) : 4;
-    return `
-      <div style="display:flex;flex-direction:column;align-items:center;flex:1">
-        <div style="font-size:10px;color:var(--ink-3);margin-bottom:4px">${d.activeUsers > 0 ? d.activeUsers : ''}</div>
-        <div style="width:100%;max-width:20px;height:${h}px;background:${d.activeUsers > 0 ? 'var(--accent)' : 'var(--line)'};border-radius:3px 3px 0 0"></div>
-        <div style="font-size:10px;color:var(--ink-3);margin-top:4px">${d.day}</div>
-      </div>
-    `;
-  }).join('');
+  var visitCard = visitsReady
+    ? '<div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)">' +
+        '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">' +
+          '<div style="font-size:14px;font-weight:600">近 14 天访客</div>' +
+          '<div style="font-size:12px;color:var(--ink-3)">近 7 天日均 ' + weekAvg + ' 人</div>' +
+        '</div>' +
+        '<div style="font-size:12px;color:var(--ink-3);margin-bottom:16px">打开过页面的设备数，同一台设备当天只算一次，不用登录</div>' +
+        '<div style="display:flex;align-items:flex-end;gap:2px;height:80px">' + bars(days, "visitors", "var(--brand)") + '</div>' +
+        '<div style="font-size:12px;color:var(--ink-3);margin-top:12px">今天 ' + todayVisitors + ' 人打开过，其中 ' + todayActive + ' 人学完了</div>' +
+      '</div>'
+    : '<div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)">' +
+        '<div style="font-size:14px;font-weight:600;margin-bottom:6px">访客统计还没启用</div>' +
+        '<div style="font-size:12px;color:var(--ink-3);line-height:1.7;margin-bottom:10px">数据库里还没有 visits 表。去 Supabase 的 SQL Editor 粘贴下面这段跑一次，之后用户打开页面就会自动记录。</div>' +
+        '<pre id="visitSql" style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;line-height:1.7;overflow-x:auto;margin:0">' + VISIT_SQL + '</pre>' +
+        '<button class="cta cta-secondary" style="width:100%;margin-top:10px" onclick="copyVisitSql(this)">复制建表语句</button>' +
+      '</div>';
 
   el.innerHTML = `
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
-      <div style="background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow)">
-        <div style="font-size:24px;font-weight:700;color:var(--brand)">${users.length}</div>
-        <div style="font-size:12px;color:var(--ink-3)">总用户数</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+      <div style="background:var(--card);border-radius:12px;padding:14px 12px;box-shadow:var(--shadow)">
+        <div style="font-size:22px;font-weight:700;color:var(--brand)">${todayVisitors}</div>
+        <div style="font-size:11px;color:var(--ink-3);margin-top:2px">今日访客</div>
       </div>
-      <div style="background:var(--card);border-radius:12px;padding:16px;box-shadow:var(--shadow)">
-        <div style="font-size:24px;font-weight:700;color:var(--accent)">${todayActive}</div>
-        <div style="font-size:12px;color:var(--ink-3)">今日完成学习</div>
+      <div style="background:var(--card);border-radius:12px;padding:14px 12px;box-shadow:var(--shadow)">
+        <div style="font-size:22px;font-weight:700;color:var(--accent)">${todayActive}</div>
+        <div style="font-size:11px;color:var(--ink-3);margin-top:2px">今日学完</div>
+      </div>
+      <div style="background:var(--card);border-radius:12px;padding:14px 12px;box-shadow:var(--shadow)">
+        <div style="font-size:22px;font-weight:700;color:var(--ink)">${users.length}</div>
+        <div style="font-size:11px;color:var(--ink-3);margin-top:2px">注册用户</div>
       </div>
     </div>
 
-    <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
-      <div style="font-size:14px;font-weight:600;margin-bottom:4px">近 14 天活跃</div>
+    ${visitCard}
+
+    <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)">
+      <div style="font-size:14px;font-weight:600;margin-bottom:4px">近 14 天完成学习</div>
       <div style="font-size:12px;color:var(--ink-3);margin-bottom:16px">每天完成学习的用户数</div>
-      <div style="display:flex;align-items:flex-end;gap:2px;height:80px">${barsHtml}</div>
+      <div style="display:flex;align-items:flex-end;gap:2px;height:80px">${bars(days, "activeUsers", "var(--accent)")}</div>
     </div>
 
     <div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:var(--shadow)">
@@ -1432,6 +1523,7 @@ var currentCat = "all";
 var keyword = "";
 
 // ============ 初始化：先渲染路由，保证首页一定能显示 ============
+trackVisit();
 renderRoute();
 
 // 以下代码即使报错也不影响首页显示
