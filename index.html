@@ -252,6 +252,39 @@
   .talk-note { font-size: 12px; color: var(--ink-3); margin-top: 10px; line-height: 1.6; }
   .talk-note a { color: var(--brand); }
 
+  /* 往期精选 */
+  .archive-head {
+    display: flex; align-items: baseline; gap: 8px;
+    margin: 26px 0 12px;
+  }
+  .archive-title { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .archive-count { font-size: 12px; color: var(--ink-3); }
+  .archive-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+  .archive-issue {
+    background: var(--card); border-radius: 12px; padding: 14px 16px;
+    box-shadow: var(--shadow);
+  }
+  .archive-date {
+    font-size: 12px; font-weight: 600; color: var(--ink-3);
+    letter-spacing: .02em; margin-bottom: 8px;
+  }
+  .archive-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 0; cursor: pointer; border-top: 1px solid var(--line);
+  }
+  .archive-row:first-of-type { border-top: none; }
+  .archive-row:active { opacity: .65; }
+  .archive-play { flex-shrink: 0; color: var(--brand); font-size: 11px; }
+  .archive-name {
+    font-size: 13.5px; color: var(--ink); line-height: 1.45;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .archive-more {
+    width: 100%; margin-top: 4px; padding: 11px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--card);
+    color: var(--ink-2); font-size: 13px; font-family: inherit; cursor: pointer;
+  }
+
   /* 词汇测试 */
   .cta-tertiary {
     background: var(--card); color: var(--brand);
@@ -561,11 +594,21 @@
   <div class="view" id="view-articles">
     <header>
       <h1 class="brand" onclick="go('home')"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>SayWhat</h1>
-      <p class="subtitle">每两天更新 3 个精选演讲——带中文导读和口语金句，看完就能用。</p>
+      <p class="subtitle">每天更新 3 个精选演讲——带中文导读和口语金句，看完就能用。</p>
     </header>
     <!-- 今日精选：动态加载 featured.json -->
     <div class="featured-list" id="featuredList">
       <div class="empty"><div class="big">· · ·</div><div>正在加载今日精选…</div></div>
+    </div>
+
+    <!-- 往期精选 -->
+    <div id="archiveWrap" style="display:none">
+      <div class="archive-head">
+        <span class="archive-title">往期精选</span>
+        <span class="archive-count" id="archiveCount"></span>
+      </div>
+      <div class="archive-list" id="archiveList"></div>
+      <button class="archive-more" id="archiveMore" style="display:none" onclick="showAllArchive()"></button>
     </div>
 
     <!-- 更多媒体入口 -->
@@ -1414,6 +1457,7 @@ function loadFeatured() {
         container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>今日精选还在准备中，稍后再来看看～</div></div>';
         return;
       }
+      featuredLatestSlugs = data.featured.map(function(a) { return talkSlugOf(a.link); });
       container.innerHTML = data.featured.map(function(a) {
         var pointsHtml = a.points.map(function(p) {
           return '<div class="point"><b>' + p.phrase + '</b> —— ' + p.example + '</div>';
@@ -1439,6 +1483,85 @@ function loadFeatured() {
     .catch(function(e) {
       container.innerHTML = '<div class="empty"><div class="big">· · ·</div><div>加载失败，下拉刷新试试</div></div>';
     });
+
+  loadArchive();
+}
+
+// ============ 往期精选 ============
+var featuredLatestSlugs = [];
+var archiveIssues = [];
+var archiveExpanded = false;
+
+function talkSlugOf(link) {
+  var m = /ted\.com\/talks\/([^\/?#]+)/.exec(link || "");
+  return m ? m[1] : "";
+}
+
+function loadArchive() {
+  fetch("featured/index.json?t=" + Date.now())
+    .then(function(res) { if (!res.ok) throw new Error("fetch failed"); return res.json(); })
+    .then(function(data) {
+      var issues = (data.issues || []).filter(function(it) {
+        return it.slugs && it.slugs.length;
+      });
+      // 最新一期已经在上面完整展示了，往期里去掉
+      var latestKey = featuredLatestSlugs.filter(Boolean).sort().join("|");
+      issues = issues.filter(function(it) {
+        return it.slugs.filter(Boolean).sort().join("|") !== latestKey;
+      });
+      archiveIssues = issues;
+      if (!issues.length) return;
+      document.getElementById("archiveWrap").style.display = "block";
+      var totalTalks = issues.reduce(function(sum, it) { return sum + (it.count || 0); }, 0);
+      document.getElementById("archiveCount").textContent = "共 " + totalTalks + " 篇演讲";
+      renderArchive();
+    })
+    .catch(function() {});
+}
+
+function archiveIssueHtml(it) {
+  var rows = (it.slugs || []).map(function(slug, i) {
+    if (!slug) return "";
+    var title = (it.titles && it.titles[i]) || slug;
+    return '<div class="archive-row" data-slug="' + escapeAttr(slug) + '" data-title="' + escapeAttr(title) + '" onclick="openTalkFromRow(this)">' +
+      '<span class="archive-play">▶</span>' +
+      '<span class="archive-name">' + escapeAttr(title) + '</span>' +
+    '</div>';
+  }).join("");
+  return '<div class="archive-issue">' +
+    '<div class="archive-date">' + it.date.replace(/-/g, ".") + '</div>' +
+    rows +
+  '</div>';
+}
+
+function renderArchive() {
+  var visible = archiveExpanded ? archiveIssues : archiveIssues.slice(0, 3);
+  document.getElementById("archiveList").innerHTML = visible.map(archiveIssueHtml).join("");
+  var more = document.getElementById("archiveMore");
+  if (archiveIssues.length > 3 && !archiveExpanded) {
+    more.style.display = "block";
+    more.textContent = "展开全部 " + archiveIssues.length + " 期 ↓";
+  } else {
+    more.style.display = "none";
+  }
+}
+
+function showAllArchive() {
+  archiveExpanded = true;
+  renderArchive();
+}
+
+function openTalkFromRow(row) {
+  var slug = row.getAttribute("data-slug");
+  var title = row.getAttribute("data-title") || "";
+  openTalk({
+    getAttribute: function(k) {
+      if (k === "data-embed") return slug ? "https://embed.ted.com/talks/" + slug : "";
+      if (k === "data-title") return title;
+      if (k === "data-link") return slug ? "https://www.ted.com/talks/" + slug : "";
+      return "";
+    }
+  });
 }
 // ============ 首页学习卡片 ============
 var learnState = {
