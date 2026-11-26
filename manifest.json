@@ -1,0 +1,19 @@
+{
+  "name": "SayWhat · 每天学几个地道口语",
+  "short_name": "SayWhat",
+  "description": "每天花两分钟，学几个老外天天挂嘴边的地道表达。",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "start_url": "./index.html#/home",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#F5F1E8",
+  "theme_color": "#2F5D50",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
