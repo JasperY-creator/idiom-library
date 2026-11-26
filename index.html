@@ -1269,14 +1269,14 @@ async function renderAdmin() {
     : '<div style="background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:var(--shadow)">' +
         '<div style="font-size:14px;font-weight:600;margin-bottom:6px">访客统计还没启用</div>' +
         '<div style="font-size:12px;color:var(--ink-3);line-height:1.7;margin-bottom:10px">数据库里还没有 visits 表。去 Supabase 的 SQL Editor 粘贴下面这段跑一次，之后用户打开页面就会自动记录。</div>' +
-        '<pre id="visitSql" style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;line-height:1.7;overflow-x:auto;margin:0">' + VISIT_SQL + '</pre>' +
+        '<pre id="visitSql" style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:10.5px;line-height:1.75;white-space:pre-wrap;word-break:break-word;margin:0;max-height:150px;overflow:auto">' + VISIT_SQL + '</pre>' +
         '<button class="cta cta-secondary" style="width:100%;margin-top:10px" onclick="copyVisitSql(this)">复制建表语句</button>' +
       '</div>';
 
   el.innerHTML = `
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
       <div style="background:var(--card);border-radius:12px;padding:14px 12px;box-shadow:var(--shadow)">
-        <div style="font-size:22px;font-weight:700;color:var(--brand)">${todayVisitors}</div>
+        <div style="font-size:22px;font-weight:700;color:var(--brand)">${visitsReady ? todayVisitors : "—"}</div>
         <div style="font-size:11px;color:var(--ink-3);margin-top:2px">今日访客</div>
       </div>
       <div style="background:var(--card);border-radius:12px;padding:14px 12px;box-shadow:var(--shadow)">
