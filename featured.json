@@ -1,24 +1,24 @@
 {
-  "updatedAt": "2026-11-26T02:36:30.845571+00:00",
+  "updatedAt": "2026-11-26T06:19:06.168814+00:00",
   "featured": [
     {
       "title": "How people are using AI to grieve, love and connect",
       "source": "TED",
       "link": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
       "embed": "https://embed.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-      "guide": "数字人类学家 Jennifer Cearns 分享了人们如何用 AI 来应对悲伤、寻找爱情和建立联系的真实案例。这个话题特别适合聊科技与人性、情感关系时参考，看完会让你重新思考 AI 在我们生活中的角色。",
+      "guide": "数字人类学家 Jennifer Cearns 分享了人们如何用 AI 来应对悲伤、寻找爱情和建立联系的真实故事。这个话题特别适合在聊科技与人性、情感关系时参考，看完会让你对 AI 有更立体的认识。",
       "points": [
         {
-          "phrase": "grieve",
-          "example": "她在失去亲人后，花了一年时间才学会如何正常地悲伤。"
+          "phrase": "erode our humanity",
+          "example": "过度依赖科技可能会侵蚀我们的人性。"
         },
         {
-          "phrase": "synthetic",
-          "example": "这些合成的声音听起来很真实，但总让人觉得少了点什么。"
+          "phrase": "synthetic relationships",
+          "example": "有些人担心虚拟关系会取代真实的情感连接。"
         },
         {
-          "phrase": "erode",
-          "example": "长时间刷短视频可能会逐渐侵蚀你的专注力。"
+          "phrase": "grieve and connect",
+          "example": "她用 AI 来缅怀逝去的亲人，并重新建立联系。"
         }
       ]
     },
@@ -27,7 +27,7 @@
       "source": "TED",
       "link": "https://www.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
       "embed": "https://embed.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
-      "guide": "作家 Danielle Roberts 在这个简短的演讲中论证了空闲时间对幸福的重要性。如果你经常觉得时间不够用，或者想聊聊工作与生活的平衡，这个演讲会给你不少启发。",
+      "guide": "作家 Danielle Roberts 用一个简短的演讲告诉你：追求幸福，首先要有空闲时间。如果你总觉得时间不够用，或者想聊聊工作与生活的平衡，这个演讲会给你不少启发。",
       "points": [
         {
           "phrase": "short on time",
@@ -35,32 +35,32 @@
         },
         {
           "phrase": "make the case that",
-          "example": "她举了很多例子来证明阅读对儿童发展的重要性。"
+          "example": "她论证了为什么休息和幸福密不可分。"
         },
         {
           "phrase": "pursuit of happiness",
-          "example": "对很多人来说，追求幸福意味着有更多时间陪伴家人。"
+          "example": "追求幸福是每个人的权利，但需要付出时间。"
         }
       ]
     },
     {
-      "title": "Can you spot the lies in your news feed?",
+      "title": "I can't speak. Here's how I get people to listen",
       "source": "TED",
-      "link": "https://www.ted.com/talks/laura_smythe_can_you_spot_the_lies_in_your_news_feed",
-      "embed": "https://embed.ted.com/talks/laura_smythe_can_you_spot_the_lies_in_your_news_feed",
-      "guide": "资深记者 Laura Smythe 用 Fyre Festival 等真实案例，教你如何识别新闻推送中的虚假信息。这个话题特别适合聊媒体素养、信息甄别时参考，实用又有趣。",
+      "link": "https://www.ted.com/talks/jessica_irwin_i_can_t_speak_here_s_how_i_get_people_to_listen",
+      "embed": "https://embed.ted.com/talks/jessica_irwin_i_can_t_speak_here_s_how_i_get_people_to_listen",
+      "guide": "Jessica Irwin 是一位摄影师、艺术家和作家，她天生患有脑瘫，无法说话，但她有自己独特的方式让人们倾听。这个演讲非常适合聊沟通、包容和个人成长的话题，看完会很有共鸣。",
       "points": [
         {
-          "phrase": "spot",
-          "example": "你能一眼看出这张照片是假的吗？"
+          "phrase": "nonverbal",
+          "example": "他虽然无法说话，但通过眼神和手势与人交流。"
         },
         {
-          "phrase": "vet",
-          "example": "在转发任何消息之前，最好先核实一下来源。"
+          "phrase": "get people to listen",
+          "example": "她用自己的故事告诉我们如何让别人真正倾听。"
         },
         {
-          "phrase": "legacy newsrooms",
-          "example": "传统新闻编辑室正在努力适应数字时代的挑战。"
+          "phrase": "affects the muscles",
+          "example": "这种疾病会影响肌肉控制，但不影响智力。"
         }
       ]
     }

@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-26T02:36:54.628273+00:00",
+  "updatedAt": "2026-11-26T06:19:06.169855+00:00",
   "issues": [
+    {
+      "date": "2026-11-26",
+      "count": 3,
+      "titles": [
+        "How people are using AI to grieve, love and connect",
+        "The pursuit of happiness requires free time",
+        "Can you spot the lies in your news feed?"
+      ],
+      "slugs": [
+        "jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+        "danielle_roberts_the_pursuit_of_happiness_requires_free_time",
+        "laura_smythe_can_you_spot_the_lies_in_your_news_feed"
+      ]
+    },
     {
       "date": "2026-11-25",
       "count": 2,
