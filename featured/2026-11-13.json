@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越想控制一切，反而越失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "当你完全沉浸在喜欢的事情中时，就能 find your flow，忘记时间的流逝。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "What kids wish their parents knew about fun",
       "source": "TED",
-      "link": "http://go.ted.com/milarojas",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
       "guide": "11 岁的 Mila Rojas 观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了好玩而玩耍的快乐。这个演讲轻松有趣，适合在聊亲子关系、生活平衡或童年回忆时分享。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "the pressure to perform",
           "example": "孩子们常常感受到 the pressure to perform，无论是在学校还是在课外活动中。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun"
     },
     {
       "title": "The couples therapists who nearly got divorced",
       "source": "TED",
-      "link": "http://go.ted.com/harvillehendrix",
+      "link": "https://www.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced",
       "guide": "夫妻治疗师 Harville Hendrix 和 Helen LaKelly Hunt 教了全世界几十年如何好好相爱，却差点让自己的婚姻破裂。他们坦诚分享了自己的故事和修复关系的方法，适合在聊亲密关系、沟通技巧或婚姻经营时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "teach the world how to",
           "example": "这对夫妻花了数十年 teach the world how to 建立健康的亲密关系。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced"
     }
   ],
   "allCount": 9
