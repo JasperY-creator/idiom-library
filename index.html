@@ -336,6 +336,9 @@
   .install-step-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
   .install-step-desc { font-size: 12.5px; color: var(--ink-2); line-height: 1.6; }
   .install-sheet-note { font-size: 12px; color: var(--ink-3); line-height: 1.6; margin-top: 14px; }
+  .install-diagram { margin-bottom: 6px; }
+  .install-diagram svg { width: 100%; height: auto; display: block; }
+  .install-diagram-cap { font-size: 12px; color: var(--ink-3); text-align: center; margin-top: 2px; }
 
   /* 往期精选 */
   .archive-head {
@@ -750,6 +753,7 @@
       <div class="install-sheet-title" id="installSheetTitle">把 SayWhat 放到桌面</div>
       <button class="install-sheet-close" onclick="closeInstallSheet()">关闭</button>
     </div>
+    <div id="installDiagram" style="display:none"></div>
     <div id="installSteps"></div>
     <div class="install-sheet-note" id="installNote"></div>
   </div>
@@ -1542,6 +1546,26 @@ function dismissInstallBar() {
   try { localStorage.setItem(INSTALL_DISMISS_KEY, "1"); } catch (e) {}
 }
 
+// 示意一张 Safari 底部栏，把「≡」菜单圈出来
+function safariBarSvg() {
+  return '<div class="install-diagram">' +
+    '<svg viewBox="0 0 300 74" role="img" aria-label="Safari 底部地址栏示意">' +
+      '<rect x="0" y="12" width="300" height="50" rx="25" fill="#F1ECE2" stroke="#E2DACC" />' +
+      '<circle cx="28" cy="37" r="13" fill="none" stroke="#C9C2B4" stroke-width="1.5" />' +
+      '<path d="M32 33l-7 4 7 4" stroke="#C9C2B4" stroke-width="1.6" fill="none" stroke-linecap="round" />' +
+      '<rect x="52" y="21" width="196" height="32" rx="16" fill="#FFFFFF" stroke="#E2DACC" />' +
+      '<path d="M70 31h16M70 37h16M70 43h16" stroke="#9A968C" stroke-width="1.6" stroke-linecap="round" />' +
+      '<text x="104" y="41" font-family="-apple-system,sans-serif" font-size="12" fill="#9A968C">github.io</text>' +
+      '<path d="M222 34a7 7 0 1 0 2 5M224 29v5h-5" stroke="#C9C2B4" stroke-width="1.5" fill="none" stroke-linecap="round" />' +
+      '<rect x="252" y="28" width="14" height="16" rx="2" fill="none" stroke="#C9C2B4" stroke-width="1.5" />' +
+      '<rect x="258" y="24" width="14" height="16" rx="2" fill="#F1ECE2" stroke="#C9C2B4" stroke-width="1.5" />' +
+      '<circle cx="78" cy="37" r="17" fill="none" stroke="#2F5D50" stroke-width="2" stroke-dasharray="4 3" />' +
+      '<path d="M78 60v10M74 66l4 4 4-4" stroke="#2F5D50" stroke-width="1.8" fill="none" stroke-linecap="round" />' +
+    '</svg>' +
+    '<div class="install-diagram-cap">这个 ≡ 就是菜单入口，分享藏在里面</div>' +
+  '</div>';
+}
+
 function installSteps() {
   if (uaHas("MicroMessenger")) {
     return {
@@ -1554,12 +1578,14 @@ function installSteps() {
   }
   if (uaHas("iPhone|iPad|iPod")) {
     return {
+      diagram: safariBarSvg(),
       steps: [
-        ["点底部的「分享」按钮", "方框里带向上箭头的那个图标"],
-        ["往下滑，选「添加到主屏幕」", "列表里没看到就先点「编辑操作」把它加上"],
-        ["点右上角「添加」", "桌面上会出现 SayWhat 图标"]
+        ["点地址栏左边的菜单按钮", "新版 Safari 把分享收进了这个「≡」菜单里；老版界面则是工具栏中间那个方框带箭头的图标"],
+        ["选「共享 / 分享」", "菜单往下翻就能看到，图标是方框加一支向上的箭头"],
+        ["在分享面板里点「添加到主屏幕」", "面板要往下滑；没这一项就滑到最底点「编辑操作」，把「添加到主屏幕」加进来"],
+        ["打开「作为网页 App 打开」，再点「添加」", "这个开关一定要开，关掉就只是个网页书签，打开还是带地址栏"]
       ],
-      note: "iOS 上这是网页书签形式，打开时没有地址栏，看起来和 App 一样。"
+      note: "iOS 16 及以上都能加；加了之后图标在桌面，点开是全屏，和 App 看起来一样。"
     };
   }
   if (uaHas("Android")) {
@@ -1584,6 +1610,12 @@ function installSteps() {
 
 function openInstallSheet() {
   var data = installSteps();
+  if (data.diagram) {
+    document.getElementById("installDiagram").innerHTML = data.diagram;
+    document.getElementById("installDiagram").style.display = "block";
+  } else {
+    document.getElementById("installDiagram").style.display = "none";
+  }
   document.getElementById("installSteps").innerHTML = data.steps.map(function (st, i) {
     return '<div class="install-step">' +
       '<div class="install-step-no">' + (i + 1) + '</div>' +
