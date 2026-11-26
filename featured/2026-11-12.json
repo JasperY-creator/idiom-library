@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow | Heather Berlin",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家Heather Berlin探讨了一个有趣的悖论：越是试图控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合在聊压力管理、效率提升或心理健康时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "找到让你沉浸其中的活动，你就能find your flow，工作效率倍增。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "What kids wish their parents knew about fun | Mila Rojas",
       "source": "TED",
-      "link": "http://go.ted.com/milarojas",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
       "guide": "11岁的Mila Rojas观察到，大人们总是被日程和期望压得喘不过气，忘记了纯粹为了乐趣而玩耍的感觉。她分享了孩子们希望父母了解的关于“玩”的真相，适合在聊家庭教育、亲子关系或生活平衡时参考。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "the pressure of expectations",
           "example": "孩子们常常感受到the pressure of expectations，需要父母的理解。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun"
     },
     {
       "title": "The couples therapists who nearly got divorced | Harville Hendrix",
       "source": "TED",
-      "link": "http://go.ted.com/harvillehendrix",
+      "link": "https://www.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced",
       "guide": "夫妻治疗师Harville Hendrix和Helen LaKelly Hunt夫妇教了全世界几十年如何好好相爱，却差点自己的婚姻破裂。他们坦诚分享了这段经历和修复关系的方法，适合在聊亲密关系、沟通技巧或自我成长时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "work through problems",
           "example": "健康的伴侣会一起work through problems，而不是逃避。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced"
     }
   ],
   "allCount": 8
