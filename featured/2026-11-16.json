@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑的运作方式，进入专注又放松的“心流”状态。适合聊压力管理、效率提升或个人成长话题时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "把任务难度调到刚刚好，就更容易 find your flow。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家 Lotti Tajouri 指出，我们认真洗手却常常忽略手机这个“细菌大户”。演讲用轻松有趣的方式讲了手机有多脏以及怎么清洁。适合聊日常卫生、健康习惯或科技产品话题时参考。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "scrub our hands clean",
           "example": "我们认真 scrub our hands clean，却把手机直接放回口袋。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     },
     {
       "title": "The surprising beauty of mosquitos",
       "source": "TED",
-      "link": "http://go.ted.com/felixhol",
+      "link": "https://www.ted.com/talks/felix_hol_the_surprising_beauty_of_mosquitos",
       "guide": "生物技术专家 Felix Hol 从实验室视角带我们重新认识蚊子，发现它们令人意外的“美”。演讲结合科研与个人观察，角度新颖。适合聊科学趣闻、生物多样性或换个角度看问题的话题时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "develop a new perspective",
           "example": "了解蚊子之后，你会 develop a new perspective on 这些小生物。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/felix_hol_the_surprising_beauty_of_mosquitos"
     }
   ],
   "allCount": 9
