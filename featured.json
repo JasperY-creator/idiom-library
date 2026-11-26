@@ -1,27 +1,69 @@
 {
-  "updatedAt": "2026-11-25T06:25:51.407223+00:00",
+  "updatedAt": "2026-11-26T02:36:30.845571+00:00",
   "featured": [
     {
-      "title": "A letter to the end of time | Lau Noah",
+      "title": "How people are using AI to grieve, love and connect",
       "source": "TED",
-      "link": "https://www.ted.com/talks/lau_noah_a_letter_to_the_end_of_time",
-      "embed": "https://embed.ted.com/talks/lau_noah_a_letter_to_the_end_of_time",
-      "guide": "作曲家 Lau Noah 用音乐和讲述分享了她对人生的思考，希望每个人在回望一生时都能感到平静。这个演讲适合在聊人生意义、自我反思或面对未来时引用。",
+      "link": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+      "embed": "https://embed.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
+      "guide": "数字人类学家 Jennifer Cearns 分享了人们如何用 AI 来应对悲伤、寻找爱情和建立联系的真实案例。这个话题特别适合聊科技与人性、情感关系时参考，看完会让你重新思考 AI 在我们生活中的角色。",
       "points": [
         {
-          "phrase": "look back on",
-          "example": "当我回首童年时，我意识到那些简单的快乐最珍贵。"
+          "phrase": "grieve",
+          "example": "她在失去亲人后，花了一年时间才学会如何正常地悲伤。"
         },
         {
-          "phrase": "feel at peace",
-          "example": "做完这个决定后，她终于感到内心平静。"
+          "phrase": "synthetic",
+          "example": "这些合成的声音听起来很真实，但总让人觉得少了点什么。"
         },
         {
-          "phrase": "a letter to the end of time",
-          "example": "他写了一封给未来自己的信，标题是“致时间尽头的一封信”。"
+          "phrase": "erode",
+          "example": "长时间刷短视频可能会逐渐侵蚀你的专注力。"
+        }
+      ]
+    },
+    {
+      "title": "The pursuit of happiness requires free time",
+      "source": "TED",
+      "link": "https://www.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
+      "embed": "https://embed.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
+      "guide": "作家 Danielle Roberts 在这个简短的演讲中论证了空闲时间对幸福的重要性。如果你经常觉得时间不够用，或者想聊聊工作与生活的平衡，这个演讲会给你不少启发。",
+      "points": [
+        {
+          "phrase": "short on time",
+          "example": "最近项目太多，我总是感觉时间不够用。"
+        },
+        {
+          "phrase": "make the case that",
+          "example": "她举了很多例子来证明阅读对儿童发展的重要性。"
+        },
+        {
+          "phrase": "pursuit of happiness",
+          "example": "对很多人来说，追求幸福意味着有更多时间陪伴家人。"
+        }
+      ]
+    },
+    {
+      "title": "Can you spot the lies in your news feed?",
+      "source": "TED",
+      "link": "https://www.ted.com/talks/laura_smythe_can_you_spot_the_lies_in_your_news_feed",
+      "embed": "https://embed.ted.com/talks/laura_smythe_can_you_spot_the_lies_in_your_news_feed",
+      "guide": "资深记者 Laura Smythe 用 Fyre Festival 等真实案例，教你如何识别新闻推送中的虚假信息。这个话题特别适合聊媒体素养、信息甄别时参考，实用又有趣。",
+      "points": [
+        {
+          "phrase": "spot",
+          "example": "你能一眼看出这张照片是假的吗？"
+        },
+        {
+          "phrase": "vet",
+          "example": "在转发任何消息之前，最好先核实一下来源。"
+        },
+        {
+          "phrase": "legacy newsrooms",
+          "example": "传统新闻编辑室正在努力适应数字时代的挑战。"
         }
       ]
     }
   ],
-  "allCount": 1
+  "allCount": 9
 }
