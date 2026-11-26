@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：你越想控制一切，反而越容易失控。她分享了如何通过调整大脑来进入心流状态，适合聊压力管理、专注力或自我成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "当你完全沉浸在喜欢的事情中时，就容易 find your flow，忘记时间流逝。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯里存在一个大漏洞。这个演讲轻松有趣，适合聊卫生习惯、健康生活或科技产品时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "hygiene routine",
           "example": "把清洁手机加入你的 hygiene routine，可以大大减少细菌传播。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     },
     {
       "title": "How we’ll actually ditch fossil fuels — by the numbers",
       "source": "TED",
-      "link": "http://go.ted.com/michaelliebreich",
+      "link": "https://www.ted.com/talks/michael_liebreich_why_clean_energy_is_an_unstoppable_force",
       "guide": "能源分析师 Michael Liebreich 用简单的四行表格模型，反驳了“清洁能源转型失败”的论调，并展示了我们如何真正摆脱化石燃料。适合聊环保、能源话题时参考，数据清晰不枯燥。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "clean energy transition",
           "example": "the clean energy transition 不是一蹴而就的，但数据表明它正在加速。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/michael_liebreich_why_clean_energy_is_an_unstoppable_force"
     }
   ],
   "allCount": 9
