@@ -4,7 +4,7 @@
     {
       "title": "What kids wish their parents knew about fun | Mila Rojas",
       "source": "TED",
-      "link": "http://go.ted.com/milarojas",
+      "link": "https://www.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun",
       "guide": "11岁的小演讲者Mila Rojas从孩子的视角出发，提醒大人们：玩耍不是浪费时间，而是成长中不可或缺的一部分。她分享了孩子们希望父母理解的关于“ fun”的真相，适合在聊育儿、教育压力、工作与生活平衡时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "the pressure to succeed",
           "example": "很多孩子从小就被成功的压力推着走，很少有时间自由玩耍。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/mila_rojas_what_kids_wish_their_parents_knew_about_fun"
     },
     {
       "title": "The couples therapists who nearly got divorced | Harville Hendrix",
       "source": "TED",
-      "link": "http://go.ted.com/harvillehendrix",
+      "link": "https://www.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced",
       "guide": "一对教了全世界几十年“如何好好相爱”的夫妻治疗师，却差点把自己的婚姻搞砸。他们坦诚分享那段低谷和修复过程，适合在聊亲密关系、沟通技巧、婚姻经营时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "take a step back",
           "example": "吵架的时候，先退一步冷静一下，往往能看得更清楚。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/harville_hendrix_the_couples_therapists_who_nearly_got_divorced"
     },
     {
       "title": "The razor-thin line between contagion and connection | Dan Taberski (re-release)",
       "source": "TED",
-      "link": "http://go.ted.com/dantaberski",
+      "link": "https://www.ted.com/talks/dan_taberski_the_razor_thin_line_between_contagion_and_connection",
       "guide": "一所学高中突然出现神秘的抽搐和发声症状，像传染病一样蔓延。调查记者Dan Taberski带你走进这个真实事件，探讨人与人之间的影响到底有多微妙。适合在聊社会心理、群体行为、真实故事时分享。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "the line between",
           "example": "有时候，共情和过度卷入之间的界限非常模糊。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/dan_taberski_the_razor_thin_line_between_contagion_and_connection"
     }
   ],
   "allCount": 5
