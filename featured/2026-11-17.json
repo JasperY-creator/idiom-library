@@ -4,7 +4,7 @@
     {
       "title": "How to rewire your brain — and find your flow",
       "source": "TED",
-      "link": "http://go.ted.com/heatherberlin",
+      "link": "https://www.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow",
       "guide": "神经科学家 Heather Berlin 探讨了一个有趣的悖论：越是试图控制一切，越容易失去掌控。她分享了如何通过调整大脑的运作方式，进入专注而流畅的“心流”状态。适合在聊压力管理、效率提升或自我成长时参考。",
       "points": [
         {
@@ -19,12 +19,13 @@
           "phrase": "find your flow",
           "example": "找到你的心流状态，工作会变得像游戏一样投入而愉快。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/heather_berlin_how_to_rewire_your_brain_and_find_your_flow"
     },
     {
       "title": "Could this ancient Greek idea make us better citizens?",
       "source": "TED",
-      "link": "http://go.ted.com/ScottReich",
+      "link": "https://www.ted.com/talks/scott_reich_could_this_ancient_greek_idea_make_us_better_citizens",
       "guide": "两千多年前的古雅典要求年轻公民完成为期两年的“ephebeia”公民服务项目，学习如何成为更好的公民。演讲者 Scott Reich 探讨这个古老理念对现代社会的启发。适合聊教育、公民责任或历史借鉴时引用。",
       "points": [
         {
@@ -39,12 +40,13 @@
           "phrase": "make us better citizens",
           "example": "学习历史和公民教育可以帮助我们成为更好的公民。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/scott_reich_could_this_ancient_greek_idea_make_us_better_citizens"
     },
     {
       "title": "Your phone is disgusting. Here's how to clean it",
       "source": "TED",
-      "link": "http://go.ted.com/lottitajouri",
+      "link": "https://www.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it",
       "guide": "分子生物学家 Lotti Tajouri 指出，我们的手机可能比手还脏，而日常清洁习惯中有一个巨大的盲区。他分享了如何正确清洁手机，以及为什么这很重要。适合聊健康习惯、日常卫生或科技生活时参考。",
       "points": [
         {
@@ -59,7 +61,8 @@
           "phrase": "scrub our hands clean",
           "example": "我们把手洗得干干净净，却把手机带进卫生间。"
         }
-      ]
+      ],
+      "embed": "https://embed.ted.com/talks/lotti_tajouri_your_phone_is_disgusting_here_s_how_to_clean_it"
     }
   ],
   "allCount": 9
