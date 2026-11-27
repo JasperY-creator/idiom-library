@@ -1,45 +1,24 @@
 {
-  "updatedAt": "2026-11-26T06:19:06.168814+00:00",
+  "updatedAt": "2026-11-27T06:08:29.970595+00:00",
   "featured": [
     {
-      "title": "How people are using AI to grieve, love and connect",
+      "title": "How video games can power up your parenting",
       "source": "TED",
-      "link": "https://www.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-      "embed": "https://embed.ted.com/talks/jennifer_cearns_how_people_are_using_ai_to_grieve_love_and_connect",
-      "guide": "数字人类学家 Jennifer Cearns 分享了人们如何用 AI 来应对悲伤、寻找爱情和建立联系的真实故事。这个话题特别适合在聊科技与人性、情感关系时参考，看完会让你对 AI 有更立体的认识。",
+      "link": "https://www.ted.com/talks/hannah_boquet_how_video_games_can_power_up_your_parenting",
+      "embed": "https://embed.ted.com/talks/hannah_boquet_how_video_games_can_power_up_your_parenting",
+      "guide": "这个演讲探讨了如何将孩子对电子游戏的热爱转化为亲子连接的机会，而不是冲突的来源。适合在讨论育儿、屏幕时间管理或代际沟通时参考。",
       "points": [
         {
-          "phrase": "erode our humanity",
-          "example": "过度依赖科技可能会侵蚀我们的人性。"
+          "phrase": "power up",
+          "example": "我们可以用游戏来‘增强’亲子关系，而不是让它成为战场。"
         },
         {
-          "phrase": "synthetic relationships",
-          "example": "有些人担心虚拟关系会取代真实的情感连接。"
+          "phrase": "turn ... into an opportunity",
+          "example": "把屏幕时间‘变成’一个连接的机会，而不是争吵的导火索。"
         },
         {
-          "phrase": "grieve and connect",
-          "example": "她用 AI 来缅怀逝去的亲人，并重新建立联系。"
-        }
-      ]
-    },
-    {
-      "title": "The pursuit of happiness requires free time",
-      "source": "TED",
-      "link": "https://www.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
-      "embed": "https://embed.ted.com/talks/danielle_roberts_the_pursuit_of_happiness_requires_free_time",
-      "guide": "作家 Danielle Roberts 用一个简短的演讲告诉你：追求幸福，首先要有空闲时间。如果你总觉得时间不够用，或者想聊聊工作与生活的平衡，这个演讲会给你不少启发。",
-      "points": [
-        {
-          "phrase": "short on time",
-          "example": "最近项目太多，我总是感觉时间不够用。"
-        },
-        {
-          "phrase": "make the case that",
-          "example": "她论证了为什么休息和幸福密不可分。"
-        },
-        {
-          "phrase": "pursuit of happiness",
-          "example": "追求幸福是每个人的权利，但需要付出时间。"
+          "phrase": "glued to",
+          "example": "青少年总是‘盯着’游戏机不放，但这未必是坏事。"
         }
       ]
     },
@@ -48,22 +27,43 @@
       "source": "TED",
       "link": "https://www.ted.com/talks/jessica_irwin_i_can_t_speak_here_s_how_i_get_people_to_listen",
       "embed": "https://embed.ted.com/talks/jessica_irwin_i_can_t_speak_here_s_how_i_get_people_to_listen",
-      "guide": "Jessica Irwin 是一位摄影师、艺术家和作家，她天生患有脑瘫，无法说话，但她有自己独特的方式让人们倾听。这个演讲非常适合聊沟通、包容和个人成长的话题，看完会很有共鸣。",
+      "guide": "演讲者Jessica Irwin尽管患有脑瘫无法说话，却通过摄影、艺术和表演等方式让别人听到自己的声音。适合在聊沟通、包容性或自我表达时参考。",
       "points": [
         {
-          "phrase": "nonverbal",
-          "example": "他虽然无法说话，但通过眼神和手势与人交流。"
-        },
-        {
           "phrase": "get people to listen",
-          "example": "她用自己的故事告诉我们如何让别人真正倾听。"
+          "example": "她找到了独特的方式‘让人们倾听’她的想法。"
         },
         {
-          "phrase": "affects the muscles",
-          "example": "这种疾病会影响肌肉控制，但不影响智力。"
+          "phrase": "be born with",
+          "example": "她‘天生患有’脑瘫，但这并没有限制她的创造力。"
+        },
+        {
+          "phrase": "affect the way",
+          "example": "这种状况‘影响了’她移动和说话的方式，但没有影响她的决心。"
+        }
+      ]
+    },
+    {
+      "title": "Why great art requires risk",
+      "source": "TED",
+      "link": "https://www.ted.com/talks/alex_van_halen_david_lee_roth_robert_vargas_why_great_art_requires_risk",
+      "embed": "https://embed.ted.com/talks/alex_van_halen_david_lee_roth_robert_vargas_why_great_art_requires_risk",
+      "guide": "范·海伦乐队的两位传奇人物与视觉艺术家罗伯特·瓦尔加斯对话，揭示伟大艺术背后的冒险精神。适合在聊创意、冒险或音乐文化时参考。",
+      "points": [
+        {
+          "phrase": "sit down with",
+          "example": "两位摇滚明星‘与’视觉艺术家‘坐下来’聊了聊创作的风险。"
+        },
+        {
+          "phrase": "reveal the story behind",
+          "example": "他们‘揭示了’经典歌曲‘背后的故事’。"
+        },
+        {
+          "phrase": "take a risk",
+          "example": "伟大的艺术往往需要‘冒险’，而不是循规蹈矩。"
         }
       ]
     }
   ],
-  "allCount": 9
+  "allCount": 6
 }
