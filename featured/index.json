@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-27T06:08:29.972551+00:00",
+  "updatedAt": "2026-11-28T05:48:49.534661+00:00",
   "issues": [
+    {
+      "date": "2026-11-27",
+      "count": 3,
+      "titles": [
+        "How video games can power up your parenting",
+        "I can't speak. Here's how I get people to listen",
+        "Why great art requires risk"
+      ],
+      "slugs": [
+        "hannah_boquet_how_video_games_can_power_up_your_parenting",
+        "jessica_irwin_i_can_t_speak_here_s_how_i_get_people_to_listen",
+        "alex_van_halen_david_lee_roth_robert_vargas_why_great_art_requires_risk"
+      ]
+    },
     {
       "date": "2026-11-26",
       "count": 3,
